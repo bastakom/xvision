@@ -14,7 +14,6 @@ interface HeroProps {
 }
 
 const Hero = ({ buttons, img, text, title, uspar }: HeroProps) => {
-  console.log(text, 'props')
   return (
     <section className="relative h-[80vh] bg-gray-200 overflow-hidden">
       <Image src={heroExample} fill alt="" className="object-cover" />

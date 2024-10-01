@@ -1,87 +1,60 @@
-import { Eye } from 'lucide-react'
+"use client";
+
+import { Eye } from "lucide-react";
+import Link from "next/link";
 
 interface OperationCardProps {
-  title: string
-  description: string
-  highlighted?: boolean
+  title: string;
+  description: string;
+  highlighted?: boolean;
 }
 
-const OperationCard = ({
-  title,
-  description,
-  highlighted = false,
-}: OperationCardProps) => (
-  <div
-    className={`p-6 rounded-lg ${highlighted ? 'bg-teal-600' : 'bg-teal-800'}`}
-  >
-    <Eye className="w-8 h-8 mb-4 text-teal-200" />
-    <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-    <p className="text-teal-200 mb-4">{description}</p>
-    <button className="text-teal-200 hover:text-white p-0">Läs mer</button>
-  </div>
-)
+interface Props {
+  props: any;
+  operations?: any;
+}
 
-export default function TilesBehandlingar() {
-  const operations = [
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-      highlighted: true,
-    },
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-    },
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-    },
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-    },
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-    },
-    {
-      title: 'PRK - LASEK',
-      description:
-        'För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor.',
-    },
-  ]
-
+export default function TilesBehandlingar({ props, operations }: Props) {
   return (
-    <section className="bg-teal-900 py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-[#1D383F] py-16 px-4">
+      <div className="max-w-[80%] mx-auto text-white">
         <div className="text-center mb-12">
-          <h2 className="text-teal-200 text-sm uppercase tracking-wider mb-2">
-            OPERATIONER & BEHANDLINGAR
+          <h2 className="text-sm uppercase tracking-wider mb-2">
+            {props.usp_title}
           </h2>
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Våra ögonoperationer
+          <h1 className="text-4xl font-semibold text-white mb-4">
+            {props.title}
           </h1>
-          <p className="text-teal-200 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor.
-          </p>
+          <p className="max-w-2xl mx-auto">{props.text}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {operations.map((op, index) => (
-            <OperationCard key={index} {...op} />
+          {operations.stories.map((op: any) => (
+            <div
+              className={`p-10 rounded-lg text-center ${"bg-[#172D32]"}`}
+              key={op.content._uid}
+            >
+              <Eye className="w-10 h-10 mb-2 text-teal-200 m-auto" />
+              <h3 className="text-xl font-semibold mb-4 text-white">
+                {op.name}
+              </h3>
+              <p className="mb-4 max-w-[80%] m-auto">
+                {op.content.description
+                  ? op.content.description
+                  : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
+              </p>
+              <Link
+                href={`/${op.full_slug}`}
+                className="hover:text-white p-0 underline underline-offset-8"
+              >
+                Läs mer
+              </Link>
+            </div>
           ))}
         </div>
         <div className="text-center">
-          <button className="text-teal-200 border-teal-200 hover:bg-teal-800">
-            Se fler behandlingar
-          </button>
+          <button className="button">Se fler behandlingar</button>
         </div>
       </div>
     </section>
-  )
+  );
 }
