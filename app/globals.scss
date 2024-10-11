@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+.button {
+  border-radius: 27px;
+  padding: 10px 25px;
+}
+
+h1 {
+  font-size: 65px;
+  line-height: 70px;
+}
+
+.form {
+  label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  input,
+  textarea {
+    border: 2px solid #a9c1bd;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  .checkbox {
+    width: 50px;
+  }
+
+  button {
+    background: #cfedc6;
+    padding: 10px 20px;
+    min-width: 150px;
+    margin-top: 35px !important;
+  }
+
+  .terms {
+    font-size: 14px;
+  }
+
+  textarea {
+    width: 100%;
+  }
+}
+
+.header {
+  background: #fff;
+}

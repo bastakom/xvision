@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import heroExample from '@/public/exampleImages/Headerbild.png'
 import { render } from 'storyblok-rich-text-react-renderer'
-import { renderRichText } from '@storyblok/react'
 
 interface HeroProps {
   title?: string
@@ -20,7 +19,7 @@ const Hero = ({ buttons, img, text, title, uspar }: HeroProps) => {
       <div className="container mx-auto px-4 h-full flex flex-col justify-between ">
         <div className="flex flex-col lg:flex-row items-center justify-between pt-20 lg:pt-0 h-full">
           <div className="lg:w-1/2 z-10 text-white">
-            <h1 className="font-serif mb-4">{title}</h1>
+            <h1 className="font-serif mb-4 pt-14">{title}</h1>
             <p className="text-lg mb-6">{text}</p>
             <div className="space-x-4">
               <button className="bg-green-200 text-black hover:bg-[#1D383F] hover:text-white button">

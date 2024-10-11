@@ -19,7 +19,7 @@ const Builder = ({ props, ogonOperationer }: Props) => {
             return <Hero title={el.title} text={el.text} uspar={el.uspar} />;
           case "tilesBehandlingar":
             return (
-              <TilesBehandlingar props={el} operations={ogonOperationer} />
+              <TilesBehandlingar props={el} operations={ogonOperationer.stories} />
             );
           case "partnerLogos":
             return <PartnerLogos images={el.partnerlogos} />;
@@ -28,7 +28,7 @@ const Builder = ({ props, ogonOperationer }: Props) => {
           case "contactForm":
             return <ContactForm />;
           case "imageblock":
-            return <ImageBlock props={el} />
+            return <ImageBlock props={el} />;
           default:
             return <div>No content</div>;
         }

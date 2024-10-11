@@ -1,0 +1,9 @@
+.hero_btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  .button {
+    background: #cfedc6;
+    color: black;
+  }
+}
