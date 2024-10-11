@@ -4,36 +4,31 @@ import Link from "next/link";
 import scss from "./arkivpage.module.scss";
 
 interface Hero {
-  data: {
-    bg: string;
-    title_hero: string;
-    content_text: string;
-    buttons: [
-      {
-        link: {
-          url: string;
-        };
-        link_title: string;
-      }
-    ];
-  };
+  title?: string;
+  content?: string;
+  bg?: string;
+  btns?: any;
+  subtitle?: string;
 }
 
-const Hero = ({ data }: Hero) => {
+const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
   return (
-    <div className={`bg-[${data.bg}] min-h-[50vh] flex items-center`}>
+  <div className={`${bg ? `bg-[${bg}]` : 'bg-[#1D383F]'} min-h-[50vh] flex items-center`}>
       <div className="max-w-[50%] text-center m-auto flex flex-col gap-10 text-white">
-        <h1>{data.title_hero}</h1>
-        <p>{data.content_text}</p>
+        {subtitle && <h2 className="mt-14">{subtitle}</h2>}
+        <h1>{title}</h1>
+        <p>{content}</p>
         <div className={scss.hero_btns}>
-          {data.buttons.map((el: any, index: number) => {
+          {btns?.map((el: any, index: number) => {
             return (
               <Link
                 key={index}
                 href=""
-                className={`button ${index === 0 ? scss.button : "border-white border"}`}
+                className={`button ${
+                  index === 0 ? scss.button : "border-white border"
+                }`}
               >
-                {el.link_title}
+                {el?.link_title}
               </Link>
             );
           })}

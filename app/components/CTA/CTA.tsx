@@ -12,9 +12,18 @@ const CTA = ({ props }: CTA) => {
     <div className="relative h-[60vh] w-full text-white flex flex-col items-center justify-center">
       <div className="absolute z-10 text-center gap-10">
         <div className="mb-10">
-          <h3 className="text-[16px] mb-5 text-[#CFEDC6]">{item.subtitle}</h3>
-          <h2 className="text-[35px]">{item.title}</h2>
-          <p className="max-w-[40%] mx-auto p-5 text-[18px]">{item.content}</p>
+          {!item.sub_under_title && (
+            <h3 className="text-[16px] mb-5 text-[#CFEDC6]">{item.subtitle}</h3>
+          )}
+          <h2 className="text-[35px] max-w-[40%] mx-auto">{item.title}</h2>
+          {item.sub_under_title && (
+            <h3 className="text-[16px] mt-5 text-[#CFEDC6]">{item.subtitle}</h3>
+          )}
+          {item.content && (
+            <p className="max-w-[40%] mx-auto p-5 text-[18px]">
+              {item.content}
+            </p>
+          )}
         </div>
         <Link href="" className="button border border-white rounded-xl">
           {item.btn}
