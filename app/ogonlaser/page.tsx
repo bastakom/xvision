@@ -40,7 +40,7 @@ const Page = async () => {
       />
       <Step props={data.story.content} />
       <BeforeAfter props={data.story.content} />
-      <CTA props={data.story.content} />
+      <CTA props={data.story.content.CTA} />
       <ContactForm />
     </div>
   );
