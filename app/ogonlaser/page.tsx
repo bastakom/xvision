@@ -6,18 +6,18 @@ import FAQ from "../components/FAQ/FAQ";
 import ImageBlock from "../components/ImageBlock/ImageBlock";
 import Step from "../components/Step/Step";
 import TilesBehandlingar from "../components/TilesBehandlingar/TilesBehandlingar";
-import { GetOgonLaser, GetOgonOperationer } from "../lib/apireq";
+import { GetGenerlSettings, GetOgonLaser, GetOgonOperationer } from "../lib/apireq";
 
 const Page = async () => {
   const data = await GetOgonLaser();
+  const settings = await GetGenerlSettings();
+
   const dataBehandlingar = await GetOgonOperationer();
 
   const matchedThreatments = dataBehandlingar?.stories.filter(
     (item: { uuid: string }) =>
       data?.story?.content?.Threatment?.includes(item.uuid)
   );
-
-  console.log(data.story.content.buttons);
 
   return (
     <div className="mt-14">
@@ -40,7 +40,7 @@ const Page = async () => {
       />
       <Step props={data.story.content} />
       <BeforeAfter props={data.story.content} />
-      <CTA props={data.story.content.CTA} />
+      <CTA props={settings.story.content.CTA} />
       <ContactForm />
     </div>
   );

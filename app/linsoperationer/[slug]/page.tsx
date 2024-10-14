@@ -5,13 +5,13 @@ import CTA from "@/app/components/CTA/CTA";
 import InfoBox from "@/app/components/InfoBox/InfoBox";
 import Step from "@/app/components/Step/Step";
 import Uspar from "@/app/components/Uspar/Uspar";
-import { GetBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
+import { GetLinsBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
-  const data = await GetBehandlingarSlug(pathname);
+  const data = await GetLinsBehandlingarSlug(pathname);
   const settings = await GetGenerlSettings();
-  const slugData = data.story.content;
+  const slugData = data?.story?.content;
   return (
     <div>
       <Hero

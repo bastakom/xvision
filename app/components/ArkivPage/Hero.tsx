@@ -13,9 +13,9 @@ interface Hero {
 
 const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
   return (
-  <div className={`${bg ? `bg-[${bg}]` : 'bg-[#1D383F]'} min-h-[50vh] pb-10 flex items-center`}>
+  <div className={`${bg ? `bg-[${bg}]` : 'bg-[#1D383F]'} py-32 flex items-center`}>
       <div className="max-w-[50%] text-center m-auto flex flex-col gap-10 text-white">
-        {subtitle && <h2 className="mt-14">{subtitle}</h2>}
+        {subtitle && <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>}
         <h1>{title}</h1>
         <p>{content}</p>
         <div className={scss.hero_btns}>

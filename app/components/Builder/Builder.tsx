@@ -4,6 +4,7 @@ import Hero from "../Hero/Hero";
 import ImageBlock from "../ImageBlock/ImageBlock";
 import PartnerLogos from "../PartnerLogos/PartnerLogos";
 import TilesBehandlingar from "../TilesBehandlingar/TilesBehandlingar";
+import Uspar from "../Uspar/Uspar";
 
 interface Props {
   props: any;
@@ -16,10 +17,22 @@ const Builder = ({ props, ogonOperationer }: Props) => {
       {props.map((el: any) => {
         switch (el.component) {
           case "Hero":
-            return <Hero title={el.title} text={el.text} uspar={el.uspar} />;
+            return (
+              <Hero
+                title={el.title}
+                text={el.text}
+                uspar={el.uspar}
+                img={el.img}
+                buttons={el.buttons}
+                no_image_hero={el.no_image_hero}
+              />
+            );
           case "tilesBehandlingar":
             return (
-              <TilesBehandlingar props={el} operations={ogonOperationer.stories} />
+              <TilesBehandlingar
+                props={el}
+                operations={ogonOperationer.stories}
+              />
             );
           case "partnerLogos":
             return <PartnerLogos images={el.partnerlogos} />;

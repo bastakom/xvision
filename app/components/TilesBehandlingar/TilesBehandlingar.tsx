@@ -13,7 +13,7 @@ export default function TilesBehandlingar({ props, operations }: Props) {
     <section
       className={`${
         props?.light_color
-          ? "bg-[#CDD8C3] text-[#000000]"
+          ? "bg-[#F5F7F3] text-[#000000]"
           : "bg-[#1D383F] text-white"
       } py-24 px-4`}
     >
@@ -37,7 +37,7 @@ export default function TilesBehandlingar({ props, operations }: Props) {
               key={op.content._uid}
             >
               <Eye className="w-10 h-10 mb-5 text-teal-200 mx-auto m-0" />
-              <h3 className="text-xl font-semibold mb-4">{op.name}</h3>
+              <h3 className="text-xl font-semibold mb-4 uppercase">{op.name}</h3>
               <p className="mb-4 max-w-[80%] mx-auto m-0 ">
                 {op.content.description
                   ? op.content.description

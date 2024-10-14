@@ -3,7 +3,7 @@ import placeholder from "@/public/form.png";
 
 export default function ContactForm() {
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white py-24">
+    <div className="max-w-[80%] mx-auto p-6 bg-white py-24">
       <div className="grid md:grid-cols-2 gap-20">
         <div className="space-y-6">
           <h1 className="text-4xl">
