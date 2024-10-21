@@ -1,10 +1,10 @@
 import Hero from "@/app/components/ArkivPage/Hero";
-import BeforeAfter from "@/app/components/BeforeAfter/BeforeAfter";
-import ContactForm from "@/app/components/ContactForm/ContactForm";
-import CTA from "@/app/components/CTA/CTA";
-import InfoBox from "@/app/components/InfoBox/InfoBox";
-import Step from "@/app/components/Step/Step";
-import Uspar from "@/app/components/Uspar/Uspar";
+import BeforeAfter from "@/app/components/Blocks/BeforeAfter/BeforeAfter";
+import ContactForm from "@/app/components/Blocks/ContactForm/ContactForm";
+import CTA from "@/app/components/Blocks/CTA/CTA";
+import InfoBox from "@/app/components/Blocks/InfoBox/InfoBox";
+import Step from "@/app/components/Blocks/Step/Step";
+import Uspar from "@/app/components/Blocks/Uspar/Uspar";
 import { GetLinsBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
 
 const page = async ({ params }: { params: { slug: string } }) => {

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import XVISION from "@/public/logo.png";
-import NavDots from "./NavDots/NavDots";
+import NavDots from "./Blocks/NavDots/NavDots";
 import useStore from "../lib/store";
 import { useState } from "react";
 

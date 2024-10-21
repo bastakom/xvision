@@ -1,10 +1,10 @@
 import Image from "next/image";
-import placeholder from "@/public/form.png";
+import placeholder from "@/public/exampleImages/contact.png";
 
 export default function ContactForm() {
   return (
-    <div className="max-w-[80%] mx-auto p-6 bg-white py-24">
-      <div className="grid md:grid-cols-2 gap-20">
+    <div className="max-w-[100%] xl:max-w-[70%] mx-auto p-6 bg-white py-24">
+      <div className="grid md:grid-cols-[2fr_1fr] gap-20">
         <div className="space-y-6">
           <h1 className="text-4xl">
             Kontakta oss för en kostnadsfri telefonrådgivning
@@ -63,8 +63,8 @@ export default function ContactForm() {
               src={placeholder}
               alt="X-Vision Ögonklinik Interior"
               width={600}
-              height={300}
-              className="w-full max-h-[450px] object-cover"
+              height={600}
+              className="w-full max-h-[450px] object-left object-contain"
             />
           </div>
           <div className="space-y-2 flex flex-col gap-5 text-[18px] font-bold">

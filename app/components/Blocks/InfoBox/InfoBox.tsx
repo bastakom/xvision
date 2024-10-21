@@ -14,7 +14,7 @@ const InfoBox = ({ title, content, link, slug_name }: InfoBox) => {
       <div className="flex flex-wrap px-20">
         <div className="w-1/2">
           <span className="absolute top-16 uppercase text-[16px] font-semibold">
-            OM {slug_name}
+            {slug_name}
           </span>
           <h2 className="text-[44px] max-w-[60%]">{title}</h2>
         </div>

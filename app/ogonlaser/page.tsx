@@ -1,11 +1,11 @@
 import Hero from "../components/ArkivPage/Hero";
-import BeforeAfter from "../components/BeforeAfter/BeforeAfter";
-import ContactForm from "../components/ContactForm/ContactForm";
-import CTA from "../components/CTA/CTA";
-import FAQ from "../components/FAQ/FAQ";
-import ImageBlock from "../components/ImageBlock/ImageBlock";
-import Step from "../components/Step/Step";
-import TilesBehandlingar from "../components/TilesBehandlingar/TilesBehandlingar";
+import BeforeAfter from "../components/Blocks/BeforeAfter/BeforeAfter";
+import ContactForm from "../components/Blocks/ContactForm/ContactForm";
+import CTA from "../components/Blocks/CTA/CTA";
+import FAQ from "../components/Blocks/FAQ/FAQ";
+import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
+import Step from "../components/Blocks/Step/Step";
+import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
 import { GetGenerlSettings, GetOgonLaser, GetOgonOperationer } from "../lib/apireq";
 
 const Page = async () => {

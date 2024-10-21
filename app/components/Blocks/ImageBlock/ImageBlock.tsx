@@ -1,14 +1,16 @@
 "use client";
 
+
 import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
+import scss from './imageblock.module.scss'
 
 const ImageBlock = ({ props }: any) => {
   return (
     <div className="flex justify-center max-w-[80%] m-auto">
       {!props.image_left ? (
-        <div className="grid grid-cols-2 justify-center gap-14 px-5 items-center my-20">
+        <div className="grid grid-cols-2 justify-center w-full gap-10 px-5 items-center my-20">
           <div
             className={`flex flex-col gap-5 ${
               props?.bg &&
@@ -18,8 +20,8 @@ const ImageBlock = ({ props }: any) => {
             {props?.subtitle && (
               <span className="text-[16px]">{props.subtitle}</span>
             )}
-            <h2 className="text-[35px]">{props?.title}</h2>
-            <span className="max-w-[100%] text-[18px]">{render(props?.content)}</span>
+            <span className="text-[35px]">{render(props?.title)}</span>
+            <span className={`max-w-[100%] text-[18px] ${scss.trygghet}`}>{render(props?.content)}</span>
             {props?.button && props.button && (
               <Link
                 href="/"
@@ -34,8 +36,8 @@ const ImageBlock = ({ props }: any) => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 justify-center gap-14 px-5 items-center my-20">
-          <div className="flex h-[606px] w-[100%] relative">
+        <div className="grid grid-cols-2 justify-center gap-14 w-full gap-10 px-5 items-center my-20">
+          <div className="flex h-[650px] w-[100%] relative">
             <Image src={props?.image?.filename} alt={props?.image?.alt} fill />
           </div>
           <div
@@ -47,7 +49,7 @@ const ImageBlock = ({ props }: any) => {
             {props?.subtitle && (
               <span className="text-[16px]">{props.subtitle}</span>
             )}
-            <h2 className="text-[35px]">{props?.title}</h2>
+            <span className="text-[35px]">{render(props?.title)}</span>
             <span className="max-w-[100%] text-[18px]">{render(props?.content)}</span>
             {props?.button && props.button && (
               <Link
