@@ -1,5 +1,6 @@
 import Builder from '../components/Builder/Builder'
 import { GetOgonOperationer } from '../lib/apireq'
+import { notFound } from 'next/navigation'
 
 const getPageData = async (slug: string) => {
   const res = await fetch(
@@ -15,6 +16,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await getPageData(slugName)
 
   const ogonOperation = await GetOgonOperationer()
+
+  if (!res || !res.story || !res.story.content) {
+    return notFound();
+  }
 
   return (
     <main>

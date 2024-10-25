@@ -64,7 +64,7 @@ export default function Navigate({
           );
         })}
         <Link
-          href="/boka-konsultation"
+          href="/gratis-forundersokning"
           className="text-white button bg-[#1D383F]"
         >
           Boka konsultation

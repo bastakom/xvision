@@ -8,6 +8,7 @@ import InfoBox from "../Blocks/InfoBox/InfoBox";
 import PartnerLogos from "../Blocks/PartnerLogos/PartnerLogos";
 import PrisBlock from "../Blocks/PrisBlock/PrisBlock";
 import TilesBehandlingar from "../Blocks/TilesBehandlingar/TilesBehandlingar";
+import Forundersokning from "../Forundersokning/Forundersokning";
 
 interface Props {
   props: any;
@@ -41,6 +42,8 @@ const Builder = ({ props, ogonOperationer }: Props) => {
                 link={el.btns}
               />
             );
+          case "forundersokning": 
+          return <Forundersokning props={el}/>
           case "tilesBehandlingar":
             return (
               <TilesBehandlingar

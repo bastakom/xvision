@@ -4,7 +4,6 @@ import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const PrisBlock = ({ props }: any) => {
-  console.log(props);
   return (
     <div className=" my-20">
       <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>

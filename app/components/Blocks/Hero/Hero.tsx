@@ -26,7 +26,6 @@ const Hero = ({
   no_image_hero,
   text_center,
 }: HeroProps) => {
-  console.log(uspar);
   return (
     <section
       className={`${
