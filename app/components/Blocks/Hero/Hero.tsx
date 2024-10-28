@@ -62,7 +62,7 @@ const Hero = ({
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>
             )}
-            <h1 className={`mb-4 text-[35px] lg:text-[45px] ${!no_image_hero && "pt-14"}`}>{title}</h1>
+            <h1 className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[80%] ${!no_image_hero && "pt-14"}`}>{title}</h1>
             <p
               className={`text-lg mb-6 ${
                 no_image_hero && "max-w-[100%] lg:max-w-[80%] mx-auto"
