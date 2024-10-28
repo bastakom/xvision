@@ -25,18 +25,18 @@ const CTABlock = ({
   bg_image_2,
 }: CTA) => {
   return (
-    <div className="relative h-[70vh] w-full text-white flex justify-center">
+    <div className="relative h-[100vh] lg:h-[70vh] w-full text-white flex justify-center">
       <div className="absolute z-10 text-center gap-10 m-auto w-full h-full flex justify-center -center flex-col">
         <div className="mb-2">
           {!sub_under_title && (
             <h3 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h3>
           )}
-          <h2 className="text-[35px] max-w-[40%] mx-auto">{title}</h2>
+          <h2 className="text-[35px] lg:max-w-[40%] mx-auto">{title}</h2>
           {sub_under_title && (
             <h3 className="text-[16px] mt-5 text-[#CFEDC6]">{subtitle}</h3>
           )}
           {content && (
-            <p className="max-w-[40%] mx-auto p-5 text-[18px]">
+            <p className="lg:max-w-[40%] mx-auto p-5 text-[18px]">
               {content}
             </p>
           )}

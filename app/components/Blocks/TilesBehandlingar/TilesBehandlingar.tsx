@@ -15,25 +15,25 @@ export default function TilesBehandlingar({ props, operations }: Props) {
         props?.light_color
           ? "bg-[#F5F7F3] text-[#000000]"
           : "bg-[#1D383F] text-white"
-      } py-24 px-4`}
+      } py-14 lg:py-24 px-4`}
     >
-      <div className="max-w-[80%] mx-auto">
-        <div className="text-center mb-12">
-          <h2
+      <div className="max-w-[100%] lg:max-w-[80%] mx-auto">
+        <div className="text-left lg:text-center mb-5 lg:mb-12">
+          <h4
             className={`text-sm uppercase tracking-wider mb-6 ${
               props?.light_color ? "" : "text-[#CFEDC6]"
             }`}
           >
             {props?.usp_title}
-          </h2>
-          <h1 className="text-4xl font-semibold mb-4">{props?.title}</h1>
+          </h4>
+          <h2 className="text-[35px] font-medium mb-4">{props?.title}</h2>
           <p className="max-w-2xl mx-auto">{props?.text}</p>
         </div>
-        <div className="grid mb-2 grid-cols-3 items-center justify-center text-white">
+        <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center text-white">
           {operations?.map((op: any) => (
             <Link
               href={`/${op.full_slug}`}
-              className={`p-10 min-h-[320px] flex flex-col justify-center rounded-[37px] text-center m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
+              className={`lg:p-10 min-h-[320px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
               key={op.content._uid}
             >
               <Eye className="w-10 h-10 mb-5 text-teal-200 mx-auto m-0" />
@@ -51,7 +51,7 @@ export default function TilesBehandlingar({ props, operations }: Props) {
         </div>
         <div className="flex justify-center">
           <button
-            className={`text-center mt-20 py-2 px-10 border ${
+            className={`text-center mt-10 lg:mt-20 py-2 px-10 border font-normal ${
               props?.light_color ? "border-[#1D383F]" : "border-white"
             } rounded-[23px]`}
           >

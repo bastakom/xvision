@@ -1,21 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { IoMdCheckmark } from "react-icons/io";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const PrisBlock = ({ props }: any) => {
   return (
-    <div className=" my-20">
+    <div className="my-10 lg:my-20 px-5 lg:px-0">
       <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>
       <div className="flex flex-wrap justify-center gap-5 text-center">
         {props.pris.map((item: any) => {
           return (
-            <div className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-1/5">
+            <div className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/5">
               <h3 className="text-[22px]">{item.title}</h3>
               <div className="mx-auto">
                 {item.uspar.map((usp: any) => (
-                  <span className="text-[16px] text-left">
-                    {render(usp.title)}
+                  <span className="text-[16px] text-left flex gap-2 items-center">
+                   <IoMdCheckmark color="#CFEDC6"/> {render(usp.title)}
                   </span>
                 ))}
               </div>

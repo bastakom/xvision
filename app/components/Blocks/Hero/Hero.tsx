@@ -14,6 +14,7 @@ interface HeroProps {
   no_image_hero?: boolean;
   subtitle?: string;
   text_center?: any;
+  no_dots?: any;
 }
 
 const Hero = ({
@@ -25,11 +26,12 @@ const Hero = ({
   subtitle,
   no_image_hero,
   text_center,
+  no_dots,
 }: HeroProps) => {
   return (
     <section
       className={`${
-        no_image_hero ? "bg-[#1D383F]" : "h-[80vh] mt-20"
+        no_image_hero ? "bg-[#1D383F]" : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
       } relative overflow-hidden`}
     >
       {!no_image_hero && (
@@ -50,7 +52,7 @@ const Hero = ({
         <div
           className={`flex flex-col lg:flex-row items-center  ${
             no_image_hero
-              ? "justify-center text-center pt-56 pb-24"
+              ? "justify-center text-center pt-32 lg:pt-56 pb-24"
               : `${
                   text_center ? "text-center justify-center" : "justify-between"
                 } pt-20 lg:pt-0`
@@ -60,9 +62,7 @@ const Hero = ({
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>
             )}
-            <h1 className={`font-serif mb-4 ${!no_image_hero && "pt-14"}`}>
-              {title}
-            </h1>
+            <h1 className={`mb-4 ${!no_image_hero && "pt-14"}`}>{title}</h1>
             <p
               className={`text-lg mb-6 ${
                 no_image_hero && "max-w-[80%] mx-auto"
@@ -70,8 +70,13 @@ const Hero = ({
             >
               {text}
             </p>
-            <div className="space-x-4 mt-16">
+            <div
+              className={`flex flex-col lg:flex-row gap-4 mt-16 justify-center items-center px-5 lg:px-0 ${
+                no_image_hero ? "lg:justify-center" : "lg:justify-start"
+              }`}
+            >
               {buttons &&
+                Array.isArray(buttons) &&
                 buttons?.map((el: any, index: number) => {
                   return (
                     <Link
@@ -97,14 +102,15 @@ const Hero = ({
               no_image_hero ? "" : "rounded-3xl mb-10"
             } p-6 mt-8 lg:mt-0 z-10`}
           >
-            <div className="flex justify-around text-center items-center">
+            <div className="flex justify-center lg:justify-around text-center items-center flex-wrap lg:flex-row gap-5 lg:gap-0">
               {uspar?.map((el: any) => {
                 return (
                   <div
-                    className="font-bold flex items-center gap-2"
+                    className="font-bold flex items-center gap-2 font_overwrite"
                     key={el._uid}
                   >
-                    <GoDotFill /> {render(el.title)}
+                    {!no_dots && <GoDotFill />}
+                    {render(el.title)}
                   </div>
                 );
               })}

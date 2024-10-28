@@ -2,8 +2,14 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    
+  }
   .button {
     background: #cfedc6;
     color: black;
+    font-size: 18px;
   }
 }

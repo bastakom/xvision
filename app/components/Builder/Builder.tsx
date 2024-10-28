@@ -31,6 +31,7 @@ const Builder = ({ props, ogonOperationer }: Props) => {
                 no_image_hero={el.no_image_hero}
                 subtitle={el.subtitle}
                 text_center={el.text_center}
+                no_dots={el.no_dots}
               />
             );
           case "infobox":

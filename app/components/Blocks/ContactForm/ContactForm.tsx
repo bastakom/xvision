@@ -3,12 +3,12 @@ import placeholder from "@/public/exampleImages/contact.png";
 
 export default function ContactForm() {
   return (
-    <div className="max-w-[100%] xl:max-w-[70%] mx-auto p-6 bg-white py-24">
+    <div className="max-w-[100%] xl:max-w-[70%] mx-auto p-6 bg-white py-10 lg:py-24">
       <div className="grid md:grid-cols-[2fr_1fr] gap-20">
         <div className="space-y-6">
-          <h1 className="text-4xl">
+          <h2 className="text-4xl">
             Kontakta oss för en kostnadsfri telefonrådgivning
-          </h1>
+          </h2>
           <p className="text-gray-600 text-[18px] pb-10 pt-5 max-w-[90%]">
             Hos oss på X-Vision ögonklinik i Malmö är kvalitet vår högsta
             prioritet. Med gedigen erfarenhet och modern teknik står vi redo att
@@ -37,6 +37,15 @@ export default function ContactForm() {
               <input id="email" className="w-full" type="email" />
             </div>
             <div>
+              <label className="block text-gray-700">
+                Önskemål att bli kontaktad
+              </label>
+              <div className="flex gap-5">
+               <input id="text" className="w-full" type="text" placeholder="FM, EM, Kväll, Tid"/>
+                <input id="date" className="w-full" type="date" />
+              </div>
+            </div>
+            <div>
               <label htmlFor="message" className="block text-gray-700">
                 Meddelande
               </label>
@@ -54,7 +63,7 @@ export default function ContactForm() {
                 </a>
               </label>
             </div>
-            <button className="button">Skicka</button>
+            <button className="button text-[18px]">Skicka</button>
           </form>
         </div>
         <div className="space-y-10 ">
@@ -67,9 +76,9 @@ export default function ContactForm() {
               className="w-full max-h-[450px] object-left object-contain"
             />
           </div>
-          <div className="space-y-2 flex flex-col gap-5 text-[18px] font-bold">
+          <div className="space-y-2 flex flex-col gap-5 text-[18px] font-medium">
             <div>
-            <h2 className=" mb-2">X-Vision Ögonklinik</h2>
+            <h4 className=" mb-2">X-Vision Ögonklinik</h4>
               <p>Hyllie Stationstorg 2</p>
               <p>215 32 Malmö</p>
             </div>
