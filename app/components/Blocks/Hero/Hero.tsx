@@ -31,7 +31,7 @@ const Hero = ({
   return (
     <section
       className={`${
-        no_image_hero ? "bg-[#1D383F]" : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
+        no_image_hero ? "bg-[#1D383F] lg:px-0" : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
       } relative overflow-hidden`}
     >
       {!no_image_hero && (
@@ -50,9 +50,9 @@ const Hero = ({
         } h-full flex flex-col justify-between`}
       >
         <div
-          className={`flex flex-col lg:flex-row items-center  ${
+          className={`flex flex-col lg:flex-row items-center px-5 lg:px-0 ${
             no_image_hero
-              ? "justify-center text-center pt-32 lg:pt-56 pb-24"
+              ? "justify-center text-center pt-32 lg:pt-56 pb-0 lg:pb-24"
               : `${
                   text_center ? "text-center justify-center" : "justify-between"
                 } pt-20 lg:pt-0`
@@ -62,10 +62,10 @@ const Hero = ({
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>
             )}
-            <h1 className={`mb-4 ${!no_image_hero && "pt-14"}`}>{title}</h1>
+            <h1 className={`mb-4 text-[35px] lg:text-[45px] ${!no_image_hero && "pt-14"}`}>{title}</h1>
             <p
               className={`text-lg mb-6 ${
-                no_image_hero && "max-w-[80%] mx-auto"
+                no_image_hero && "max-w-[100%] lg:max-w-[80%] mx-auto"
               }`}
             >
               {text}

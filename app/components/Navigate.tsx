@@ -6,6 +6,12 @@ import XVISION from "@/public/logo.png";
 import NavDots from "./Blocks/NavDots/NavDots";
 import useStore from "../lib/store";
 import { useState } from "react";
+import {
+  IoArrowBackCircleOutline,
+  IoBackspaceOutline,
+  IoChevronBack,
+  IoChevronForward,
+} from "react-icons/io5";
 
 interface Menu {
   link_title: string;
@@ -71,35 +77,57 @@ export default function Navigate({
         </Link>
         <NavDots />
       </nav>
-
+      <div className="flex lg:hidden">
+        <NavDots />
+      </div>
       <div
-        className={`absolute h-[100vh] right-0 top-0 w-[40%] bg-[#172D32] transition-all duration-300 ${
+        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[40%] bg-[#172D32] transition-all duration-300 ${
           !open ? "translate-x-full" : "translate-x-0"
         } `}
       >
-        <div className=" flex w-full p-[17.8px] items-center justify-between bg-[#A9C1BD]">
-          <Image src={XVISION} width={140} height={50} alt="XVISION" />
+        <div className="flex w-full p-[17.8px] h-[90px] items-center justify-between bg-[#A9C1BD]">
+          {!showLinser && !showOgon && (
+            <Image src={XVISION} width={140} height={50} alt="XVISION" />
+          )}
+          {showLinser && (
+            <Link
+              href=""
+              className="flex gap-2 items-center text-[17px] font-bold open-sans"
+              onClick={handleLinser}
+            >
+              <IoChevronBack fontSize={20} /> Tillbaka
+            </Link>
+          )}
+          {showOgon && (
+            <Link
+              href=""
+              className="flex gap-2 items-center text-[17px] font-bold open-sans"
+              onClick={handleOgon}
+            >
+              <IoChevronBack fontSize={20} /> Tillbaka
+            </Link>
+          )}
         </div>
         <div className="flex">
-          <div className="p-10 text-[26px] text-white flex flex-col gap-5 mt-10 w-1/2 bg-[#172D32]">
+          <div className="px-5 pt-10 lg:p-10 text-[28px] lg:text-[26px] text-white flex flex-col gap-2 lg:gap-5 lg:mt-10 w-full lg:w-1/2 bg-[#172D32]">
             {sub_menu.map((menuItem: any) => {
               return menuItem.sub_menu_linser ? (
                 <Link
                   key={menuItem._uid}
                   href=""
                   onClick={handleLinser}
-                  className={`${showLinser && "text-[#CFEDC6]"}`}
+                  className={`${showLinser && "text-[#CFEDC6]"} flex justify-between items-center`}
                 >
-                  {menuItem.link_title}
+                  {menuItem.link_title}  <IoChevronForward fontSize={20} className="block lg:hidden" /> 
                 </Link>
               ) : menuItem.sub_menu_ogonoperation ? (
                 <Link
                   key={menuItem._uid}
                   href=""
                   onClick={handleOgon}
-                  className={`${showOgon && "text-[#CFEDC6]"}`}
+                  className={`${showOgon && "text-[#CFEDC6]"} flex justify-between items-center`}
                 >
-                  {menuItem.link_title}
+                  {menuItem.link_title}  <IoChevronForward fontSize={20} className="block lg:hidden" /> 
                 </Link>
               ) : (
                 <Link
@@ -116,40 +144,49 @@ export default function Navigate({
               );
             })}
             <Link
-              href="/boka-konsultation"
-              className="text-black text-center text-[18px] max-w-[80%] button bg-[#CFEDC6] mt-10"
+              href="/gratis-forundersokning"
+              onClick={() => isOpen(false)}
+              className="text-black text-center text-[18px] lg:max-w-[80%] button bg-[#CFEDC6] mt-10"
             >
               Boka konsultation
             </Link>
-            <div className="flex flex-col text-[18px] mt-24">
+            <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
               <h3 className="font-semibold">Kontakt</h3>
-              <div className="flex flex-col mt-10 font-light">
+              <div className="flex flex-col mt-2 lg:mt-10 font-light">
                 <Link href={`tel:${number}`}>{number}</Link>
                 <Link href={`mailto:${mail}`}>{mail}</Link>
               </div>
             </div>
           </div>
           <div
-            className={`p-10 text-[20px] text-white flex flex-col gap-5 pt-20 w-1/2 h-[100vh] bg-[#1D383F] transition-all duration-300 absolute right-0 ${
+            className={`p-10 text-[20px] text-white flex flex-col gap-5 lg:pt-20  w-full lg:w-1/2 h-[100vh] bg-[#1D383F] transition-all duration-300 absolute right-0 ${
               !showLinser ? "translate-x-full" : "translate-x-0"
             }`}
           >
             {linsOperation.map((el: any, index: number) => {
               return (
-                <Link onClick={() => isOpen(false)} href={`/${el.full_slug}`} key={index}>
+                <Link
+                  onClick={() => isOpen(false)}
+                  href={`/${el.full_slug}`}
+                  key={index}
+                >
                   {el.name}
                 </Link>
               );
             })}
           </div>
           <div
-            className={`p-10 text-[20px] capitalize text-white flex flex-col gap-5 pt-20 w-1/2 h-[100vh] bg-[#1D383F] absolute transition-all duration-300 right-0 ${
+            className={`p-10 text-[20px] capitalize text-white flex flex-col gap-5 lg:pt-20 w-full lg:w-1/2 h-[100vh] bg-[#1D383F] absolute transition-all duration-300 right-0 ${
               !showOgon ? "translate-x-full" : "translate-x-0"
             }`}
           >
             {ogonOperationer.map((el: any, index: number) => {
               return (
-                <Link onClick={() => isOpen(false)} href={`/${el.full_slug}`} key={index}>
+                <Link
+                  onClick={() => isOpen(false)}
+                  href={`/${el.full_slug}`}
+                  key={index}
+                >
                   {el.name}
                 </Link>
               );

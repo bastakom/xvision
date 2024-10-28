@@ -9,14 +9,17 @@ const PrisBlock = ({ props }: any) => {
     <div className="my-10 lg:my-20 px-5 lg:px-0">
       <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>
       <div className="flex flex-wrap justify-center gap-5 text-center">
-        {props.pris.map((item: any) => {
+        {props.pris.map((item: any, index: number) => {
           return (
-            <div className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/5">
+            <div
+              key={index}
+              className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/5"
+            >
               <h3 className="text-[22px]">{item.title}</h3>
               <div className="mx-auto">
-                {item.uspar.map((usp: any) => (
-                  <span className="text-[16px] text-left flex gap-2 items-center">
-                   <IoMdCheckmark color="#CFEDC6"/> {render(usp.title)}
+                {item.uspar.map((usp: any, index:number) => (
+                  <span key={index} className="text-[16px] text-left flex gap-2 items-center">
+                    <IoMdCheckmark color="#CFEDC6" /> {render(usp.title)}
                   </span>
                 ))}
               </div>
@@ -39,8 +42,9 @@ const PrisBlock = ({ props }: any) => {
               </Link>
               <div className="flex flex-col gap-2">
                 {item.link.length > 0 ? (
-                  item.link.map((ahref: any) => (
+                  item.link.map((ahref: any, index: number) => (
                     <Link
+                      key={index}
                       href={`/${ahref.link.cached_url}`}
                       className="underline underline-offset-2"
                     >
@@ -49,10 +53,16 @@ const PrisBlock = ({ props }: any) => {
                   ))
                 ) : (
                   <>
-                    <Link href={`/ogonoperationer/prk-lasek`} className="underline underline-offset-2">
+                    <Link
+                      href={`/ogonoperationer/prk-lasek`}
+                      className="underline underline-offset-2"
+                    >
                       Läs mer om PRK-LASEK
                     </Link>
-                    <Link href={`/delbetalning`} className="underline underline-offset-2">
+                    <Link
+                      href={`/delbetalning`}
+                      className="underline underline-offset-2"
+                    >
                       Läs mer om delbetalning
                     </Link>
                   </>
