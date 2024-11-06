@@ -6,12 +6,9 @@ import XVISION from "@/public/logo.png";
 import NavDots from "./Blocks/NavDots/NavDots";
 import useStore from "../lib/store";
 import { useState } from "react";
-import {
-  IoChevronBack,
-  IoChevronForward,
-} from "react-icons/io5";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { render } from "storyblok-rich-text-react-renderer";
-import scss from './navigate.module.scss'
+import scss from "./navigate.module.scss";
 
 interface Menu {
   link_title: string;
@@ -50,6 +47,13 @@ export default function Navigate({
 
   return (
     <header className="bg-transparent py-4 px-5 flex items-center justify-between fixed header top-0 z-50 w-full">
+      {open && (
+        <div
+          className="fixed bg-black h-full w-full top-0 left-0 opacity-40 hover:cursor-pointer"
+          onClick={() => isOpen(false)}
+          style={{ zIndex: 10 }}
+        />
+      )}
       <Link className="flex items-center" href="/">
         <Image src={logo.filename} width={150} height={50} alt={logo.alt} />
       </Link>
@@ -80,6 +84,7 @@ export default function Navigate({
       <div className="flex lg:hidden">
         <NavDots />
       </div>
+
       <div
         className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[50%] bg-[#172D32] transition-all duration-300 z-10 ${
           !open ? "translate-x-full" : "translate-x-0"
@@ -116,18 +121,24 @@ export default function Navigate({
                   key={menuItem._uid}
                   href=""
                   onClick={handleLinser}
-                  className={`${showLinser && "text-[#CFEDC6]"} flex justify-between items-center`}
+                  className={`${
+                    showLinser && "text-[#CFEDC6]"
+                  } flex justify-between items-center`}
                 >
-                  {menuItem.link_title}  <IoChevronForward fontSize={20} className="block lg:hidden" /> 
+                  {menuItem.link_title}{" "}
+                  <IoChevronForward fontSize={20} className="block lg:hidden" />
                 </Link>
               ) : menuItem.sub_menu_ogonoperation ? (
                 <Link
                   key={menuItem._uid}
                   href=""
                   onClick={handleOgon}
-                  className={`${showOgon && "text-[#CFEDC6]"} flex justify-between items-center`}
+                  className={`${
+                    showOgon && "text-[#CFEDC6]"
+                  } flex justify-between items-center`}
                 >
-                  {menuItem.link_title}  <IoChevronForward fontSize={20} className="block lg:hidden" /> 
+                  {menuItem.link_title}{" "}
+                  <IoChevronForward fontSize={20} className="block lg:hidden" />
                 </Link>
               ) : (
                 <Link
@@ -194,7 +205,11 @@ export default function Navigate({
           </div>
         </div>
       </div>
-      <div className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC]  ${scss.popup}`}>{render(popup)} </div>
+      <div
+        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC]  ${scss.popup}`}
+      >
+        {render(popup)}{" "}
+      </div>
     </header>
   );
 }
