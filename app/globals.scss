@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url("https://use.typekit.net/qnl0pvt.css");
 
 @tailwind base;
@@ -50,13 +49,13 @@ span,
 textarea,
 input,
 label {
-  font-family: "Open Sans", sans-serif;
+  font-family:"open-sans";
 }
 
 .open-sans {
-  font-family: "Open Sans", sans-serif !important;
+  font-family:"open-sans" !important;
    a {
-    font-family: "Open Sans", sans-serif !important;
+    font-family:"open-sans" !important;
    }
 }
 

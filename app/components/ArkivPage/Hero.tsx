@@ -21,7 +21,6 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
       <div className="lg:max-w-[50%] px-5 lg:px-0 text-left lg:text-center m-auto flex flex-col gap-10 text-white">
         {subtitle && (
           <h4 className="text-[16px] mb-2 font-light text-[#CFEDC6]">
-            
             {subtitle}
           </h4>
         )}

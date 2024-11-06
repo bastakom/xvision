@@ -10,7 +10,7 @@ const NavDots = () => {
   const handleClick = () => {
     setIsOpen(!open);
   };
-
+  
   return (
     <div
       className={`${open ? scss.container : scss.container2} `}
