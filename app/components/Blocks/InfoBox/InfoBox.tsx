@@ -9,6 +9,7 @@ interface InfoBox {
 }
 
 const InfoBox = ({ title, content, link, slug_name }: InfoBox) => {
+  console.log(link)
   return (
     <div className="py-20 lg:py-32 flex flex-col lg:flex-row items-center relative">
       <div className="flex flex-wrap px-5 lg:px-20">
@@ -19,7 +20,7 @@ const InfoBox = ({ title, content, link, slug_name }: InfoBox) => {
           <h2 className="text-[44px] lg:max-w-[60%] pb-10 lg:pb-0 font-medium">{title}</h2>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col gap-10 lg:pr-20 ">
-          <span className="text-[18px]">{render(content)}</span>
+          <span className="text-[18px] flex flex-col gap-5">{render(content)}</span>
           {link && (
             <Link href="" className="underline underline-offset-8">
               Läs mer

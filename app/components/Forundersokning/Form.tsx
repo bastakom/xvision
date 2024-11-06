@@ -88,7 +88,6 @@ const Form = () => {
               id="name"
               name="name"
               type="text"
-              placeholder='Maria Vette'
               value={formData.name}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#2d3748]"

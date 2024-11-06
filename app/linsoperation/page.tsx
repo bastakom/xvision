@@ -1,17 +1,24 @@
 import Hero from "@/app/components/ArkivPage/Hero";
-import BeforeAfter from "@/app/components/Blocks/BeforeAfter/BeforeAfter";
 import ContactForm from "@/app/components/Blocks/ContactForm/ContactForm";
 import CTA from "@/app/components/Blocks/CTA/CTA";
-import InfoBox from "@/app/components/Blocks/InfoBox/InfoBox";
 import Step from "@/app/components/Blocks/Step/Step";
-import Uspar from "@/app/components/Blocks/Uspar/Uspar";
-import { GetLinsOperation, GetGenerlSettings } from "@/app/lib/apireq";
-import LinsType from "../components/Blocks/Linstype/LinsType";
+import { GetLinsOperation, GetGenerlSettings, GetOgonOperationer, GetLinsOperationer } from "@/app/lib/apireq";
+import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
+import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
+import FAQ from "../components/Blocks/FAQ/FAQ";
 
 const page = async () => {
   const data = await GetLinsOperation();
   const settings = await GetGenerlSettings();
   const slugData = data.story.content;
+
+
+  const dataBehandlingar = await GetLinsOperationer();
+
+  const matchedThreatments = dataBehandlingar?.stories.filter(
+    (item: { uuid: string }) =>
+      data?.story?.content?.Threatment?.includes(item.uuid)
+  );
 
   const slugTitle = !slugData.hero_title
     ? data.story.name
@@ -20,26 +27,29 @@ const page = async () => {
   return (
     <div className="mt-14">
       <Hero
-        title={slugTitle}
-        subtitle={slugData.hero_sub_title}
-        content={slugData.hero_content}
-        btns={slugData.buttons}
+        title={data.story.content.title_hero}
+        content={data.story.content.content_text}
+        btns={data.story.content.buttons}
+        bg={data.story.content.bg}
       />
-      
-      <InfoBox
-        title={slugData.a_title}
-        content={slugData.a_content}
-        slug_name={data.story.name}
+      {data?.story?.content.content_image?.map((el: any) => {
+        return <ImageBlock props={el} />;
+      })}
+      <TilesBehandlingar
+        operations={matchedThreatments}
+        props={data.story.content}
       />
-      <Uspar props={slugData.Uspar} />
-      <LinsType props={slugData.linser}/>
-      <CTA props={slugData.CTA} />
-      <Step props={settings.story.content} />
-      <BeforeAfter props={slugData} />
+      <FAQ
+        props={data.story.content.FAQ}
+        title={data.story.content.faq_title}
+      />
+      <Step props={data?.story?.content} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm />
+      <ContactForm global={settings} />
     </div>
   );
 };
 
 export default page;
+
+

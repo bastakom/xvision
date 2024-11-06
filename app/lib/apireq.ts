@@ -4,6 +4,14 @@ export const GetOgonOperationer = async () => {
   );
   return response.json();
 };
+
+export const GetLinsOperationer = async () => {
+  const response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published`
+  );
+  return response.json();
+};
+
 export const GetAllLinsOperations = async () => {
   const response = await fetch(
     `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published`

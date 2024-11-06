@@ -15,6 +15,7 @@ interface HeroProps {
   subtitle?: string;
   text_center?: any;
   no_dots?: any;
+  opacity?: any;
 }
 
 const Hero = ({
@@ -27,11 +28,14 @@ const Hero = ({
   no_image_hero,
   text_center,
   no_dots,
+  opacity,
 }: HeroProps) => {
   return (
     <section
       className={`${
-        no_image_hero ? "bg-[#1D383F] lg:px-0" : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
+        no_image_hero
+          ? "bg-[#1D383F] lg:px-0"
+          : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
       } relative overflow-hidden`}
     >
       {!no_image_hero && (
@@ -42,8 +46,9 @@ const Hero = ({
           className="object-cover object-top"
         />
       )}
-      <div className="h-full w-full absolute top-0 bg-[#1D383F] opacity-30" />
-
+      {!opacity && (
+        <div className="h-full w-full absolute top-0 bg-[#1D383F] opacity-30" />
+      )}
       <div
         className={` ${
           !no_image_hero ? "mx-auto container px-4" : ""
@@ -62,7 +67,13 @@ const Hero = ({
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>
             )}
-            <h1 className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[80%] ${!no_image_hero && "pt-14"}`}>{title}</h1>
+            <h1
+              className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[100%]  ${
+                !no_image_hero ? "pt-14" : "mx-auto"
+              }`}
+            >
+              {title}
+            </h1>
             <p
               className={`text-lg mb-6 ${
                 no_image_hero && "max-w-[100%] lg:max-w-[80%] mx-auto"
@@ -82,10 +93,10 @@ const Hero = ({
                     <Link
                       key={index}
                       href={`/${el.link.url}`}
-                      className={`button ${
+                      className={`button transition-all duration-300 ${
                         index === 0
                           ? "bg-green-200 text-black hover:bg-[#1D383F] hover:text-white button"
-                          : "bg-gray-400 text-white hover:bg-gray-500 border-none button"
+                          : " text-white hover:opacity-70 button border-white border"
                       }`}
                     >
                       {el.link_title}
@@ -96,7 +107,7 @@ const Hero = ({
           </div>
         </div>
 
-        {uspar.length > 0 && (
+        {uspar?.length > 0 && (
           <div
             className={`bg-[#FFF8E7] ${
               no_image_hero ? "" : "rounded-3xl mb-10"

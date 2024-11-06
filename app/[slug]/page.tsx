@@ -1,5 +1,5 @@
 import Builder from '../components/Builder/Builder'
-import { GetOgonOperationer } from '../lib/apireq'
+import { GetGenerlSettings, GetOgonOperationer } from '../lib/apireq'
 import { notFound } from 'next/navigation'
 
 const getPageData = async (slug: string) => {
@@ -16,6 +16,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await getPageData(slugName)
 
   const ogonOperation = await GetOgonOperationer()
+  const generalSetting = await GetGenerlSettings()
 
   if (!res || !res.story || !res.story.content) {
     return notFound();
@@ -23,7 +24,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main>
-      <Builder props={res?.story?.content?.body} ogonOperationer={ogonOperation} />
+      <Builder props={res?.story?.content?.body} ogonOperationer={ogonOperation} global={generalSetting} />
     </main>
   )
 }

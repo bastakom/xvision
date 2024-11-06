@@ -1,6 +1,7 @@
 "use client";
 
 import { Eye } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
@@ -29,18 +30,28 @@ export default function TilesBehandlingar({ props, operations }: Props) {
           <h2 className="text-[35px] font-medium mb-4">{props?.title}</h2>
           <p className="max-w-2xl mx-auto">{props?.text}</p>
         </div>
-        <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center text-white">
+        <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center gap-5 text-white">
           {operations?.map((op: any) => (
             <Link
               href={`/${op.full_slug}`}
-              className={`lg:p-10 min-h-[320px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
+              className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
               key={op.content._uid}
             >
-              <Eye className="w-10 h-10 mb-5 text-teal-200 mx-auto m-0" />
-              <h3 className="text-xl font-semibold mb-4 uppercase">{op.name}</h3>
+              {op.content?.icon_img?.filename && (
+                <Image
+                  src={`${op.content?.icon_img?.filename}`}
+                  width={34}
+                  height={50}
+                  className="mx-auto my-10"
+                  alt="icon"
+                />
+              )}
+              <h3 className="text-xl font-semibold mb-4 uppercase">
+                {op.name}
+              </h3>
               <p className="mb-4 max-w-[80%] mx-auto m-0 ">
-                {op.content.description
-                  ? op.content.description
+                {op.content.short_description
+                  ? op.content.short_description
                   : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
               </p>
               <span className="hover:text-white p-0 underline underline-offset-8">

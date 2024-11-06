@@ -30,7 +30,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       <Step props={settings.story.content} />
       <BeforeAfter props={slugData} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm />
+      <ContactForm global={settings} />
     </div>
   );
 };

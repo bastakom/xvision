@@ -12,7 +12,7 @@ const Step = ({ props }: any) => {
         {props.step_subtitle}
       </p>
       <div className="flex flex-wrap gap-10 lg:space-x-12 justify-center">
-        {props.steps.map((step: any, index: number) => (
+        {props?.steps?.map((step: any, index: number) => (
           <div key={index} className="w-[100%] lg:w-[28%] relative">
             <div className="bg-[#e6eff0] rounded-[37px] p-8 h-[350px] text-center flex flex-col">
               <h4 className="text-lg font-bold mb-2">STEG {index + 1}</h4>

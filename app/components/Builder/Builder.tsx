@@ -7,15 +7,17 @@ import ImageBlock from "../Blocks/ImageBlock/ImageBlock";
 import InfoBox from "../Blocks/InfoBox/InfoBox";
 import PartnerLogos from "../Blocks/PartnerLogos/PartnerLogos";
 import PrisBlock from "../Blocks/PrisBlock/PrisBlock";
+import Team from "../Blocks/Team/Team";
 import TilesBehandlingar from "../Blocks/TilesBehandlingar/TilesBehandlingar";
 import Forundersokning from "../Forundersokning/Forundersokning";
 
 interface Props {
   props: any;
   ogonOperationer?: any;
+  global?: any;
 }
 
-const Builder = ({ props, ogonOperationer }: Props) => {
+const Builder = ({ props, ogonOperationer, global }: Props) => {
   return props ? (
     <div>
       {props.map((el: any) => {
@@ -32,6 +34,7 @@ const Builder = ({ props, ogonOperationer }: Props) => {
                 subtitle={el.subtitle}
                 text_center={el.text_center}
                 no_dots={el.no_dots}
+                opacity={el.opacity}
               />
             );
           case "infobox":
@@ -52,12 +55,15 @@ const Builder = ({ props, ogonOperationer }: Props) => {
                 operations={ogonOperationer.stories}
               />
             );
+            case "team": {
+              return <Team props={el} />
+            }
           case "partnerLogos":
             return <PartnerLogos images={el.partnerlogos} />;
           case "aboutBlock":
             return <AboutBlock props={el} />;
           case "contactForm":
-            return <ContactForm />;
+            return <ContactForm global={global} />;
           case "imageblock":
             return <ImageBlock props={el} />;
           case "contentbox":

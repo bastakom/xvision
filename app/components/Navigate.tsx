@@ -7,11 +7,11 @@ import NavDots from "./Blocks/NavDots/NavDots";
 import useStore from "../lib/store";
 import { useState } from "react";
 import {
-  IoArrowBackCircleOutline,
-  IoBackspaceOutline,
   IoChevronBack,
   IoChevronForward,
 } from "react-icons/io5";
+import { render } from "storyblok-rich-text-react-renderer";
+import scss from './navigate.module.scss'
 
 interface Menu {
   link_title: string;
@@ -35,7 +35,7 @@ export default function Navigate({
 
   const {
     story: {
-      content: { logo, Menu, sub_menu, number, mail },
+      content: { logo, Menu, sub_menu, number, mail, popup },
     },
   } = props;
 
@@ -81,7 +81,7 @@ export default function Navigate({
         <NavDots />
       </div>
       <div
-        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[40%] bg-[#172D32] transition-all duration-300 ${
+        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[50%] bg-[#172D32] transition-all duration-300 ${
           !open ? "translate-x-full" : "translate-x-0"
         } `}
       >
@@ -146,7 +146,7 @@ export default function Navigate({
             <Link
               href="/gratis-forundersokning"
               onClick={() => isOpen(false)}
-              className="text-black text-center text-[18px] lg:max-w-[80%] button bg-[#CFEDC6] mt-10"
+              className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
             >
               Boka konsultation
             </Link>
@@ -194,6 +194,7 @@ export default function Navigate({
           </div>
         </div>
       </div>
+      <div className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC]  ${scss.popup}`}>{render(popup)} </div>
     </header>
   );
 }

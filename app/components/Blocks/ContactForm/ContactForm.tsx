@@ -1,7 +1,8 @@
 import Image from "next/image";
-import placeholder from "@/public/exampleImages/contact.png";
+import Link from "next/link";
 
-export default function ContactForm() {
+export default function ContactForm({ global }: any) {
+  const data = global?.story?.content;
   return (
     <div className="max-w-[100%] xl:max-w-[70%] mx-auto p-6 bg-white py-10 lg:py-24">
       <div className="grid md:grid-cols-[2fr_1fr] gap-20">
@@ -21,7 +22,11 @@ export default function ContactForm() {
                 <label htmlFor="name" className="block text-gray-700">
                   Namn
                 </label>
-                <input id="name" placeholder="Maria Vette" className="w-full" />
+                <input
+                  id="name"
+                  placeholder="För- och efternamn"
+                  className="w-full"
+                />
               </div>
               <div>
                 <label htmlFor="phone" className="block text-gray-700">
@@ -41,7 +46,12 @@ export default function ContactForm() {
                 Önskemål att bli kontaktad
               </label>
               <div className="flex gap-5">
-               <input id="text" className="w-full" type="text" placeholder="FM, EM, Kväll, Tid"/>
+                <input
+                  id="text"
+                  className="w-full"
+                  type="text"
+                  placeholder="Tidsintervall"
+                />
                 <input id="date" className="w-full" type="date" />
               </div>
             </div>
@@ -49,7 +59,7 @@ export default function ContactForm() {
               <label htmlFor="message" className="block text-gray-700">
                 Meddelande
               </label>
-              <textarea id="message" rows={4} />
+              <textarea id="message" rows={4} placeholder="" />
             </div>
             <div className="flex space-x-2">
               <input id="terms" type="checkbox" className="h-[30px] checkbox" />
@@ -58,7 +68,7 @@ export default function ContactForm() {
                 className="terms flex flex-col text-gray-600"
               >
                 Jag godkänner att ni hanterar mina personuppgifter enligt ovan.
-                <a href="#" className="hover:underline text-[14px]">
+                <a href="#" className="hover:underline text-[14px] open-sans">
                   Läs mer om hur vi behandlar dina personuppgifter här
                 </a>
               </label>
@@ -69,7 +79,7 @@ export default function ContactForm() {
         <div className="space-y-10 ">
           <div className="rounded-lg overflow-hidden">
             <Image
-              src={placeholder}
+              src="https://a.storyblok.com/f/304820/892x1072/9921c903af/ja1a3716-redigera-2x.png?cv=1730801960171"
               alt="X-Vision Ögonklinik Interior"
               width={600}
               height={600}
@@ -78,13 +88,13 @@ export default function ContactForm() {
           </div>
           <div className="space-y-2 flex flex-col gap-5 text-[18px] font-medium">
             <div>
-            <h4 className=" mb-2">X-Vision Ögonklinik</h4>
+              <h4 className=" mb-2">X-Vision Ögonklinik</h4>
               <p>Hyllie Stationstorg 2</p>
               <p>215 32 Malmö</p>
             </div>
-            <div>
-              <p>Tel: +46103001008</p>
-              <p>Mail: info@xvisionkliniken.se</p>
+            <div className="flex flex-col open-sans">
+              <Link className="open-sans" href={`tel:${data?.number}`}>Tel: {data?.number}</Link>
+              <Link className="open-sans" href={`mailto:${data?.mail}`}>Mail: {data?.mail}</Link>
             </div>
           </div>
         </div>

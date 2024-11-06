@@ -1,4 +1,4 @@
-.trygghet {
+.trygghet, .linkcontent {
     ul {
         padding: 0 10px;
     }
@@ -9,5 +9,11 @@
 
     a {
         font-weight: bold;
+        font-family: open-sans;
+        transition: 300ms ease-in-out;
+        text-decoration: underline;
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }

@@ -41,7 +41,7 @@ const Page = async () => {
       <Step props={data.story.content} />
       <BeforeAfter props={data.story.content} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm />
+      <ContactForm global={settings} />
     </div>
   );
 };

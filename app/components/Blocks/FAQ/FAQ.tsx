@@ -14,7 +14,7 @@ const FAQ = ({ props, title }: FAQ) => {
         {title}
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-0 lg:px-10">
-        {props.map((item: any, index: number) => (
+        {props?.map((item: any, index: number) => (
           <div key={index} className="flex  space-x-4 py-5 lg:py-10 lg:px-5">
             <div className="flex-shrink-0">
               <Image

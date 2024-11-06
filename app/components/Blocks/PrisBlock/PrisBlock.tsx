@@ -13,12 +13,15 @@ const PrisBlock = ({ props }: any) => {
           return (
             <div
               key={index}
-              className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/5"
+              className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/4 2xl:w-1/5"
             >
               <h3 className="text-[22px]">{item.title}</h3>
               <div className="mx-auto">
-                {item.uspar.map((usp: any, index:number) => (
-                  <span key={index} className="text-[16px] text-left flex gap-2 items-center">
+                {item.uspar.map((usp: any, index: number) => (
+                  <span
+                    key={index}
+                    className="text-[16px] text-left flex gap-2 items-center"
+                  >
                     <IoMdCheckmark color="#CFEDC6" /> {render(usp.title)}
                   </span>
                 ))}
@@ -28,6 +31,11 @@ const PrisBlock = ({ props }: any) => {
                 <span className="line-through text-[20px]">
                   {item.rea && item.rea_pris}
                 </span>
+                {item.otherprice && (
+                  <span className="text-[16px]">
+                    {render(item.otherprice)}
+                  </span>
+                )}
                 <span className="text-[35px]">{item.pris}</span>
                 <span className="max-w-[250px] mt-2 text-[12px]">
                   Dela upp din betalning räntefritt i 2 år eller till en
@@ -38,14 +46,14 @@ const PrisBlock = ({ props }: any) => {
                 className="button mx-auto max-w-[200px] bg-[#CFEDC6] text-black mt-5"
                 href="/boka-konsultation"
               >
-                Boka Konsultation
+                Boka konsultation
               </Link>
               <div className="flex flex-col gap-2">
-                {item.link.length > 0 ? (
+                {item.link.length < 0 ? (
                   item.link.map((ahref: any, index: number) => (
                     <Link
                       key={index}
-                      href={`/${ahref.link.cached_url}`}
+                      href={`/delbetalning`}
                       className="underline underline-offset-2"
                     >
                       {ahref.title}
@@ -57,7 +65,7 @@ const PrisBlock = ({ props }: any) => {
                       href={`/ogonoperationer/prk-lasek`}
                       className="underline underline-offset-2"
                     >
-                      Läs mer om PRK-LASEK
+                      Läs mer om {item.title}
                     </Link>
                     <Link
                       href={`/delbetalning`}

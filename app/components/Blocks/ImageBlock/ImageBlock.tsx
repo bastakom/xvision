@@ -17,13 +17,12 @@ const ImageBlock = ({ props }: any) => {
             }`}
           >
             {props?.subtitle && (
-              <span className="text-[16px]">{props.subtitle}</span>
+              <span className="text-[16px]">{props?.subtitle}</span>
             )}
             {props.title && (
               <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
             )}
-            {props.content &&
-            (
+            {props.content && (
               <span className={`max-w-[100%] text-[18px] ${scss.trygghet}`}>
                 {render(props?.content)}
               </span>
@@ -68,7 +67,7 @@ const ImageBlock = ({ props }: any) => {
               <span className="text-[16px]">{props.subtitle}</span>
             )}
             <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
-            <span className="max-w-[100%] text-[18px]">
+            <span className={`max-w-[100%] text-[18px] ${scss.linkcontent}`}>
               {render(props?.content)}
             </span>
             {props?.button && props.button && (
