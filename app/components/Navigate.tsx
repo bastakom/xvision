@@ -81,7 +81,7 @@ export default function Navigate({
         <NavDots />
       </div>
       <div
-        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[50%] bg-[#172D32] transition-all duration-300 ${
+        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[50%] bg-[#172D32] transition-all duration-300 z-10 ${
           !open ? "translate-x-full" : "translate-x-0"
         } `}
       >
