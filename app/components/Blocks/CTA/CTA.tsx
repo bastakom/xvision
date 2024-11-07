@@ -26,9 +26,12 @@ const CTA = ({ props }: CTA) => {
           )}
         </div>
         <div>
-        <Link href="" className="button border border-white rounded-xl">
-          {item.btn}
-        </Link>
+          <Link
+            href={`${item.two_images ? "/om-oss" : "/var-trygghetsgaranti"}`}
+            className="button border border-white rounded-xl"
+          >
+            {item.btn}
+          </Link>
         </div>
       </div>
       <div

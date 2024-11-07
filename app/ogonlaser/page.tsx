@@ -6,7 +6,11 @@ import FAQ from "../components/Blocks/FAQ/FAQ";
 import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
 import Step from "../components/Blocks/Step/Step";
 import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
-import { GetGenerlSettings, GetOgonLaser, GetOgonOperationer } from "../lib/apireq";
+import {
+  GetGenerlSettings,
+  GetOgonLaser,
+  GetOgonOperationer,
+} from "../lib/apireq";
 
 const Page = async () => {
   const data = await GetOgonLaser();
@@ -38,7 +42,7 @@ const Page = async () => {
         props={data.story.content.FAQ}
         title={data.story.content.faq_title}
       />
-      <Step props={data.story.content} />
+      <Step props={settings?.story?.content} />
       <BeforeAfter props={data.story.content} />
       <CTA props={settings.story.content.CTA} />
       <ContactForm global={settings} />

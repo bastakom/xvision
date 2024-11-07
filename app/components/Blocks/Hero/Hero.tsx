@@ -89,10 +89,15 @@ const Hero = ({
               {buttons &&
                 Array.isArray(buttons) &&
                 buttons?.map((el: any, index: number) => {
+                  console.log(buttons)
                   return (
                     <Link
                       key={index}
-                      href={`/${el.link.url}`}
+                      href={`${
+                        el.link.linktype === "story"
+                          ? `${el.link.cached_url}`
+                          : `${el.link.url}`
+                      }`}
                       className={`button transition-all duration-300 ${
                         index === 0
                           ? "bg-green-200 text-black hover:bg-[#1D383F] hover:text-white button"

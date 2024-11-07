@@ -1,17 +1,30 @@
 "use client";
 
-import { Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { IoArrowUp } from "react-icons/io5";
 
 interface Props {
   props?: any;
   operations?: any;
+  linsoperation?: any;
 }
 
-export default function TilesBehandlingar({ props, operations }: Props) {
+export default function TilesBehandlingar({
+  props,
+  operations,
+  linsoperation,
+}: Props) {
+  const [showAll, setShowAll] = useState(false);
+
+  const handleShowContent = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <section
+    id="treatments"
       className={`${
         props?.light_color
           ? "bg-[#F5F7F3] text-[#000000]"
@@ -30,44 +43,92 @@ export default function TilesBehandlingar({ props, operations }: Props) {
           <h2 className="text-[35px] font-medium mb-4">{props?.title}</h2>
           <p className="max-w-2xl mx-auto">{props?.text}</p>
         </div>
-        <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center gap-5 text-white">
-          {operations?.map((op: any) => (
-            <Link
-              href={`/${op.full_slug}`}
-              className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
-              key={op.content._uid}
-            >
-              {op.content?.icon_img?.filename && (
-                <Image
-                  src={`${op.content?.icon_img?.filename}`}
-                  width={34}
-                  height={50}
-                  className="mx-auto my-10"
-                  alt="icon"
-                />
-              )}
-              <h3 className="text-xl font-semibold mb-4 uppercase">
-                {op.name}
-              </h3>
-              <p className="mb-4 max-w-[80%] mx-auto m-0 ">
-                {op.content.short_description
-                  ? op.content.short_description
-                  : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
-              </p>
-              <span className="hover:text-white p-0 underline underline-offset-8">
-                Läs mer
-              </span>
-            </Link>
-          ))}
-        </div>
+        {linsoperation ? (
+          <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center gap-5 text-white">
+            {[...operations, ...linsoperation]
+              ?.slice(0, showAll ? 100 : 6)
+              .map((op: any, index: number) => (
+                <Link
+                  href={`/${op.full_slug}`}
+                  className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
+                  key={op.content._uid}
+                >
+                  {op.content?.icon_img?.filename && (
+                    <Image
+                      src={`${op.content?.icon_img?.filename}`}
+                      width={34}
+                      height={50}
+                      className="mx-auto my-10"
+                      alt="icon"
+                    />
+                  )}
+                  <h3 className="text-xl font-semibold mb-4 uppercase">
+                    {op.name}
+                  </h3>
+                  <p className="mb-4 max-w-[80%] mx-auto m-0">
+                    {op.content.short_description
+                      ? op.content.short_description
+                      : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
+                  </p>
+                  <span className="hover:text-white p-0 underline underline-offset-8">
+                    Läs mer
+                  </span>
+                </Link>
+              ))}
+          </div>
+        ) : (
+          <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center gap-5 text-white">
+            {operations.map((op: any, index: number) => (
+              <Link
+                href={`/${op.full_slug}`}
+                className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
+                key={op.content._uid}
+              >
+                {op.content?.icon_img?.filename && (
+                  <Image
+                    src={`${op.content?.icon_img?.filename}`}
+                    width={34}
+                    height={50}
+                    className="mx-auto my-10"
+                    alt="icon"
+                  />
+                )}
+                <h3 className="text-xl font-semibold mb-4 uppercase">
+                  {op.name}
+                </h3>
+                <p className="mb-4 max-w-[80%] mx-auto m-0">
+                  {op.content.short_description
+                    ? op.content.short_description
+                    : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
+                </p>
+                <span className="hover:text-white p-0 underline underline-offset-8">
+                  Läs mer
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
+
         <div className="flex justify-center">
-          <button
-            className={`text-center mt-10 lg:mt-20 py-2 px-10 border font-normal ${
-              props?.light_color ? "border-[#1D383F]" : "border-white"
-            } rounded-[23px]`}
-          >
-            {props.btn_threatment}
-          </button>
+          {props?.btn_link?.cached_url ? (
+            <Link
+              href={props.btn_link?.cached_url}
+              className={`text-center mt-10 lg:mt-20 py-2 px-10 border font-normal ${
+                props?.light_color ? "border-[#1D383F]" : "border-white"
+              } rounded-[23px]`}
+            >
+              {props.btn_threatment}
+            </Link>
+          ) : (
+            <button
+              onClick={handleShowContent}
+              className={`text-center mt-10 lg:mt-20 py-2 px-10 border font-normal ${
+                props?.light_color ? "border-[#1D383F]" : "border-white"
+              } rounded-[23px]`}
+            >
+              {!showAll ? props.btn_threatment : <IoArrowUp />}
+            </button>
+          )}
         </div>
       </div>
     </section>

@@ -29,10 +29,15 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
         {btns && Array.isArray(btns) && (
           <div className={scss.hero_btns}>
             {btns?.map((el: any, index: number) => {
+              console.log(el.link);
               return (
                 <Link
                   key={index}
-                  href=""
+                  href={`${
+                    el.link.linktype === "story"
+                      ? `/${el.link.cached_url}`
+                      : `/${el.link.url}`
+                  }`}
                   className={`button ${
                     index === 0
                       ? scss.button

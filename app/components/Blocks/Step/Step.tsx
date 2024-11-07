@@ -4,7 +4,7 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Step = ({ props }: any) => {
   return (
-    <div className="lg:max-w-[80%] mx-auto p-4 mb-10 lg:mb-24 mt-5 lg:mt-14">
+    <div className="lg:max-w-[80%] mx-auto p-4 mb-10 lg:mb-24 mt-5 lg:mt-14" id="step">
       <h1 className="text-2xl font-bold text-center mb-2">
         {props.step_title}
       </h1>

@@ -30,7 +30,7 @@ const ImageBlock = ({ props }: any) => {
             <div className="mt-5">
               {props?.button && props.button && (
                 <Link
-                  href="/"
+                  href={props?.link?.cached_url || "/"}
                   className="border-[#1D383F] border text-center button mt-5 text-[18px]"
                 >
                   {props.button}
@@ -72,7 +72,7 @@ const ImageBlock = ({ props }: any) => {
             </span>
             {props?.button && props.button && (
               <Link
-                href="/"
+                href={props?.link?.cached_url || "/"}
                 className="border-[#1D383F] border max-w-[350px] text-center button mt-5"
               >
                 {props.button}

@@ -6,7 +6,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 
 const PrisBlock = ({ props }: any) => {
   return (
-    <div className="my-10 lg:my-20 px-5 lg:px-0">
+    <div className="my-10 lg:my-20 px-5 lg:px-0" id={`${props.hashtag}`}>
       <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>
       <div className="flex flex-wrap justify-center gap-5 text-center">
         {props.pris.map((item: any, index: number) => {
@@ -32,9 +32,7 @@ const PrisBlock = ({ props }: any) => {
                   {item.rea && item.rea_pris}
                 </span>
                 {item.otherprice && (
-                  <span className="text-[16px]">
-                    {render(item.otherprice)}
-                  </span>
+                  <span className="text-[16px]">{render(item.otherprice)}</span>
                 )}
                 <span className="text-[35px]">{item.pris}</span>
                 <span className="max-w-[250px] mt-2 text-[12px]">

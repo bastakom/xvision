@@ -22,7 +22,7 @@ export default function AboutBlock({ props }: any) {
         <div className="flex text-[18px] flex-col ml-0 lg:ml-5 justify-end gap-5">
           <span className={scss.aboutcontent}>{render(props.content)}</span>
           {props.button && (
-            <Link href="/" className="underline underline-offset-8">
+            <Link href="/om-oss" className="underline underline-offset-8">
               {props.button}
             </Link>
           )}

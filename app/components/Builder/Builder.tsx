@@ -15,9 +15,10 @@ interface Props {
   props: any;
   ogonOperationer?: any;
   global?: any;
+  linsOperation?: any;
 }
 
-const Builder = ({ props, ogonOperationer, global }: Props) => {
+const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
   return props ? (
     <div>
       {props.map((el: any) => {
@@ -53,6 +54,7 @@ const Builder = ({ props, ogonOperationer, global }: Props) => {
               <TilesBehandlingar
                 props={el}
                 operations={ogonOperationer.stories}
+                linsoperation={linsOperation.stories}
               />
             );
             case "team": {

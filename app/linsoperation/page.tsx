@@ -43,7 +43,7 @@ const page = async () => {
         props={data.story.content.FAQ}
         title={data.story.content.faq_title}
       />
-      <Step props={data?.story?.content} />
+      <Step props={settings?.story?.content} />
       <CTA props={settings.story.content.CTA} />
       <ContactForm global={settings} />
     </div>
