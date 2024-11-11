@@ -13,16 +13,16 @@ const ImageBlock = ({ props }: any) => {
           <div
             className={`flex flex-col gap-5 ${
               props?.bg &&
-              "bg-[#CDD8C3] h-full lg:h-[600px] justify-center py-10 lg:py-24 px-5 lg:px-20"
+              "bg-[#e6ebe1] h-full lg:h-[600px] justify-center py-10 lg:py-24 px-5 lg:px-20"
             }`}
           >
             {props?.subtitle && (
               <span className="text-[16px]">{props?.subtitle}</span>
             )}
-            {props.title && (
+            {props?.title && (
               <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
             )}
-            {props.content && (
+            {props?.content && (
               <span className={`max-w-[100%] text-[18px] ${scss.trygghet}`}>
                 {render(props?.content)}
               </span>
@@ -31,7 +31,7 @@ const ImageBlock = ({ props }: any) => {
               {props?.button && props.button && (
                 <Link
                   href={props?.link?.cached_url || "/"}
-                  className="border-[#1D383F] border text-center button mt-5 text-[18px]"
+                  className="border-[#1D383F] border text-center button mt-5 text-[18px] hover:bg-[#1D383F] hover:text-white"
                 >
                   {props.button}
                 </Link>
@@ -49,14 +49,16 @@ const ImageBlock = ({ props }: any) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-center w-full gap-10 px-5 items-center my-5 lg:my-20">
-          <div className="flex h-[400px] lg:h-[600px] w-[100%] relative">
-            <Image
-              src={props?.image?.filename}
-              alt={props?.image?.alt}
-              fill
-              className="lg:object-contain"
-            />
-          </div>
+          {props?.image?.filename && (
+            <div className="flex h-[400px] lg:h-[600px] w-[100%] relative">
+              <Image
+                src={props?.image?.filename}
+                alt={props?.image?.alt}
+                fill
+                className="lg:object-contain"
+              />
+            </div>
+          )}
           <div
             className={`flex flex-col gap-5 ${
               props?.bg &&
@@ -70,12 +72,12 @@ const ImageBlock = ({ props }: any) => {
             <span className={`max-w-[100%] text-[18px] ${scss.linkcontent}`}>
               {render(props?.content)}
             </span>
-            {props?.button && props.button && (
+            {props?.button && props?.button && (
               <Link
                 href={props?.link?.cached_url || "/"}
-                className="border-[#1D383F] border max-w-[350px] text-center button mt-5"
+                className="border-[#1D383F] border max-w-[350px] text-center button mt-5 hover:bg-[#1D383F] hover:text-white"
               >
-                {props.button}
+                {props?.button}
               </Link>
             )}
           </div>

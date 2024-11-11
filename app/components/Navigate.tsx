@@ -62,7 +62,7 @@ export default function Navigate({
           return (
             <Link
               key={menuItem._uid}
-              className="text-black"
+              className="text-black hover:text-[#1d383f] transition-all"
               href={`${
                 menuItem.link.linktype === "story"
                   ? `/${menuItem.link.cached_url}`
@@ -206,9 +206,9 @@ export default function Navigate({
         </div>
       </div>
       <div
-        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC]  ${scss.popup}`}
+        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC] text-[8px] xl:text-[16px] ${scss.popup}`}
       >
-        {render(popup)}{" "}
+        {render(popup)}
       </div>
     </header>
   );

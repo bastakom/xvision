@@ -2,7 +2,12 @@ import Hero from "@/app/components/ArkivPage/Hero";
 import ContactForm from "@/app/components/Blocks/ContactForm/ContactForm";
 import CTA from "@/app/components/Blocks/CTA/CTA";
 import Step from "@/app/components/Blocks/Step/Step";
-import { GetLinsOperation, GetGenerlSettings, GetOgonOperationer, GetLinsOperationer } from "@/app/lib/apireq";
+import {
+  GetLinsOperation,
+  GetGenerlSettings,
+  GetOgonOperationer,
+  GetLinsOperationer,
+} from "@/app/lib/apireq";
 import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
 import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
 import FAQ from "../components/Blocks/FAQ/FAQ";
@@ -11,7 +16,6 @@ const page = async () => {
   const data = await GetLinsOperation();
   const settings = await GetGenerlSettings();
   const slugData = data.story.content;
-
 
   const dataBehandlingar = await GetLinsOperationer();
 
@@ -32,9 +36,10 @@ const page = async () => {
         btns={data.story.content.buttons}
         bg={data.story.content.bg}
       />
-      {data?.story?.content.content_image?.map((el: any) => {
-        return <ImageBlock props={el} />;
-      })}
+      {data.story.content.content_image &&
+        data?.story?.content?.content_image?.map((el: any) => {
+          return <ImageBlock props={el} />;
+        })}
       <TilesBehandlingar
         operations={matchedThreatments}
         props={data.story.content}
@@ -51,5 +56,3 @@ const page = async () => {
 };
 
 export default page;
-
-

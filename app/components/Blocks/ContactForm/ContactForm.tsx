@@ -73,7 +73,7 @@ export default function ContactForm({ global }: any) {
                 </a>
               </label>
             </div>
-            <button className="button text-[18px]">Skicka</button>
+            <button className="button light text-[18px]">Skicka</button>
           </form>
         </div>
         <div className="space-y-10 ">

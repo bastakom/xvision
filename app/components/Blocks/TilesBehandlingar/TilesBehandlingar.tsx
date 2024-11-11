@@ -56,7 +56,7 @@ export default function TilesBehandlingar({
                   {op.content?.icon_img?.filename && (
                     <Image
                       src={`${op.content?.icon_img?.filename}`}
-                      width={34}
+                      width={50}
                       height={50}
                       className="mx-auto my-10"
                       alt="icon"

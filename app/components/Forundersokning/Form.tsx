@@ -41,7 +41,7 @@ const Form = () => {
   ]
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto px-6">
       <form onSubmit={handleSubmit} className={`grid grid-cols-1 md:grid-cols-2 gap-14 ${scss.form}`}>
         <div className="space-y-4 flex flex-col">
           <h2 className="text-xl font-semibold">Svara gärna på nedan frågor.</h2>

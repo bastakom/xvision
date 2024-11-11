@@ -7,11 +7,11 @@ const BeforeAfter = ({ props }: any) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 lg:max-w-[80%] mx-auto">
         <div>
           <h3 className="mb-10 text-[22px] font-bold">{props.before_title}</h3>
-          <span className="text-[18px]">{render(props.before_content)}</span>
+          <span className="text-[18px] flex-col flex gap-5">{render(props.before_content)}</span>
         </div>
         <div>
           <h3 className="mb-10 text-[22px] font-bold">{props.after_title}</h3>
-          <span className="text-[18px]">{render(props.after_content)}</span>
+          <span className="text-[18px] flex-col flex gap-5">{render(props.after_content)}</span>
         </div>
       </div>
     </div>

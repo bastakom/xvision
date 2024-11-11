@@ -34,7 +34,7 @@ const Hero = ({
     <section
       className={`${
         no_image_hero
-          ? "bg-[#1D383F] lg:px-0"
+          ? "bg-[#1D383F] lg:px-0 h-[100%]"
           : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
       } relative overflow-hidden`}
     >
@@ -65,7 +65,7 @@ const Hero = ({
         >
           <div className="lg:w-1/2 z-10 text-white">
             {subtitle && (
-              <h2 className="text-[16px] mb-5 text-[#CFEDC6]">{subtitle}</h2>
+              <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">{subtitle}</h2>
             )}
             <h1
               className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[100%]  ${
@@ -118,11 +118,11 @@ const Hero = ({
               no_image_hero ? "" : "rounded-3xl mb-10"
             } p-6 mt-8 lg:mt-0 z-10`}
           >
-            <div className="flex justify-center lg:justify-around text-center items-center flex-wrap lg:flex-row gap-5 lg:gap-0">
+            <div className="flex justify-center lg:justify-around text-center items-center flex-wrap lg:flex-row gap-5 lg:gap-0 ">
               {uspar?.map((el: any) => {
                 return (
                   <div
-                    className="font-bold flex items-center gap-2 font_overwrite"
+                    className="light flex items-center gap-2 font_overwrite"
                     key={el._uid}
                   >
                     {!no_dots && <GoDotFill />}

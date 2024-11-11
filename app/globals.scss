@@ -13,6 +13,7 @@ html {
   border-radius: 27px;
   padding: 10px 25px;
   font-size: 18px;
+  transition: all 0.5s;
   @media screen and (max-width: 768px) {
     width: 100%;
     text-align: center;
@@ -110,4 +111,9 @@ label {
   h6 {
     font-family: "freight-text-pro", serif;
   }
+}
+
+
+.light {
+  font-weight: 100 !important;
 }
