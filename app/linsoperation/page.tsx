@@ -12,6 +12,8 @@ import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
 import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
 import FAQ from "../components/Blocks/FAQ/FAQ";
 
+
+
 const page = async () => {
   const data = await GetLinsOperation();
   const settings = await GetGenerlSettings();

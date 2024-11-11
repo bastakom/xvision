@@ -9,7 +9,6 @@ interface InfoBox {
 }
 
 const InfoBox = ({ title, content, link, slug_name }: InfoBox) => {
-  console.log(link)
   return (
     <div className="py-20 lg:py-32 flex flex-col lg:flex-row items-center relative">
       <div className="flex flex-wrap px-5 lg:px-20">

@@ -29,7 +29,6 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
         {btns && Array.isArray(btns) && (
           <div className={scss.hero_btns}>
             {btns?.map((el: any, index: number) => {
-              console.log(el.link);
               return (
                 <Link
                   key={index}

@@ -1,4 +1,5 @@
 import Builder from "../components/Builder/Builder";
+import { Metadata } from "next";
 import {
   GetGenerlSettings,
   GetLinsOperationer,
@@ -13,9 +14,20 @@ const getPageData = async (slug: string) => {
   return res.json();
 };
 
-const page = async ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
   const pathname = params.slug;
-  const slugName = pathname === undefined ? `home` : pathname;
+  const slugName = !pathname || pathname === '' ? 'home' : pathname;
+  const res = await getPageData(slugName);
+
+  return {
+    title: res.story.content.SEO_Title || "XVISION",
+    description: res.story.content.SEO_Meta || "Default description",
+  };
+};
+
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const pathname = params.slug;
+  const slugName = !pathname || pathname === '' ? 'home' : pathname;
   const res = await getPageData(slugName);
 
   const ogonOperation = await GetOgonOperationer();
@@ -38,4 +50,4 @@ const page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default page;
+export default Page;

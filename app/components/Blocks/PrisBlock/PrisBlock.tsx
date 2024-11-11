@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { IoMdCheckmark } from "react-icons/io";
 import { render } from "storyblok-rich-text-react-renderer";
@@ -15,6 +16,17 @@ const PrisBlock = ({ props }: any) => {
               key={index}
               className="flex flex-col gap-5 bg-[#1D383F] px-14 py-20 text-white rounded-[37px] w-full lg:w-1/4 2xl:w-1/5"
             >
+              <div className="flex justify-center max-h-[45px]">
+                {item.icon.filename && (
+                  <Image
+                    src={item.icon.filename}
+                    alt=""
+                    className="object-contain"
+                    width={50}
+                    height={30}
+                  />
+                )}
+              </div>
               <h3 className="text-[22px]">{item.title}</h3>
               <div className="mx-auto">
                 {item.uspar.map((usp: any, index: number) => (

@@ -16,6 +16,7 @@ interface HeroProps {
   text_center?: any;
   no_dots?: any;
   opacity?: any;
+  popup?: any;
 }
 
 const Hero = ({
@@ -28,11 +29,12 @@ const Hero = ({
   no_image_hero,
   text_center,
   no_dots,
+  popup,
   opacity,
 }: HeroProps) => {
   return (
     <section
-      className={`${
+      className={`${popup && 'pt-14'} ${
         no_image_hero
           ? "bg-[#1D383F] lg:px-0 h-[100%]"
           : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
@@ -82,14 +84,13 @@ const Hero = ({
               {text}
             </p>
             <div
-              className={`flex flex-col lg:flex-row gap-4 mt-16 justify-center items-center px-5 lg:px-0 ${
+              className={`flex flex-col lg:flex-row gap-4 mt-16 justify-center items-center  lg:px-0 ${
                 no_image_hero ? "lg:justify-center" : "lg:justify-start"
               }`}
             >
               {buttons &&
                 Array.isArray(buttons) &&
                 buttons?.map((el: any, index: number) => {
-                  console.log(buttons)
                   return (
                     <Link
                       key={index}

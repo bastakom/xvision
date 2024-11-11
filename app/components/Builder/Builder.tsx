@@ -36,6 +36,7 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
                 text_center={el.text_center}
                 no_dots={el.no_dots}
                 opacity={el.opacity}
+                popup={global.story.content.showpopup}
               />
             );
           case "infobox":
@@ -47,8 +48,8 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
                 link={el.btns}
               />
             );
-          case "forundersokning": 
-          return <Forundersokning props={el}/>
+          case "forundersokning":
+            return <Forundersokning props={el} />;
           case "tilesBehandlingar":
             return (
               <TilesBehandlingar
@@ -57,9 +58,9 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
                 linsoperation={linsOperation.stories}
               />
             );
-            case "team": {
-              return <Team props={el} />
-            }
+          case "team": {
+            return <Team props={el} />;
+          }
           case "partnerLogos":
             return <PartnerLogos images={el.partnerlogos} />;
           case "aboutBlock":

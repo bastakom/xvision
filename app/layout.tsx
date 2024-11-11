@@ -1,24 +1,12 @@
-import type { Metadata } from "next";
-/* import localFont from "next/font/local"; */
 import "./globals.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-
-/* const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-}); */
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "XVISION - Slipp glasögon och kontaktlinser",
+  title: "Synkorrigering & Ögonlaser i Malmö | X-Vision",
   description:
-    "Slipp glasögon och kontaktlinser med hjälp av X-Vision ögonklinik i Malmö. ✓ Just nu: 5.000-15.000 kr rabatt ✓ Över 30 års erfarenhet ✓ Moderna maskiner.",
+    "Säg hejdå till glasögon! Vi på X-Vision i Malmö erbjuder avancerad ögonlaser för klarare syn med SMILE, FS-Lasik, Surface och PRK-Laser. Du hittar oss i Malmö Hyllie – boka din konsultation idag.",
 };
 
 export default function RootLayout({

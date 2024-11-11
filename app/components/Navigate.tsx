@@ -32,7 +32,7 @@ export default function Navigate({
 
   const {
     story: {
-      content: { logo, Menu, sub_menu, number, mail, popup },
+      content: { logo, Menu, sub_menu, number, mail, popup, showpopup },
     },
   } = props;
 
@@ -205,11 +205,13 @@ export default function Navigate({
           </div>
         </div>
       </div>
+      {showpopup && 
       <div
-        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC] text-[8px] xl:text-[16px] ${scss.popup}`}
+        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC] text-[12px] xl:text-[16px] ${scss.popup}`}
       >
         {render(popup)}
       </div>
+      }
     </header>
   );
 }
