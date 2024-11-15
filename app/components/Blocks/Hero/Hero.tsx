@@ -34,7 +34,7 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <section
-      className={`${popup && 'pt-14'} ${
+      className={`${popup && `pt-14 ${uspar?.length < 0 && "pb-10"}`} ${
         no_image_hero
           ? "bg-[#1D383F] lg:px-0 h-[100%]"
           : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
@@ -67,7 +67,9 @@ const Hero = ({
         >
           <div className="lg:w-1/2 z-10 text-white">
             {subtitle && (
-              <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">{subtitle}</h2>
+              <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">
+                {subtitle}
+              </h2>
             )}
             <h1
               className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[100%]  ${
@@ -78,7 +80,7 @@ const Hero = ({
             </h1>
             <p
               className={`text-lg mb-6 ${
-                no_image_hero && "max-w-[100%] lg:max-w-[80%] mx-auto"
+                no_image_hero && "max-w-[100%] lg:max-w-[85%] mx-auto"
               }`}
             >
               {text}

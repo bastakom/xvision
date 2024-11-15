@@ -62,7 +62,7 @@ const ImageBlock = ({ props }: any) => {
           <div
             className={`flex flex-col gap-5 ${
               props?.bg &&
-              "bg-[#CDD8C3] h-full lg:h-[600px] justify-center py-10 lg:py-24 px-5 lg:px-20"
+              "bg-[#e6ebe1] h-full lg:h-[600px] justify-center py-10 lg:py-24 px-5 lg:px-20"
             }`}
           >
             {props?.subtitle && (
