@@ -1,11 +1,11 @@
 "use client";
 
 import { render } from "storyblok-rich-text-react-renderer";
+import scss from './columnbox.module.scss';
 
 const ColumnBox = ({ props }: any) => {
-  console.log(props);
   return (
-    <div className="flex flex-wrap gap-10 container m-auto py-14">
+    <div className={`flex flex-wrap gap-10 container m-auto py-14 ${scss.column}`}>
       {props.block.map((el: any) => {
         return (
           <div className="w-full lg:w-[48%] px-10 flex flex-col gap-5">
