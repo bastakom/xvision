@@ -20,8 +20,8 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
   const res = await getPageData(slugName);
 
   return {
-    title: res.story.content.SEO_Title || "XVISION",
-    description: res.story.content.SEO_Meta || "Default description",
+    title: res.story?.content?.SEO_Title || "XVISION",
+    description: res.story?.content?.SEO_Meta || "Default description",
   };
 };
 
