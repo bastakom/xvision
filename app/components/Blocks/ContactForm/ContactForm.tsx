@@ -22,11 +22,13 @@ export default function ContactForm({ global }: any) {
                 <label htmlFor="name" className="block text-gray-700">
                   Namn
                 </label>
-                <input
-                  id="name"
-                  placeholder="För- och efternamn"
-                  className="w-full"
-                />
+                <input id="name" className="w-full" />
+              </div>
+              <div>
+                <label htmlFor="age" className="block text-gray-700">
+                  Födelseår
+                </label>
+                <input id="age" className="w-full" placeholder="XXXX"/>
               </div>
               <div>
                 <label htmlFor="phone" className="block text-gray-700">
@@ -34,13 +36,14 @@ export default function ContactForm({ global }: any) {
                 </label>
                 <input id="phone" className="w-full" />
               </div>
+              <div>
+                <label htmlFor="email" className="block text-gray-700">
+                  E-post
+                </label>
+                <input id="email" className="w-full" type="email" required />
+              </div>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-gray-700">
-                E-post
-              </label>
-              <input id="email" className="w-full" type="email" />
-            </div>
+
             <div>
               <label className="block text-gray-700">
                 Önskemål att bli kontaktad
@@ -93,8 +96,12 @@ export default function ContactForm({ global }: any) {
               <p>215 32 Malmö</p>
             </div>
             <div className="flex flex-col open-sans">
-              <Link className="open-sans" href={`tel:${data?.number}`}>Tel: {data?.number}</Link>
-              <Link className="open-sans" href={`mailto:${data?.mail}`}>Mail: {data?.mail}</Link>
+              <Link className="open-sans" href={`tel:${data?.number}`}>
+                Tel: {data?.number}
+              </Link>
+              <Link className="open-sans" href={`mailto:${data?.mail}`}>
+                Mail: {data?.mail}
+              </Link>
             </div>
           </div>
         </div>

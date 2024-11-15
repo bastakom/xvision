@@ -123,7 +123,7 @@ const Hero = ({
               {uspar?.map((el: any) => {
                 return (
                   <div
-                    className="light flex items-center gap-2 font_overwrite"
+                    className="light flex items-center gap-2 font_overwrite text-[20px]"
                     key={el._uid}
                   >
                     {!no_dots && <GoDotFill />}

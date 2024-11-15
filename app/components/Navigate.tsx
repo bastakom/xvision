@@ -9,6 +9,7 @@ import { useState } from "react";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { render } from "storyblok-rich-text-react-renderer";
 import scss from "./navigate.module.scss";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 interface Menu {
   link_title: string;
@@ -32,7 +33,7 @@ export default function Navigate({
 
   const {
     story: {
-      content: { logo, Menu, sub_menu, number, mail, popup, showpopup },
+      content: { logo, Menu, sub_menu, number, mail, popup, showpopup, IG, FB },
     },
   } = props;
 
@@ -86,7 +87,10 @@ export default function Navigate({
       </div>
 
       <div
-        className={`absolute h-[100vh] right-0 top-0 w-full lg:w-[50%] bg-[#172D32] transition-all duration-300 z-10 ${
+        className={`absolute h-[100vh] right-0 top-0 w-full ${
+          !showLinser  && !showOgon ? "lg:w-[35%]" : "lg:w-[50%]"
+          
+        } bg-[#172D32] transition-all duration-300 z-10 ${
           !open ? "translate-x-full" : "translate-x-0"
         } `}
       >
@@ -144,6 +148,7 @@ export default function Navigate({
                 <Link
                   key={menuItem._uid}
                   onClick={() => isOpen(!open)}
+                  className="hover:text-[#cfedc6]"
                   href={`${
                     menuItem.link.linktype === "story"
                       ? `/${menuItem.link.cached_url}`
@@ -167,6 +172,14 @@ export default function Navigate({
                 <Link href={`tel:${number}`}>{number}</Link>
                 <Link href={`mailto:${mail}`}>{mail}</Link>
               </div>
+              <div className="flex space-x-4 mt-4">
+                <Link href={FB.url}>
+                  <FaFacebook size={25} />
+                </Link>
+                <Link href={IG.url}>
+                  <FaInstagram size={25} />
+                </Link>
+              </div>
             </div>
           </div>
           <div
@@ -180,6 +193,7 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   href={`/${el.full_slug}`}
                   key={index}
+                  className="hover:text-[#cfedc6]"
                 >
                   {el.name}
                 </Link>
@@ -197,6 +211,7 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   href={`/${el.full_slug}`}
                   key={index}
+                  className="hover:text-[#cfedc6]"
                 >
                   {el.name}
                 </Link>
@@ -205,13 +220,13 @@ export default function Navigate({
           </div>
         </div>
       </div>
-      {showpopup && 
-      <div
-        className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC] text-[12px] xl:text-[16px] ${scss.popup}`}
-      >
-        {render(popup)}
-      </div>
-      }
+      {showpopup && (
+        <div
+          className={`absolute top-20 left-0 p-4 text-center w-full bg-[#F6EEDC] text-[12px] xl:text-[16px] ${scss.popup}`}
+        >
+          {render(popup)}
+        </div>
+      )}
     </header>
   );
 }

@@ -55,8 +55,9 @@ const Form = () => {
                     name={`question-${index}`}
                     value="Ja"
                     onChange={() => handleRadioChange('Ja', index)}
-                    className="form-radio text-[#2d3748]"
+                    className="hidden peer"
                   />
+                  <div className="w-4 h-4 border-2 border-gray-300 rounded-full peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"></div>
                   <span>Ja</span>
                 </label>
                 <label className="flex items-center space-x-2">
@@ -65,21 +66,22 @@ const Form = () => {
                     name={`question-${index}`}
                     value="Nej"
                     onChange={() => handleRadioChange('Nej', index)}
-                    className="form-radio text-[#2d3748]"
+                    className="hidden peer"
                   />
+                  <div className="w-4 h-4 border-2 border-gray-300 rounded-full peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"></div>
                   <span>Nej</span>
                 </label>
               </div>
             </div>
           ))}
-                <label>
-                  {`7. Vad vill du uppnå med en ögonoperation?`}
-                </label>
-                <textarea placeholder='Beskriv i fritext' className="p-4" />
-                <label>
-                  {`8. Vilken tid skulle du vilja bli uppringd?`}
-                </label>
-                <textarea placeholder='Förmiddag / Eftermiddag / Kväll / Tid' className="p-4" />
+          <label>
+            {`7. Vad vill du uppnå med en ögonoperation?`}
+          </label>
+          <textarea placeholder='Beskriv i fritext' className="p-4" />
+          <label>
+            {`8. Vilken tid skulle du vilja bli uppringd?`}
+          </label>
+          <textarea placeholder='Förmiddag / Eftermiddag / Kväll / Tid' className="p-4" />
         </div>
         <div className="space-y-4">
           <div>
@@ -110,6 +112,7 @@ const Form = () => {
               id="email"
               name="email"
               type="email"
+              required
               value={formData.email}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#2d3748]"
@@ -136,7 +139,7 @@ const Form = () => {
             <label htmlFor="consent" className="text-sm">
               Jag godkänner att ni hanterar mina personuppgifter enligt ovan.
               <br />
-              <a href="#" className="text-blue-600 hover:underline">Läs mer om hur vi behandlar dina personuppgifter här</a>
+              <a href="#" className="text-black text-[14px] open-sans hover:underline">Läs mer om hur vi behandlar dina personuppgifter här</a>
             </label>
           </div>
           <button
@@ -150,6 +153,5 @@ const Form = () => {
     </div>
   )
 }
-
 
 export default Form;

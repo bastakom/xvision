@@ -24,7 +24,7 @@ export default function TilesBehandlingar({
 
   return (
     <section
-    id="treatments"
+      id="treatments"
       className={`${
         props?.light_color
           ? "bg-[#F5F7F3] text-[#000000]"
@@ -58,13 +58,11 @@ export default function TilesBehandlingar({
                       src={`${op.content?.icon_img?.filename}`}
                       width={50}
                       height={50}
-                      className="mx-auto my-10"
+                      className="mx-auto mb-10"
                       alt="icon"
                     />
                   )}
-                  <h3 className="text-xl font-semibold mb-4 uppercase">
-                    {op.name}
-                  </h3>
+                  <h3 className="text-xl font-normal mb-4">{op.name}</h3>
                   <p className="mb-4 max-w-[80%] mx-auto m-0">
                     {op.content.short_description
                       ? op.content.short_description
@@ -89,11 +87,11 @@ export default function TilesBehandlingar({
                     src={`${op.content?.icon_img?.filename}`}
                     width={34}
                     height={50}
-                    className="mx-auto my-10"
+                    className="mx-auto mb-10"
                     alt="icon"
                   />
                 )}
-                <h3 className="text-xl font-semibold mb-4 uppercase">
+                <h3 className="text-xl font-normal mb-4">
                   {op.name}
                 </h3>
                 <p className="mb-4 max-w-[80%] mx-auto m-0">

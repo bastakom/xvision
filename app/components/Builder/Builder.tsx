@@ -2,17 +2,19 @@ import AboutBlock from "../Blocks/AboutBlock/AboutBlock";
 import ContactForm from "../Blocks/ContactForm/ContactForm";
 import ContentBox from "../Blocks/ContentBox/ContentBox";
 import CTABlock from "../Blocks/CTA/CTABlock";
+import FAQ from "../Blocks/FAQ/FAQ";
 import Hero from "../Blocks/Hero/Hero";
 import ImageBlock from "../Blocks/ImageBlock/ImageBlock";
 import InfoBox from "../Blocks/InfoBox/InfoBox";
 import PartnerLogos from "../Blocks/PartnerLogos/PartnerLogos";
 import PrisBlock from "../Blocks/PrisBlock/PrisBlock";
+import Step from "../Blocks/Step/Step";
 import Team from "../Blocks/Team/Team";
 import TilesBehandlingar from "../Blocks/TilesBehandlingar/TilesBehandlingar";
 import Forundersokning from "../Forundersokning/Forundersokning";
 
 interface Props {
-  props: any;
+  props?: any;
   ogonOperationer?: any;
   global?: any;
   linsOperation?: any;
@@ -61,8 +63,19 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
           case "team": {
             return <Team props={el} />;
           }
+          case "faqblock": {
+            return (
+              <FAQ
+                props={el.faq}
+              />
+            );
+          }
+
+          case "stepblock": {
+            return <Step props={global.story.content} />;
+          }
           case "partnerLogos":
-            return <PartnerLogos images={el.partnerlogos} />;
+            return <PartnerLogos images={el?.partnerlogos} />;
           case "aboutBlock":
             return <AboutBlock props={el} />;
           case "contactForm":

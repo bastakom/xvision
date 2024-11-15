@@ -40,7 +40,7 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
                   className={`button ${
                     index === 0
                       ? scss.button
-                      : "border-white border text-[18px]"
+                      : "border-white border text-[18px] hover:bg-white hover:text-black" 
                   }`}
                 >
                   {el?.link_title}

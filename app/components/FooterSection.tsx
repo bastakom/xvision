@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { link } from "fs";
 
 export default function FooterSection({ props }: any) {
   const {
@@ -65,7 +64,7 @@ export default function FooterSection({ props }: any) {
 
         {/* Column 3: Contact */}
         <div className="flex flex-col text-[22px]">
-          <h3 className="font-semibold mb-4 text-[24px]">Kontakt</h3>
+          <h3 className="font-semibold mb-4 text-[24px] ">Kontakt</h3>
           <Link href="/gratis-forundersokning" className="">
             Boka fri konsultation
           </Link>
@@ -93,8 +92,14 @@ export default function FooterSection({ props }: any) {
             />
           </Link>
         </div>
-        <div className="text-sm absolute bottom-2 lg:bottom-5 lg:right-10 text-white">
-          © 2025 X-Vision Ögonklinik. All rights
+        <div className="text-sm absolute bottom-2 lg:bottom-5 lg:right-10 text-white flex flex-col gap-5">
+          <Image
+            src="https://a.storyblok.com/f/304820/380x58/602bc57e19/resurs_logo_horizontal_rgb_black-2x.png"
+            width={150}
+            height={50}
+            alt="logo"
+          />
+          <span> © 2025 X-Vision Ögonklinik. All rights</span>
         </div>
       </div>
     </footer>

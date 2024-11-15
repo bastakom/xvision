@@ -55,11 +55,10 @@ label {
 }
 
 .open-sans {
-  font-family: "open-sans",sans-serif !important;
-   a {
-    font-family: "open-sans",sans-serif !important;
-
-   }
+  font-family: "open-sans", sans-serif !important;
+  a {
+    font-family: "open-sans", sans-serif !important;
+  }
 }
 
 .form {
@@ -113,7 +112,15 @@ label {
   }
 }
 
-
 .light {
   font-weight: 100 !important;
+}
+
+input[type="checkbox"] {
+  accent-color: #1D383F;
+}
+
+input[type="checkbox"] {
+  height: 30px;
+  width: 30px;
 }

@@ -6,9 +6,12 @@ import React from "react";
 export default function PartnerLogos({ images }: any) {
   const repeatedImages = [];
   while (repeatedImages.length < 20) {
-    repeatedImages.push(...images);
+    if (images && images.length > 0) {
+      repeatedImages.push(...images);
+    } else {
+      break;
+    }
   }
-
   return (
     <section className="bg-[#CDD8C3] py-16 mb-10 overflow-hidden">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">

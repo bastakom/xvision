@@ -17,7 +17,7 @@ const ImageBlock = ({ props }: any) => {
             }`}
           >
             {props?.subtitle && (
-              <span className="text-[16px]">{props?.subtitle}</span>
+              <span className="text-[16px] text-[#1d383f]">{props?.subtitle}</span>
             )}
             {props?.title && (
               <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
