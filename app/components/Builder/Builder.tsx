@@ -1,4 +1,5 @@
 import AboutBlock from "../Blocks/AboutBlock/AboutBlock";
+import ColumnBox from "../Blocks/ColumnBox/ColumnBox";
 import ContactForm from "../Blocks/ContactForm/ContactForm";
 import ContentBox from "../Blocks/ContentBox/ContentBox";
 import CTABlock from "../Blocks/CTA/CTABlock";
@@ -63,12 +64,12 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
           case "team": {
             return <Team props={el} />;
           }
+
+          case "column_box": {
+            return <ColumnBox props={el} />;
+          }
           case "faqblock": {
-            return (
-              <FAQ
-                props={el.faq}
-              />
-            );
+            return <FAQ props={el.faq} />;
           }
 
           case "stepblock": {
