@@ -54,7 +54,7 @@ const PrisBlock = ({ props }: any) => {
               </div>
               <Link
                 className="button mx-auto max-w-[200px] bg-[#CFEDC6] text-black mt-5"
-                href="/boka-konsultation"
+                href="/gratis-forundersokning"
               >
                 Boka konsultation
               </Link>
