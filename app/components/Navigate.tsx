@@ -88,8 +88,7 @@ export default function Navigate({
 
       <div
         className={`absolute h-[100vh] right-0 top-0 w-full ${
-          !showLinser  && !showOgon ? "lg:w-[35%]" : "lg:w-[50%]"
-          
+          !showLinser && !showOgon ? "lg:w-[35%]" : "lg:w-[50%]"
         } bg-[#172D32] transition-all duration-300 z-10 ${
           !open ? "translate-x-full" : "translate-x-0"
         } `}
@@ -121,9 +120,8 @@ export default function Navigate({
           <div className="px-5 pt-10 lg:p-10 text-[28px] lg:text-[26px] text-white flex flex-col gap-2 lg:gap-5 lg:mt-10 w-full lg:w-1/2 bg-[#172D32]">
             {sub_menu.map((menuItem: any) => {
               return menuItem.sub_menu_linser ? (
-                <Link
+                <button
                   key={menuItem._uid}
-                  href=""
                   onClick={handleLinser}
                   className={`${
                     showLinser && "text-[#CFEDC6]"
@@ -131,11 +129,10 @@ export default function Navigate({
                 >
                   {menuItem.link_title}{" "}
                   <IoChevronForward fontSize={20} className="block lg:hidden" />
-                </Link>
+                </button>
               ) : menuItem.sub_menu_ogonoperation ? (
-                <Link
+                <button
                   key={menuItem._uid}
-                  href=""
                   onClick={handleOgon}
                   className={`${
                     showOgon && "text-[#CFEDC6]"
@@ -143,7 +140,7 @@ export default function Navigate({
                 >
                   {menuItem.link_title}{" "}
                   <IoChevronForward fontSize={20} className="block lg:hidden" />
-                </Link>
+                </button>
               ) : (
                 <Link
                   key={menuItem._uid}
@@ -159,13 +156,15 @@ export default function Navigate({
                 </Link>
               );
             })}
-            <Link
-              href="/gratis-forundersokning"
-              onClick={() => isOpen(false)}
-              className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
-            >
-              Boka konsultation
-            </Link>
+            <div className="mt-5">
+              <Link
+                href="/gratis-forundersokning"
+                onClick={() => isOpen(false)}
+                className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
+              >
+                Boka konsultation
+              </Link>
+            </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
               <h3 className="font-semibold">Kontakt</h3>
               <div className="flex flex-col mt-2 lg:mt-10 font-light">
