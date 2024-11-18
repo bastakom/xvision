@@ -11,6 +11,9 @@ const PrisBlock = ({ props }: any) => {
       <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>
       <div className="flex flex-wrap justify-center gap-5 text-center">
         {props.pris.map((item: any, index: number) => {
+          const firstLink =
+            item.link.length > 0 ? item.link[0].link.cached_url : "undefiend";
+
           return (
             <div
               key={index}
@@ -59,24 +62,24 @@ const PrisBlock = ({ props }: any) => {
                 Boka konsultation
               </Link>
               <div className="flex flex-col gap-2">
-                {item.link.length < 0 ? (
-                  item.link.map((ahref: any, index: number) => (
-                    <Link
-                      key={index}
-                      href={`/delbetalning`}
-                      className="underline underline-offset-2"
-                    >
-                      {ahref.title}
-                    </Link>
-                  ))
+                {firstLink === "undefiend" ? (
+                  <Link
+                    key={index}
+                    href={`/delbetalning`}
+                    className="underline underline-offset-2"
+                  >
+                    Läs mer om delbetalning
+                  </Link>
                 ) : (
                   <>
                     <Link
-                      href={`/ogonoperationer/prk-lasek`}
+                      key={index}
+                      href={`/${firstLink}`}
                       className="underline underline-offset-2"
                     >
                       Läs mer om {item.title}
                     </Link>
+
                     <Link
                       href={`/delbetalning`}
                       className="underline underline-offset-2"

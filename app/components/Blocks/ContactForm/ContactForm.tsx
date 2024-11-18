@@ -171,7 +171,7 @@ export default function ContactForm({ global }: any) {
                   </a>
                 </label>
               </div>
-              <button className="button light text-[18px]">Skicka</button>
+              <button className="button font-medium text-[18px]">Skicka</button>
             </form>
           ) : (
             <div> Tack för ditt meddelande, vi återkommer snarast!</div>

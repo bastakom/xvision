@@ -27,8 +27,20 @@ export default function FooterSection({ props }: any) {
           <p>Hyllie Stationstorg 2</p>
           <p>215 32 Malmö</p>
           <p className="mt-4">Org. Nr: 559001-0178</p>
-          <p className="mt-4">Telefon +46103001008</p>
-          <p>info@xvisionkliniken.se</p>
+          <div className="flex flex-col">
+            <Link
+              href={`tel:+46103001008`}
+              className="open-sans hover:opacity-70"
+            >
+              Telefon +46103001008
+            </Link>
+            <Link
+              href={`mailto:info@xvisionkliniken.se`}
+              className="open-sans hover:opacity-70"
+            >
+              info@xvisionkliniken.se
+            </Link>
+          </div>
           <div className="flex space-x-4 mt-4">
             <Link href={FB.url}>
               <FaFacebook size={25} />

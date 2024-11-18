@@ -33,7 +33,7 @@ const CTABlock = ({
           )}
           <h2 className="text-[35px] lg:max-w-[40%] mx-auto">{title}</h2>
           {sub_under_title && (
-            <h3 className="text-[16px] mt-5 text-[#CFEDC6]">{subtitle}</h3>
+            <h3 className="text-[16px] mt-5 text-[#CFEDC6] open-sans">{subtitle}</h3>
           )}
           {content && (
             <p className="lg:max-w-[40%] mx-auto p-5 text-[18px]">{content}</p>

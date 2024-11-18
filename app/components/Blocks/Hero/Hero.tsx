@@ -72,7 +72,7 @@ const Hero = ({
               </h2>
             )}
             <h1
-              className={`mb-4 text-[35px] lg:text-[55px] lg:max-w-[100%]  ${
+              className={`mb-4 text-[35px] lg:text-[62px] lg:max-w-[100%]  ${
                 !no_image_hero ? "pt-14" : "mx-auto"
               }`}
             >
@@ -125,7 +125,7 @@ const Hero = ({
               {uspar?.map((el: any) => {
                 return (
                   <div
-                    className="light flex items-center gap-2 font_overwrite text-[14px] lg:text-[20px]"
+                    className="font-medium flex items-center gap-2 font_overwrite text-[14px] lg:text-[20px]"
                     key={el._uid}
                   >
                     {!no_dots && <GoDotFill />}
