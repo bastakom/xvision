@@ -94,7 +94,7 @@ export default function FooterSection({ props }: any) {
         </div>
         <div className="text-sm absolute bottom-2 lg:bottom-5 lg:right-10 text-white flex flex-col gap-5">
           <Image
-            src="https://a.storyblok.com/f/304820/380x58/602bc57e19/resurs_logo_horizontal_rgb_black-2x.png"
+            src="https://a.storyblok.com/f/304820/272x42/44fd68df90/resurs_logo_horizontal_rgb_white-2x.png"
             width={150}
             height={50}
             alt="logo"

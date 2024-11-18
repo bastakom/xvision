@@ -11,7 +11,7 @@ const BeforeAfter = ({ props }: any) => {
         </div>
         <div>
           <h3 className="mb-10 text-[22px] font-bold">{props.after_title}</h3>
-          <span className="text-[18px] flex-col flex gap-5">{render(props.after_content)}</span>
+          <span className="text-[18px] flex-col flex gap-5 list">{render(props.after_content)}</span>
         </div>
       </div>
     </div>
