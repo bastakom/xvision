@@ -61,11 +61,11 @@ const Hero = ({
             no_image_hero
               ? "justify-center text-center pt-32 lg:pt-56 pb-0 lg:pb-24"
               : `${
-                  text_center ? "text-center justify-center" : "justify-between"
+                  text_center ? "text-center justify-center" : "justify-between text-center lg:text-left"
                 } pt-20 lg:pt-0`
           }  h-full`}
         >
-          <div className="lg:w-1/2 z-10 text-white text-center lg:text-left ">
+          <div className="lg:w-1/2 z-10 text-white">
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">
                 {subtitle}
