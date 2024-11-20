@@ -4,14 +4,26 @@ import { useState } from "react";
 import scss from "./forundersokning.module.scss";
 
 const Form = () => {
+  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
+    tid: "",
     message: "",
     consent: false,
     questions: Array(6).fill(""),
   });
+
+  const questions = [
+    "Använder du glasögon?",
+    "Använder du kontaktlinser?",
+    "Ser du bra med dina kontaktlinser och/eller glasögon?",
+    "Har du någon autoimmun sjukdom?",
+    "Tar du några mediciner?",
+    "Har du tidigare gjort någon ögonoperation?",
+  ];
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,19 +40,39 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-  };
+    const formattedQuestions = questions.map((question, index) => ({
+      question,
+      answer: formData.questions[index],
+    }));
 
-  const questions = [
-    "Använder du glasögon?",
-    "Använder du kontaktlinser?",
-    "Ser du bra med dina kontaktlinser och/eller glasögon?",
-    "Har du någon autoimmun sjukdom?",
-    "Tar du några mediciner?",
-    "Har du tidigare gjort någon ögonoperation?",
-  ];
+    const dataToSend = {
+      ...formData,
+      questions: formattedQuestions,
+    };
+
+    try {
+      const response = await fetch("/api/bokning", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setSent(true);
+      } else {
+        setStatus("error");
+        setSent(false);
+      }
+    } catch (error) {
+      console.error("Error sending message.", error);
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-6">
@@ -87,6 +119,9 @@ const Form = () => {
           <textarea
             placeholder="Förmiddag / Eftermiddag / Kväll / Tid"
             className="p-4"
+            name="tid"
+            value={formData.tid}
+            onChange={handleInputChange}
           />
         </div>
         <div>

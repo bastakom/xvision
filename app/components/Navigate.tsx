@@ -117,7 +117,9 @@ export default function Navigate({
           )}
         </div>
         <div className="flex">
-          <div className="px-5 pt-10 lg:p-10 text-[28px] lg:text-[26px] text-white flex flex-col gap-2 lg:gap-5 lg:mt-10 w-full lg:w-1/2 bg-[#172D32]">
+          <div
+            className={`px-5 pt-10 lg:p-10 text-[28px] lg:text-[26px] text-white flex flex-col gap-2 lg:gap-5 lg:mt-10 w-full lg:w-full bg-[#172D32]`}
+          >
             {sub_menu.map((menuItem: any) => {
               return menuItem.sub_menu_linser ? (
                 <button
