@@ -80,7 +80,7 @@ export default function FooterSection({ props }: any) {
           <Link href="/gratis-forundersokning" className="">
             Boka fri konsultation
           </Link>
-          <h3 className="mt-4 ">Privacy policy</h3>
+          <Link href="/privacy-policy" className="mt-4 ">Privacy policy</Link>
           <h3 className="">Cookies</h3>
         </div>
       </div>
@@ -93,9 +93,9 @@ export default function FooterSection({ props }: any) {
       </div>
 
       {/* Bottom section */}
-      <div className="lg:mt-5 lg:pt-6 flex justify-between h-[108px] px-5 lg:px-10 items-center">
+      <div className="lg:mt-5 lg:pt-6 flex flex-col bg-[#1D383F] lg:flex-row justify-between h-[108px] px-5 lg:px-10 lg:items-center">
         <div className="text-2xl font-bold">
-          <Link className="flex items-center" href="/">
+          <Link className="flex items-center -mt-8 lg:mt-0" href="/">
             <Image
               src={footer_logo.filename}
               width={180}
@@ -104,7 +104,7 @@ export default function FooterSection({ props }: any) {
             />
           </Link>
         </div>
-        <div className="text-sm absolute bottom-2 lg:bottom-5 lg:right-10 text-white flex flex-col gap-5">
+        <div className="text-sm lg:absolute bottom-2 lg:bottom-5 lg:right-10 text-white flex flex-col gap-5 mt-5 lg:mt-0">
           <Image
             src="https://a.storyblok.com/f/304820/272x42/44fd68df90/resurs_logo_horizontal_rgb_white-2x.png"
             width={150}

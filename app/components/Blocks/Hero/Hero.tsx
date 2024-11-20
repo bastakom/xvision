@@ -37,7 +37,7 @@ const Hero = ({
       className={`${popup && `pt-14 ${uspar?.length < 0 && "pb-10"}`} ${
         no_image_hero
           ? "bg-[#1D383F] lg:px-0 h-[100%]"
-          : "h-[100%] mt-0 lg:h-[80vh] lg:mt-20"
+          : "h-[100%] mt-0 lg:h-full lg:mt-20 lg:py-32 lg:pb-56"
       } relative overflow-hidden`}
     >
       {!no_image_hero && (
@@ -53,7 +53,7 @@ const Hero = ({
       )}
       <div
         className={` ${
-          !no_image_hero ? "mx-auto container px-4" : ""
+          !no_image_hero ? "mx-auto container px-4 flex flex-col gap-20 justify-between" : ""
         } h-full flex flex-col justify-between`}
       >
         <div
@@ -65,7 +65,7 @@ const Hero = ({
                 } pt-20 lg:pt-0`
           }  h-full`}
         >
-          <div className="lg:w-1/2 z-10 text-white">
+          <div className="lg:w-1/2 z-10 text-white text-center lg:text-left ">
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">
                 {subtitle}
@@ -87,7 +87,7 @@ const Hero = ({
             </p>
             <div
               className={`flex flex-col lg:flex-row gap-4 mt-16 justify-center items-center  lg:px-0 ${
-                no_image_hero ? "lg:justify-center" : "lg:justify-start"
+                no_image_hero ? "lg:justify-center" : "lg:justify-start lg:pb-20"
               }`}
             >
               {buttons &&
@@ -118,7 +118,7 @@ const Hero = ({
         {uspar?.length > 0 && (
           <div
             className={`bg-[#FFF8E7] ${
-              no_image_hero ? "" : "rounded-3xl mb-10"
+              no_image_hero ? "" : "rounded-3xl mb-10 lg:absolute bottom-0 lg:w-[80%]"
             } p-6 mt-8 lg:mt-0 z-10`}
           >
             <div className="flex justify-center lg:justify-around text-center items-center flex-wrap lg:flex-row gap-5 lg:gap-0 ">
