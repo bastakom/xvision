@@ -69,7 +69,7 @@ const ImageBlock = ({ props }: any) => {
               <span className="text-[16px]">{props.subtitle}</span>
             )}
             <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
-            <span className={`max-w-[100%] text-[18px] ${scss.linkcontent}`}>
+            <span className={`max-w-[100%] text-[18px] flex flex-col gap-5 ${scss.linkcontent}`}>
               {render(props?.content)}
             </span>
             {props?.button && props?.button && (
