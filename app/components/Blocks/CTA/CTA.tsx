@@ -35,7 +35,7 @@ const CTA = ({ props }: CTA) => {
         </div>
       </div>
       <div
-        className={`${item.two_images ? "w-1/2" : "w-full"} h-full relative`}
+        className={`${item.two_images ? "w-full lg:w-1/2" : "w-full"} h-full relative`}
       >
         <Image
           src={item.bg_image.filename}
@@ -45,7 +45,7 @@ const CTA = ({ props }: CTA) => {
         />
       </div>
       {item.two_images && (
-        <div className="w-1/2 h-full relative">
+        <div className="w-1/2 h-full relative hidden lg:block">
           <Image
             src={item.bg_image_2.filename}
             alt={item.bg_image_2.alt}

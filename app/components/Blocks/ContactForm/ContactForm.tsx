@@ -62,7 +62,7 @@ export default function ContactForm({ global }: any) {
           </p>
           {!status ? (
             <form className="space-y-4 form" onSubmit={handleButtonClick}>
-              <div className="grid grid-cols-2 gap-4 ">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                 <div>
                   <label htmlFor="name" className="block text-gray-700">
                     Namn
@@ -121,7 +121,7 @@ export default function ContactForm({ global }: any) {
                 <label className="block text-gray-700">
                   Önskemål att bli kontaktad
                 </label>
-                <div className="flex gap-5">
+                <div className="grid grid-cols-2 gap-5">
                   <input
                     id="text"
                     className="w-full"
@@ -187,7 +187,7 @@ export default function ContactForm({ global }: any) {
               className="w-full max-h-[450px] object-left object-contain"
             />
           </div>
-          <div className="space-y-2 flex flex-col gap-5 text-[18px] font-medium">
+          <div className="space-y-2 flex flex-col gap-5 text-[18px] font-medium text-center lg:text-left">
             <div>
               <h4 className=" mb-2">X-Vision Ögonklinik</h4>
               <p>Hyllie Stationstorg 2</p>

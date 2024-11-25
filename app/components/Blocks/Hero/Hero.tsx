@@ -121,7 +121,7 @@ const Hero = ({
               no_image_hero ? "" : "rounded-3xl mb-10 lg:absolute bottom-0 lg:w-[80%]"
             } p-6 mt-8 lg:mt-0 z-10`}
           >
-            <div className="flex justify-center lg:justify-around text-center items-center flex-wrap lg:flex-row gap-5 lg:gap-0 ">
+            <div className="flex justify-center lg:justify-around text-center items-center flex-col lg:flex-wrap lg:flex-row gap-5 lg:gap-0 ">
               {uspar?.map((el: any) => {
                 return (
                   <div

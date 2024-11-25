@@ -48,7 +48,7 @@ const CTABlock = ({
           </Link>
         </div>
       </div>
-      <div className={`${two_images ? "w-1/2" : "w-full"} h-full relative`}>
+      <div className={`${two_images ? "w-full lg:w-1/2" : "w-full"} h-full relative`}>
         <Image
           src={bg_image?.filename}
           alt={bg_image?.alt}
@@ -58,7 +58,7 @@ const CTABlock = ({
         />
       </div>
       {two_images && (
-        <div className="w-1/2 h-full relative">
+        <div className="w-1/2 h-full relative hidden lg:block">
           <Image
             src={bg_image_2.filename}
             alt={bg_image_2.alt}

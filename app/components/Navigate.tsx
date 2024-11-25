@@ -158,7 +158,7 @@ export default function Navigate({
                 </Link>
               );
             })}
-            <div className="mt-5">
+            <div className="mt-5 hidden lg:block">
               <Link
                 href="/gratis-forundersokning"
                 onClick={() => isOpen(false)}
@@ -179,6 +179,15 @@ export default function Navigate({
                 </Link>
                 <Link href={IG.url}>
                   <FaInstagram size={25} />
+                </Link>
+              </div>
+              <div className="mt-10 mx-auto lg:hidden">
+                <Link
+                  href="/gratis-forundersokning"
+                  onClick={() => isOpen(false)}
+                  className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
+                >
+                  Boka konsultation
                 </Link>
               </div>
             </div>

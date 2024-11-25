@@ -9,14 +9,19 @@ import { notFound } from "next/navigation";
 
 const getPageData = async (slug: string) => {
   const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}`
+    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}`,
+    { cache: "no-store" }
   );
   return res.json();
 };
 
-export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
   const pathname = params.slug;
-  const slugName = !pathname || pathname === '' ? 'home' : pathname;
+  const slugName = !pathname || pathname === "" ? "home" : pathname;
   const res = await getPageData(slugName);
 
   return {
@@ -27,7 +32,7 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
-  const slugName = !pathname || pathname === '' ? 'home' : pathname;
+  const slugName = !pathname || pathname === "" ? "home" : pathname;
   const res = await getPageData(slugName);
 
   const ogonOperation = await GetOgonOperationer();
