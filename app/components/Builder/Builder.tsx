@@ -40,6 +40,7 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
                 no_dots={el.no_dots}
                 opacity={el.opacity}
                 popup={global.story.content.showpopup}
+                mobile_img={el.mobile_img}
               />
             );
           case "infobox":

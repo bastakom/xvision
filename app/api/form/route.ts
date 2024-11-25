@@ -4,7 +4,7 @@ const usermail = process.env.MARKNAD_EMAIL;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const { name, email, message, phone, tid, date, birthday } = await req.json();
+  const { name, email, message, phone, tid, date, birthday, beskriv } = await req.json();
 
   const messageBody = `
     <div style="background-color: #f9f9f9; padding: 20px;">
@@ -14,6 +14,7 @@ export async function POST(req: Request) {
       <p>Datum: ${date}</p>
       <p>Tid: ${tid}</p>
       <p>Födelsedatum: ${birthday}</p>
+      <p>Vad vill du uppnå med en ögonoperation?: ${beskriv}</p>
       <p>Meddelande: ${message}</p>
     </div>
   `;

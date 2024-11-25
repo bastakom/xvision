@@ -17,6 +17,7 @@ interface HeroProps {
   no_dots?: any;
   opacity?: any;
   popup?: any;
+  mobile_img?: any
 }
 
 const Hero = ({
@@ -31,6 +32,7 @@ const Hero = ({
   no_dots,
   popup,
   opacity,
+  mobile_img,
 }: HeroProps) => {
   return (
     <section
@@ -45,7 +47,16 @@ const Hero = ({
           src={img?.filename}
           fill
           alt={img?.alt}
-          className="object-cover object-top"
+          className="hidden lg:block lg:object-cover object-top"
+        />
+      )}
+
+      {!no_image_hero && mobile_img && (
+        <Image
+          src={mobile_img?.filename || img?.filename}
+          fill
+          alt={mobile_img?.alt}
+          className="object-cover lg:hidden object-top"
         />
       )}
       {!opacity && (
@@ -53,7 +64,9 @@ const Hero = ({
       )}
       <div
         className={` ${
-          !no_image_hero ? "mx-auto container px-4 flex flex-col gap-20 justify-between" : ""
+          !no_image_hero
+            ? "mx-auto container px-4 flex flex-col gap-20 justify-between"
+            : ""
         } h-full flex flex-col justify-between`}
       >
         <div
@@ -61,7 +74,9 @@ const Hero = ({
             no_image_hero
               ? "justify-center text-center pt-32 lg:pt-56 pb-0 lg:pb-24"
               : `${
-                  text_center ? "text-center justify-center" : "justify-between text-center lg:text-left"
+                  text_center
+                    ? "text-center justify-center"
+                    : "justify-between text-center lg:text-left"
                 } pt-20 lg:pt-0`
           }  h-full`}
         >
@@ -87,7 +102,9 @@ const Hero = ({
             </p>
             <div
               className={`flex flex-col lg:flex-row gap-4 mt-16 justify-center items-center  lg:px-0 ${
-                no_image_hero ? "lg:justify-center" : "lg:justify-start lg:pb-20"
+                no_image_hero
+                  ? "lg:justify-center"
+                  : "lg:justify-start lg:pb-20"
               }`}
             >
               {buttons &&
@@ -118,14 +135,16 @@ const Hero = ({
         {uspar?.length > 0 && (
           <div
             className={`bg-[#FFF8E7] ${
-              no_image_hero ? "" : "rounded-3xl mb-10 lg:absolute bottom-0 lg:w-[80%]"
+              no_image_hero
+                ? ""
+                : "rounded-3xl mb-10 lg:absolute bottom-0 lg:w-[80%]"
             } p-6 mt-8 lg:mt-0 z-10`}
           >
             <div className="flex justify-center lg:justify-around text-center items-center flex-col lg:flex-wrap lg:flex-row gap-5 lg:gap-0 ">
               {uspar?.map((el: any) => {
                 return (
                   <div
-                    className="font-medium flex items-center gap-2 font_overwrite text-[14px] lg:text-[20px]"
+                    className="font-medium flex items-center gap-2 font_overwrite text-[18px] lg:text-[20px]"
                     key={el._uid}
                   >
                     {!no_dots && <GoDotFill />}
