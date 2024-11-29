@@ -1,24 +1,48 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 export default function FooterSection({ props }: any) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpenKontakt, setIsdropDownOpenKontakt] = useState(false);
   const {
     story: {
       content: { footer_logo, footer_image, footer_menu_1, IG, FB },
     },
   } = props;
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleDropdownContact = () => {
+    setIsdropDownOpenKontakt(!isDropdownOpenKontakt);
+  };
+
   return (
     <footer className="bg-[#1D383F] text-white py-5 relative">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20 p-5 lg:p-0 ">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20 p-5 lg:p-0 text-center lg:text-left">
+        <Link
+          className="flex items-center -mt-8 lg:mt-0 lg:hidden mx-auto"
+          href="/"
+        >
+          <Image
+            src={footer_logo.filename}
+            width={220}
+            height={50}
+            alt={footer_logo.alt}
+          />
+        </Link>
         <Image
           src={footer_image.filename}
           width={150}
           height={150}
           alt={footer_image.alt}
-          className="absolute top-5 right-2 lg:right-10 lg:top-10"
+          className="absolute top-5 right-2 lg:right-10 lg:top-10 hidden lg:block"
         />
         <div>
           <h3 className="font-semibold mb-4 text-[24px]">
@@ -41,7 +65,7 @@ export default function FooterSection({ props }: any) {
               info@xvisionkliniken.se
             </Link>
           </div>
-          <div className="flex space-x-4 mt-4">
+          <div className="flex space-x-4 mt-4 justify-center lg:justify-normal">
             <Link href={FB.url}>
               <FaFacebook size={25} />
             </Link>
@@ -50,17 +74,31 @@ export default function FooterSection({ props }: any) {
             </Link>
           </div>
         </div>
-
         {/* Column 2: Services */}
         <div>
-          <h3 className="font-semibold  mb-4 text-[24px]">
-            Operationer & behandlingar
+          <h3
+            className="font-semibold lg:mb-4 text-[24px] cursor-pointer md:cursor-default flex items-center 
+            lg:items-start justify-center lg:justify-start ml-10 lg:ml-0 gap-2 lg:gap-0"
+            onClick={toggleDropdown}
+          >
+            Operationer & behandlingar{" "}
+            <RiArrowDownSLine
+              fontSize={40}
+              className={`${!isDropdownOpen ? "block md:hidden" : "hidden"}`}
+            />
+            <RiArrowUpSLine
+              fontSize={40}
+              className={`${isDropdownOpen ? "block md:hidden" : "hidden"}`}
+            />
           </h3>
-          <ul className="space-y-2">
+          <ul
+            className={`space-y-2 ${
+              isDropdownOpen ? "block" : "hidden"
+            } md:block`}
+          >
             {footer_menu_1.map((item: any, i: number) => (
-              <li className=" text-[22px]">
+              <li key={i} className="text-[22px]">
                 <Link
-                  key={i}
                   href={
                     item.link.linktype === "story"
                       ? item.link.cached_url
@@ -76,12 +114,34 @@ export default function FooterSection({ props }: any) {
 
         {/* Column 3: Contact */}
         <div className="flex flex-col text-[22px]">
-          <h3 className="font-semibold mb-4 text-[24px] ">Kontakt</h3>
-          <Link href="/gratis-forundersokning" className="">
-            Boka fri konsultation
-          </Link>
-          <Link href="/privacy-policy" className="mt-4 ">Privacy policy</Link>
-          <h3 className="">Cookies</h3>
+          <h3
+            className="font-semibold mb-4 text-[24px] cursor-pointer md:cursor-default flex items-center 
+            lg:items-start justify-center lg:justify-start ml-10 lg:ml-0 gap-2 lg:gap-0"
+            onClick={toggleDropdownContact}
+          >
+            Kontakt
+            <RiArrowDownSLine
+              fontSize={40}
+              className={` ${!isDropdownOpenKontakt ? "block lg:hidden" : "hidden"}`}
+            />
+            <RiArrowUpSLine
+              fontSize={40}
+              className={`${isDropdownOpenKontakt ? "block lg:hidden" : "hidden"}`}
+            />
+          </h3>
+          <div
+            className={`${
+              isDropdownOpenKontakt ? "flex" : "hidden"
+            } md:flex flex-col`}
+          >
+            <Link href="/gratis-forundersokning" className="">
+              Boka fri konsultation
+            </Link>
+            <Link href="/privacy-policy" className="mt-4">
+              Privacy policy
+            </Link>
+            <h3 className="">Cookies</h3>
+          </div>
         </div>
       </div>
 
@@ -91,10 +151,17 @@ export default function FooterSection({ props }: any) {
           <div key={i} className="w-2 h-2 bg-cream rounded-full"></div>
         ))}
       </div>
-
+      <div className="flex w-full justify-end px-5 lg:hidden">
+        <Image
+          src={footer_image.filename}
+          width={150}
+          height={150}
+          alt={footer_image.alt}
+        />
+      </div>
       {/* Bottom section */}
-      <div className="lg:mt-5 lg:pt-6 flex flex-col bg-[#1D383F] lg:flex-row justify-between h-[108px] px-5 lg:px-10 lg:items-center">
-        <div className="text-2xl font-bold">
+      <div className="lg:mt-5 lg:pt-6 flex flex-col bg-[#1D383F] lg:flex-row justify-center lg:justify-between h-[108px] px-5 lg:px-10 items-center">
+        <div className="text-2xl font-bold hidden lg:block">
           <Link className="flex items-center -mt-8 lg:mt-0" href="/">
             <Image
               src={footer_logo.filename}
@@ -109,6 +176,7 @@ export default function FooterSection({ props }: any) {
             src="https://a.storyblok.com/f/304820/272x42/44fd68df90/resurs_logo_horizontal_rgb_white-2x.png"
             width={150}
             height={50}
+            className="mx-auto lg:mx-0"
             alt="logo"
           />
           <span> © 2025 X-Vision Ögonklinik. All rights</span>
