@@ -117,7 +117,7 @@ label {
 }
 
 input[type="checkbox"] {
-  accent-color: #1D383F;
+  accent-color: #1d383f;
 }
 
 input[type="checkbox"] {
@@ -129,9 +129,13 @@ input[type="checkbox"] {
   list-style: circle;
 }
 
-
 .global-form {
   label {
     margin-top: 10px;
   }
+}
+
+input[type="date"]:not(.has-value):before {
+  color: lightgray;
+  content: attr(placeholder);
 }

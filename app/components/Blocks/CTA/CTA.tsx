@@ -8,6 +8,7 @@ interface CTA {
 }
 
 const CTA = ({ props }: CTA) => {
+  console.log(props);
   return props?.map((item: any) => (
     <div className="relative h-[100vh] lg:h-[60vh] w-full text-white flex justify-center">
       <div className="absolute z-10 text-center gap-10 m-auto w-full h-full flex justify-center items-center flex-col">
@@ -35,14 +36,28 @@ const CTA = ({ props }: CTA) => {
         </div>
       </div>
       <div
-        className={`${item.two_images ? "w-full lg:w-1/2" : "w-full"} h-full relative`}
+        className={`${
+          item.two_images ? "w-full lg:w-1/2" : "w-full"
+        } h-full relative`}
       >
         <Image
           src={item.bg_image.filename}
           alt={item.bg_image.alt}
           fill
-          className={`object-cover left-0`}
+          className={`object-cover left-0 ${
+            item?.mobileimage?.filename && "hidden lg:block"
+          }`}
         />
+        {item?.mobileimage?.filename && (
+          <Image
+            src={item?.mobileimage?.filename}
+            alt={item.bg_image.alt}
+            fill
+            className={`object-cover left-0 ${
+              item?.mobileimage?.filename && "block lg:hidden"
+            }`}
+          />
+        )}
       </div>
       {item.two_images && (
         <div className="w-1/2 h-full relative hidden lg:block">

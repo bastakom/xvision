@@ -129,7 +129,7 @@ export default function Navigate({
                     showLinser && "text-[#CFEDC6]"
                   } flex justify-between items-center`}
                 >
-                  {menuItem.link_title}{" "}
+                  {menuItem.link_title}
                   <IoChevronForward fontSize={20} className="block lg:hidden" />
                 </button>
               ) : menuItem.sub_menu_ogonoperation ? (
@@ -197,6 +197,13 @@ export default function Navigate({
               !showLinser ? "translate-x-full" : "translate-x-0"
             }`}
           >
+            <Link
+              onClick={() => isOpen(false)}
+              href={`/linsoperation`}
+              className="hover:text-[#cfedc6] block lg:hidden"
+            >
+              Om Linsoperationer
+            </Link>
             {linsOperation.map((el: any, index: number) => {
               return (
                 <Link
@@ -215,6 +222,13 @@ export default function Navigate({
               !showOgon ? "translate-x-full" : "translate-x-0"
             }`}
           >
+            <Link
+              onClick={() => isOpen(false)}
+              href={`/ogonlaser`}
+              className="hover:text-[#cfedc6] block lg:hidden"
+            >
+              Om ögonoperationer
+            </Link>
             {ogonOperationer.map((el: any, index: number) => {
               return (
                 <Link

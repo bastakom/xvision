@@ -17,7 +17,7 @@ interface HeroProps {
   no_dots?: any;
   opacity?: any;
   popup?: any;
-  mobile_img?: any
+  mobile_img?: any;
 }
 
 const Hero = ({
@@ -38,7 +38,7 @@ const Hero = ({
     <section
       className={`${popup && `pt-14 ${uspar?.length < 0 && "pb-10"}`} ${
         no_image_hero
-          ? "bg-[#1D383F] lg:px-0 h-[100%]"
+          ? `bg-[#1D383F] lg:px-0 h-[100%] ${uspar?.length === 0 && "pb-10"}`
           : "h-[100%] mt-0 lg:h-full lg:mt-20 lg:py-32 lg:pb-56"
       } relative overflow-hidden`}
     >
