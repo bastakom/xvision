@@ -78,10 +78,10 @@ export default function FooterSection({ props }: any) {
         <div>
           <h3
             className="font-semibold lg:mb-4 text-[24px] cursor-pointer md:cursor-default flex items-center 
-            lg:items-start justify-center lg:justify-start ml-10 lg:ml-0 gap-2 lg:gap-0"
+            lg:items-start justify-center lg:justify-start lg:ml-0 gap-2 lg:gap-0"
             onClick={toggleDropdown}
           >
-            Operationer & behandlingar{" "}
+          Operationer & behandlingar
             <RiArrowDownSLine
               fontSize={40}
               className={`${!isDropdownOpen ? "block md:hidden" : "hidden"}`}
