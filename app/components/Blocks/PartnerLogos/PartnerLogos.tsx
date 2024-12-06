@@ -25,9 +25,9 @@ export default function PartnerLogos({ images }: any) {
                 key={index}
                 src={item.filename}
                 width={150}
-                height={40}
+                height={20}
                 alt={item.alt}
-                className="w-[150px] h-[40px]"
+                className="w-[150px] h-[40px] object-contain"
               />
             ))}
           </div>
