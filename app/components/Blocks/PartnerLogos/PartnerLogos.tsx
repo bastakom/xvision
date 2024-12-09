@@ -19,7 +19,7 @@ export default function PartnerLogos({ images }: any) {
           VÅRA SAMARBETSPARTNERS
         </h4>
         <div className="relative">
-          <div className="flex space-x-12 animate-scroll">
+          <div className="flex space-x-14 animate-scroll">
             {repeatedImages.map((item: any, index: number) => (
               <Image
                 key={index}
@@ -27,7 +27,7 @@ export default function PartnerLogos({ images }: any) {
                 width={150}
                 height={20}
                 alt={item.alt}
-                className="w-[150px] h-[40px] object-contain"
+                className="w-[343px] h-[40px] object-contain"
               />
             ))}
           </div>
