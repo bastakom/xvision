@@ -25,6 +25,7 @@ export default function Navigate({
   props,
   ogonOperationer,
   linsOperation,
+  lang,
 }: any) {
   const [showLinser, isShowLinser] = useState(false);
   const [showOgon, isShowOgon] = useState(false);
@@ -66,7 +67,7 @@ export default function Navigate({
               className="text-black hover:text-[#1d383f] transition-all"
               href={`${
                 menuItem.link.linktype === "story"
-                  ? `/${menuItem.link.cached_url}`
+                  ? `${menuItem.link.cached_url.replace(/\/(da|en)\//, "/")}`
                   : menuItem.link.url
               }`}
             >
@@ -78,7 +79,7 @@ export default function Navigate({
           href="/gratis-forundersokning"
           className="text-white button bg-[#1D383F]"
         >
-          Boka konsultation
+          {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
         </Link>
         <NavDots />
       </nav>
@@ -103,7 +104,8 @@ export default function Navigate({
               className="flex gap-2 items-center text-[17px] font-bold open-sans"
               onClick={handleLinser}
             >
-              <IoChevronBack fontSize={20} /> Tillbaka
+              <IoChevronBack fontSize={20} />
+              {lang == "da" ? "Tilbage" : lang === "en" ? "Back" : "Tillbaka"}
             </Link>
           )}
           {showOgon && (
@@ -112,7 +114,8 @@ export default function Navigate({
               className="flex gap-2 items-center text-[17px] font-bold open-sans"
               onClick={handleOgon}
             >
-              <IoChevronBack fontSize={20} /> Tillbaka
+              <IoChevronBack fontSize={20} />
+              {lang == "da" ? "Tilbage" : lang === "en" ? "Back" : "Tillbaka"}
             </Link>
           )}
         </div>
@@ -164,7 +167,7 @@ export default function Navigate({
                 onClick={() => isOpen(false)}
                 className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
               >
-                Boka konsultation
+                {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
@@ -187,7 +190,7 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
                 >
-                  Boka konsultation
+                  {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
                 </Link>
               </div>
             </div>
@@ -227,7 +230,7 @@ export default function Navigate({
               href={`/ogonlaser`}
               className="hover:text-[#cfedc6] block lg:hidden"
             >
-              Om ögonoperationer
+              {lang === "da" ? "Om øjenoperationer" : "Om ögonoperationer"}
             </Link>
             {ogonOperationer.map((el: any, index: number) => {
               return (

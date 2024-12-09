@@ -19,9 +19,16 @@ interface Props {
   ogonOperationer?: any;
   global?: any;
   linsOperation?: any;
+  lang?: any;
 }
 
-const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
+const Builder = ({
+  props,
+  ogonOperationer,
+  global,
+  linsOperation,
+  lang,
+}: Props) => {
   return props ? (
     <div>
       {props.map((el: any) => {
@@ -60,6 +67,7 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
                 props={el}
                 operations={ogonOperationer.stories}
                 linsoperation={linsOperation.stories}
+                lang={lang}
               />
             );
           case "team": {
@@ -77,11 +85,17 @@ const Builder = ({ props, ogonOperationer, global, linsOperation }: Props) => {
             return <Step props={global.story.content} />;
           }
           case "partnerLogos":
-            return <PartnerLogos images={el?.partnerlogos} />;
+            return (
+              <PartnerLogos
+                images={el?.partnerlogos}
+                title={el.title}
+                lang={lang}
+              />
+            );
           case "aboutBlock":
             return <AboutBlock props={el} />;
           case "contactForm":
-            return <ContactForm global={global} />;
+            return <ContactForm global={global} lang={lang} />;
           case "imageblock":
             return <ImageBlock props={el} />;
           case "contentbox":

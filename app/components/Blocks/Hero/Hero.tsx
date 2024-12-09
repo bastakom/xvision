@@ -115,7 +115,7 @@ const Hero = ({
                       key={index}
                       href={`${
                         el.link.linktype === "story"
-                          ? `${el.link.cached_url}`
+                          ? `${el.link.cached_url.replace(/\/(da|en)\//, "/")}`
                           : `${el.link.url}`
                       }`}
                       className={`button transition-all duration-300 ${

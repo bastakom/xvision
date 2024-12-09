@@ -15,14 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang={process.env.STORYBLOCK_LANG}>
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/qnl0pvt.css" />
       </head>
       <body>
-        <Header />
+        <Header lang={process.env.STORYBLOCK_LANG} />
         {children}
-        <Footer />
+        <Footer lang={process.env.STORYBLOCK_LANG} />
       </body>
     </html>
   );

@@ -9,12 +9,14 @@ interface Props {
   props?: any;
   operations?: any;
   linsoperation?: any;
+  lang?: any;
 }
 
 export default function TilesBehandlingar({
   props,
   operations,
   linsoperation,
+  lang,
 }: Props) {
   const [showAll, setShowAll] = useState(false);
 
@@ -69,7 +71,11 @@ export default function TilesBehandlingar({
                       : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
                   </p>
                   <span className="hover:text-white p-0 underline underline-offset-8">
-                    Läs mer
+                    {lang === "da"
+                      ? "Læs mere"
+                      : lang === "en"
+                      ? "Read more"
+                      : "Läs mer"}
                   </span>
                 </Link>
               ))}
@@ -91,16 +97,18 @@ export default function TilesBehandlingar({
                     alt="icon"
                   />
                 )}
-                <h3 className="text-xl font-normal mb-4">
-                  {op.name}
-                </h3>
+                <h3 className="text-xl font-normal mb-4">{op.name}</h3>
                 <p className="mb-4 max-w-[80%] mx-auto m-0">
                   {op.content.short_description
                     ? op.content.short_description
                     : " För dig under 40 år. Särskilt lämplig för dig med tunna hornhinnor."}
                 </p>
                 <span className="hover:text-white p-0 underline underline-offset-8">
-                  Läs mer
+                  {lang === "da"
+                    ? "Læs mere"
+                    : lang === "en"
+                    ? "Read more"
+                    : "Läs mer"}
                 </span>
               </Link>
             ))}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ContactForm({ global }: any) {
+export default function ContactForm({ global, lang }: any) {
   const [sent, setSent] = useState(false);
   const [status, setStatus] = useState("");
   const [formData, setFormData] = useState({
@@ -51,21 +51,16 @@ export default function ContactForm({ global }: any) {
     <div className="max-w-[100%] xl:max-w-[70%] mx-auto p-6 bg-white py-10 lg:py-24">
       <div className="grid md:grid-cols-[2fr_1fr] gap-20">
         <div className="space-y-6">
-          <h2 className="text-4xl">
-            Kontakta oss för en kostnadsfri telefonrådgivning
-          </h2>
+          <h2 className="text-4xl">{data.form_title}</h2>
           <p className="text-gray-600 text-[18px] pb-10 pt-5 max-w-[90%]">
-            Hos oss på X-Vision ögonklinik i Malmö är kvalitet vår högsta
-            prioritet. Med gedigen erfarenhet och modern teknik står vi redo att
-            hjälpa dig att se skarpare. Vill du veta mer? Kontakta oss idag för
-            en kostnadsfri telefonrådgivning.
+            {data.form_text}
           </p>
           {!status ? (
             <form className="space-y-4 form" onSubmit={handleButtonClick}>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                 <div>
                   <label htmlFor="name" className="block text-gray-700">
-                    Namn
+                    {lang === "da" ? "Navn" : "Namn"}
                   </label>
                   <input
                     id="name"
@@ -77,7 +72,7 @@ export default function ContactForm({ global }: any) {
                 </div>
                 <div>
                   <label htmlFor="age" className="block text-gray-700">
-                    Födelseår
+                    {lang === "da" ? "Fødselsår" : "Födelseår"}
                   </label>
                   <input
                     id="age"
@@ -91,7 +86,7 @@ export default function ContactForm({ global }: any) {
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-gray-700">
-                    Telefon
+                    {lang === "da" ? "Telefon" : "Telefon"}
                   </label>
                   <input
                     id="phone"
@@ -103,7 +98,7 @@ export default function ContactForm({ global }: any) {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-gray-700">
-                    E-post
+                    {lang === "da" ? "E-mail" : "E-post"}
                   </label>
                   <input
                     id="email"
@@ -119,14 +114,18 @@ export default function ContactForm({ global }: any) {
 
               <div>
                 <label className="block text-gray-700">
-                  Önskemål att bli kontaktad
+                  {lang === "da"
+                    ? "Ønsker at blive kontaktet"
+                    : "Önskemål att bli kontaktad"}
                 </label>
                 <div className="grid grid-cols-2 gap-5">
                   <input
                     id="text"
                     className="w-full"
                     type="text"
-                    placeholder="Tidsintervall"
+                    placeholder={`${
+                      lang === "da" ? "Tidsinterval" : "Tidsintervall"
+                    }`}
                     onChange={handleChange}
                     value={formData.tid}
                     name="tid"
@@ -143,7 +142,7 @@ export default function ContactForm({ global }: any) {
               </div>
               <div>
                 <label htmlFor="message" className="block text-gray-700">
-                  Meddelande
+                  {lang === "da" ? "Besked" : "Meddelande"}
                 </label>
                 <textarea
                   id="message"
@@ -164,17 +163,27 @@ export default function ContactForm({ global }: any) {
                   htmlFor="terms"
                   className="terms flex flex-col text-gray-600"
                 >
-                  Jag godkänner att ni hanterar mina personuppgifter enligt
-                  ovan.
+                  {lang === "da"
+                    ? "Jeg accepterer, at du håndterer mine personlige data som ovenfor."
+                    : "Jag godkänner att ni hanterar mina personuppgifter enligt ovan."}
                   <a href="#" className="hover:underline text-[14px] open-sans">
-                    Läs mer om hur vi behandlar dina personuppgifter här
+                    {lang == "da"
+                      ? "Læs mere om, hvordan vi behandler dine personoplysninger her"
+                      : "Läs mer om hur vi behandlar dina personuppgifter här"}
                   </a>
                 </label>
               </div>
-              <button className="button font-medium text-[18px]">Skicka</button>
+              <button className="button font-medium text-[18px]">
+                {lang === "da" ? "Sende" : "Skicka"}
+              </button>
             </form>
           ) : (
-            <div> Tack för ditt meddelande, vi återkommer snarast!</div>
+            <div>
+              {" "}
+              {lang === "da"
+                ? "Tak for din besked, vi vender snart tilbage til dig!"
+                : "Tack för ditt meddelande, vi återkommer snarast!"}
+            </div>
           )}
         </div>
         <div className="space-y-10 ">

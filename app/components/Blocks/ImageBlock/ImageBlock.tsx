@@ -17,7 +17,9 @@ const ImageBlock = ({ props }: any) => {
             }`}
           >
             {props?.subtitle && (
-              <span className="text-[16px] text-[#1d383f]">{props?.subtitle}</span>
+              <span className="text-[16px] text-[#1d383f]">
+                {props?.subtitle}
+              </span>
             )}
             {props?.title && (
               <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
@@ -30,7 +32,9 @@ const ImageBlock = ({ props }: any) => {
             <div className="mt-5">
               {props?.button && props.button && (
                 <Link
-                  href={props?.link?.cached_url || "/"}
+                  href={
+                    props?.link?.cached_url.replace(/\/(da|en)\//, "/") || "/"
+                  }
                   className="border-[#1D383F] border text-center button mt-5 text-[18px] hover:bg-[#1D383F] hover:text-white"
                 >
                   {props.button}
@@ -69,12 +73,16 @@ const ImageBlock = ({ props }: any) => {
               <span className="text-[16px]">{props.subtitle}</span>
             )}
             <h3 className="text-[35px] leading-[45px]">{props?.title}</h3>
-            <span className={`max-w-[100%] text-[18px] flex flex-col gap-5 ${scss.linkcontent}`}>
+            <span
+              className={`max-w-[100%] text-[18px] flex flex-col gap-5 ${scss.linkcontent}`}
+            >
               {render(props?.content)}
             </span>
             {props?.button && props?.button && (
               <Link
-                href={props?.link?.cached_url || "/"}
+                href={
+                  props?.link?.cached_url.replace(/\/(da|en)\//, "/") || "/"
+                }
                 className="border-[#1D383F] border max-w-[350px] text-center button mt-5 hover:bg-[#1D383F] hover:text-white"
               >
                 {props?.button}

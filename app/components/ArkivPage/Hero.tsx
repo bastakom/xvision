@@ -34,13 +34,13 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
                   key={index}
                   href={`${
                     el.link.linktype === "story"
-                      ? `/${el.link.cached_url}`
+                      ? `${el.link.cached_url.replace(/\/(da|en)\//, "/")}`
                       : `/${el.link.url}`
                   }`}
                   className={`button ${
                     index === 0
                       ? scss.button
-                      : "border-white border text-[18px] hover:bg-white hover:text-black" 
+                      : "border-white border text-[18px] hover:bg-white hover:text-black"
                   }`}
                 >
                   {el?.link_title}

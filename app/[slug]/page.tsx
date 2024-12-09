@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 
 const getPageData = async (slug: string) => {
   const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}`,
+    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
     { cache: "no-store" }
   );
   return res.json();
@@ -34,6 +34,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
   const slugName = !pathname || pathname === "" ? "home" : pathname;
   const res = await getPageData(slugName);
+  const lang = process.env.STORYBLOCK_LANG;
 
   const ogonOperation = await GetOgonOperationer();
   const linsOperation = await GetLinsOperationer();
@@ -50,6 +51,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         ogonOperationer={ogonOperation}
         global={generalSetting}
         linsOperation={linsOperation}
+        lang={lang}
       />
     </main>
   );

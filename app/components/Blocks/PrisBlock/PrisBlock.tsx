@@ -8,7 +8,8 @@ import { render } from "storyblok-rich-text-react-renderer";
 const PrisBlock = ({ props }: any) => {
   return (
     <div className="my-10 lg:my-20 px-5 lg:px-0" id={`${props.hashtag}`}>
-      <h2 className="text-center pb-10 text-[35px]">{props.title}</h2>
+      <h2 className="text-center pb-5 text-[35px]">{props.title}</h2>
+      <h2 className="text-center pb-10 text-[22px]">{props.subtitle}</h2>
       <div className="flex flex-wrap justify-center gap-5 text-center">
         {props.pris.map((item: any, index: number) => {
           const firstLink =

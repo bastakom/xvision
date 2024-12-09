@@ -5,7 +5,7 @@ import {
 } from "../lib/apireq";
 import Navigate from "./Navigate";
 
-const Header = async () => {
+const Header = async ({ lang }: any) => {
   const response = await GetGenerlSettings();
   const ogonOperation = await GetOgonOperationer();
   const linsOperation = await GetAllLinsOperations();
@@ -14,6 +14,7 @@ const Header = async () => {
       props={response}
       ogonOperationer={ogonOperation.stories}
       linsOperation={linsOperation.stories}
+      lang={lang}
     />
   );
 };
