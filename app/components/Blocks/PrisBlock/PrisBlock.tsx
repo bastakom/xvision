@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IoMdCheckmark } from "react-icons/io";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const PrisBlock = ({ props }: any) => {
+const PrisBlock = ({ props, lang }: any) => {
   return (
     <div className="my-10 lg:my-20 px-5 lg:px-0" id={`${props.hashtag}`}>
       <h2 className="text-center pb-5 text-[35px]">{props.title}</h2>
@@ -52,15 +52,22 @@ const PrisBlock = ({ props }: any) => {
                 )}
                 <span className="text-[35px]">{item.pris}</span>
                 <span className="max-w-[250px] mt-2 text-[12px]">
-                  Dela upp din betalning räntefritt i 2 år eller till en
-                  månadskostnad som passar dig.
+                  {lang === "da"
+                    ? "Opdel din betaling rentefrit over 2 år eller i et månedlige omkostninger, der passer dig."
+                    : lang === "en"
+                    ? "Split your payment interest-free over 2 years or at a monthly cost that suits you."
+                    : "Dela upp din betalning räntefritt i 2 år eller till en månadskostnad som passar dig."}
                 </span>
               </div>
               <Link
-                className="button mx-auto max-w-[200px] bg-[#CFEDC6] text-black mt-5"
+                className="button mx-auto max-w-[220px] bg-[#CFEDC6] text-black mt-5"
                 href="/gratis-forundersokning"
               >
-                Boka konsultation
+                {lang === "da"
+                  ? "Book en konsultation"
+                  : lang === "en"
+                  ? "Book a consultation "
+                  : "Boka konsultation"}
               </Link>
               <div className="flex flex-col gap-2">
                 {firstLink === "undefiend" ? (
@@ -69,7 +76,11 @@ const PrisBlock = ({ props }: any) => {
                     href={`/delbetalning`}
                     className="underline underline-offset-2"
                   >
-                    Läs mer om delbetalning
+                    {lang === "da"
+                      ? "Læs mere om delbetaling"
+                      : lang === "en"
+                      ? "Read more about partial payment "
+                      : " Läs mer om delbetalning "}
                   </Link>
                 ) : (
                   <>
@@ -78,14 +89,23 @@ const PrisBlock = ({ props }: any) => {
                       href={`/${firstLink}`}
                       className="underline underline-offset-2"
                     >
-                      Läs mer om {item.title}
+                      {lang === "da"
+                        ? "Læs mere om "
+                        : lang === "en"
+                        ? "Read more about "
+                        : "Läs mer om "}
+                      {item.title}
                     </Link>
 
                     <Link
                       href={`/delbetalning`}
                       className="underline underline-offset-2"
                     >
-                      Läs mer om delbetalning
+                      {lang === "da"
+                        ? "Læs mere om delbetaling"
+                        : lang === "en"
+                        ? "Read more about partial payment "
+                        : " Läs mer om delbetalning "}
                     </Link>
                   </>
                 )}

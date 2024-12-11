@@ -60,7 +60,7 @@ const Builder = ({
               />
             );
           case "forundersokning":
-            return <Forundersokning props={el} />;
+            return <Forundersokning props={el} lang={lang} />;
           case "tilesBehandlingar":
             return (
               <TilesBehandlingar
@@ -114,7 +114,7 @@ const Builder = ({
               />
             );
           case "PrisBlock":
-            return <PrisBlock props={el} />;
+            return <PrisBlock props={el} lang={lang} />;
           default:
             return <div>No content</div>;
         }

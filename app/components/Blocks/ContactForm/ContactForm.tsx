@@ -60,7 +60,7 @@ export default function ContactForm({ global, lang }: any) {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                 <div>
                   <label htmlFor="name" className="block text-gray-700">
-                    {lang === "da" ? "Navn" : "Namn"}
+                    {lang === "da" ? "Navn" : lang === "en" ? "Name" : "Namn"}
                   </label>
                   <input
                     id="name"
@@ -72,7 +72,11 @@ export default function ContactForm({ global, lang }: any) {
                 </div>
                 <div>
                   <label htmlFor="age" className="block text-gray-700">
-                    {lang === "da" ? "Fødselsår" : "Födelseår"}
+                    {lang === "da"
+                      ? "Fødselsår"
+                      : lang === "en"
+                      ? "Year of birth"
+                      : "Födelseår"}
                   </label>
                   <input
                     id="age"
@@ -86,7 +90,11 @@ export default function ContactForm({ global, lang }: any) {
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-gray-700">
-                    {lang === "da" ? "Telefon" : "Telefon"}
+                    {lang === "da"
+                      ? "Telefon"
+                      : lang === "en"
+                      ? "Phone"
+                      : "Telefon"}
                   </label>
                   <input
                     id="phone"
@@ -98,7 +106,11 @@ export default function ContactForm({ global, lang }: any) {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-gray-700">
-                    {lang === "da" ? "E-mail" : "E-post"}
+                    {lang === "da"
+                      ? "E-mail"
+                      : lang === "en"
+                      ? "E-mail"
+                      : "E-post"}
                   </label>
                   <input
                     id="email"
@@ -116,6 +128,8 @@ export default function ContactForm({ global, lang }: any) {
                 <label className="block text-gray-700">
                   {lang === "da"
                     ? "Ønsker at blive kontaktet"
+                    : lang === "en"
+                    ? "I wish to be contacted"
                     : "Önskemål att bli kontaktad"}
                 </label>
                 <div className="grid grid-cols-2 gap-5">
@@ -124,7 +138,11 @@ export default function ContactForm({ global, lang }: any) {
                     className="w-full"
                     type="text"
                     placeholder={`${
-                      lang === "da" ? "Tidsinterval" : "Tidsintervall"
+                      lang === "da"
+                        ? "Tidsinterval"
+                        : lang === "en"
+                        ? "Time"
+                        : "Tidsintervall"
                     }`}
                     onChange={handleChange}
                     value={formData.tid}
@@ -142,7 +160,11 @@ export default function ContactForm({ global, lang }: any) {
               </div>
               <div>
                 <label htmlFor="message" className="block text-gray-700">
-                  {lang === "da" ? "Besked" : "Meddelande"}
+                  {lang === "da"
+                    ? "Besked"
+                    : lang === "en"
+                    ? "Message"
+                    : "Meddelande"}
                 </label>
                 <textarea
                   id="message"
@@ -165,23 +187,28 @@ export default function ContactForm({ global, lang }: any) {
                 >
                   {lang === "da"
                     ? "Jeg accepterer, at du håndterer mine personlige data som ovenfor."
+                    : lang === "en"
+                    ? "I agree that you handle my personal data as above."
                     : "Jag godkänner att ni hanterar mina personuppgifter enligt ovan."}
                   <a href="#" className="hover:underline text-[14px] open-sans">
                     {lang == "da"
                       ? "Læs mere om, hvordan vi behandler dine personoplysninger her"
+                      : lang === "en"
+                      ? "Read more about how we process your personal data here"
                       : "Läs mer om hur vi behandlar dina personuppgifter här"}
                   </a>
                 </label>
               </div>
               <button className="button font-medium text-[18px]">
-                {lang === "da" ? "Sende" : "Skicka"}
+                {lang === "da" ? "Sende" : lang === "en" ? "Send" : "Skicka"}
               </button>
             </form>
           ) : (
             <div>
-              {" "}
               {lang === "da"
                 ? "Tak for din besked, vi vender snart tilbage til dig!"
+                : lang === "en"
+                ? "Thank you for your message!"
                 : "Tack för ditt meddelande, vi återkommer snarast!"}
             </div>
           )}

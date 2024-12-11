@@ -5,14 +5,11 @@ import Step from "@/app/components/Blocks/Step/Step";
 import {
   GetLinsOperation,
   GetGenerlSettings,
-  GetOgonOperationer,
   GetLinsOperationer,
 } from "@/app/lib/apireq";
 import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
 import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
 import FAQ from "../components/Blocks/FAQ/FAQ";
-
-
 
 const page = async () => {
   const data = await GetLinsOperation();
@@ -20,6 +17,7 @@ const page = async () => {
   const slugData = data.story.content;
 
   const dataBehandlingar = await GetLinsOperationer();
+  const lang = process.env.STORYBLOCK_LANG;
 
   const matchedThreatments = dataBehandlingar?.stories.filter(
     (item: { uuid: string }) =>
@@ -45,6 +43,7 @@ const page = async () => {
       <TilesBehandlingar
         operations={matchedThreatments}
         props={data.story.content}
+        lang={lang}
       />
       <FAQ
         props={data.story.content.FAQ}
@@ -52,7 +51,7 @@ const page = async () => {
       />
       <Step props={settings?.story?.content} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm global={settings} />
+      <ContactForm global={settings} lang={lang} />
     </div>
   );
 };

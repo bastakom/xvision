@@ -79,7 +79,11 @@ export default function Navigate({
           href="/gratis-forundersokning"
           className="text-white button bg-[#1D383F]"
         >
-          {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
+          {lang === "da"
+            ? "Book en konsultation"
+            : lang === "en"
+            ? "Book a consultation"
+            : "Boka konsultation"}{" "}
         </Link>
         <NavDots />
       </nav>
@@ -153,7 +157,10 @@ export default function Navigate({
                   className="hover:text-[#cfedc6]"
                   href={`${
                     menuItem.link.linktype === "story"
-                      ? `/${menuItem.link.cached_url}`
+                      ? `${menuItem.link.cached_url.replace(
+                          /\/(da|en)\//,
+                          "/"
+                        )}`
                       : menuItem.link.url
                   }`}
                 >
@@ -167,7 +174,11 @@ export default function Navigate({
                 onClick={() => isOpen(false)}
                 className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
               >
-                {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
+                {lang === "da"
+                  ? "Book en konsultation"
+                  : lang === "en"
+                  ? "Book a consultation"
+                  : "Boka konsultation"}{" "}
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
@@ -190,7 +201,11 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
                 >
-                  {lang === "da" ? "Book en konsultation" : "Boka konsultation"}
+                  {lang === "da"
+                    ? "Book en konsultation"
+                    : lang === "en"
+                    ? "Book a consultation"
+                    : "Boka konsultation"}
                 </Link>
               </div>
             </div>
@@ -230,7 +245,11 @@ export default function Navigate({
               href={`/ogonlaser`}
               className="hover:text-[#cfedc6] block lg:hidden"
             >
-              {lang === "da" ? "Om øjenoperationer" : "Om ögonoperationer"}
+              {lang === "da"
+                ? "Om øjenoperationer"
+                : lang === "en"
+                ? "About eye laser treatments"
+                : "Om ögonoperationer"}
             </Link>
             {ogonOperationer.map((el: any, index: number) => {
               return (

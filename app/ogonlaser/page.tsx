@@ -22,6 +22,7 @@ const Page = async () => {
     (item: { uuid: string }) =>
       data?.story?.content?.Threatment?.includes(item.uuid)
   );
+  const lang = process.env.STORYBLOCK_LANG;
 
   return (
     <div className="mt-14">
@@ -37,6 +38,7 @@ const Page = async () => {
       <TilesBehandlingar
         operations={matchedThreatments}
         props={data.story.content}
+        lang={lang}
       />
       <FAQ
         props={data.story.content.FAQ}
@@ -45,7 +47,7 @@ const Page = async () => {
       <Step props={settings?.story?.content} />
       <BeforeAfter props={data.story.content} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm global={settings} />
+      <ContactForm global={settings} lang={lang} />
     </div>
   );
 };
