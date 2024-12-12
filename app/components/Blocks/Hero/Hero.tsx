@@ -34,7 +34,6 @@ const Hero = ({
   opacity,
   mobile_img,
 }: HeroProps) => {
-  console.log(buttons);
   return (
     <section
       className={`${popup && `pt-14 ${uspar?.length < 0 && "pb-10"}`} ${
