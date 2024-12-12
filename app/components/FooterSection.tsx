@@ -183,7 +183,7 @@ export default function FooterSection({ props, lang }: any) {
             className="mx-auto lg:mx-0"
             alt="logo"
           />
-          <span> © 2025 X-Vision Ögonklinik. All rights</span>
+          <span> © 2025 X-Vision Ögonklinik. All rights reserved</span>
         </div>
       </div>
     </footer>
