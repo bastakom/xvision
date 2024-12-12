@@ -199,7 +199,7 @@ export default function ContactForm({ global, lang }: any) {
                   </a>
                 </label>
               </div>
-              <button className="button font-medium text-[18px]">
+              <button className="button font-medium text-[18px] hover:bg-[#1D383F] hover:text-white">
                 {lang === "da" ? "Sende" : lang === "en" ? "Send" : "Skicka"}
               </button>
             </form>
