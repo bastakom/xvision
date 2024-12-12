@@ -34,6 +34,7 @@ const Hero = ({
   opacity,
   mobile_img,
 }: HeroProps) => {
+  console.log(buttons);
   return (
     <section
       className={`${popup && `pt-14 ${uspar?.length < 0 && "pb-10"}`} ${
@@ -119,9 +120,11 @@ const Hero = ({
                           : `${el.link.url}`
                       }`}
                       className={`button transition-all duration-300 ${
-                        index === 0
+                        index === 0 && el.link_title === "Pris ögonlaser"
+                          ? "bg-green-200 hover:bg-white text-black "
+                          : index === 0 && el.link_title === "Boka konsultation"
                           ? "bg-green-200 text-black hover:bg-[#1D383F] hover:text-white button"
-                          : " text-white hover:opacity-70 button border-white border"
+                          : "text-white hover:bg-white hover:text-black button border-white border"
                       }`}
                     >
                       {el.link_title}
