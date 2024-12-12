@@ -2,6 +2,7 @@ import "./globals.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Synkorrigering & Ögonlaser i Malmö | X-Vision",
@@ -18,6 +19,14 @@ export default function RootLayout({
     <html lang={process.env.STORYBLOCK_LANG}>
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/qnl0pvt.css" />
+        <Script src="https://consent.cookiebot.com/uc.js" />
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="d966ab86-14d2-42ab-9df9-ebbffc2988a1"
+          type="text/javascript"
+          async
+        ></script>
       </head>
       <body>
         <Header lang={process.env.STORYBLOCK_LANG} />
