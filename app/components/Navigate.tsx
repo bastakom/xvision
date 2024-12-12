@@ -183,7 +183,7 @@ export default function Navigate({
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
               <h3 className="font-semibold">Kontakt</h3>
-              <div className="flex flex-col mt-2 lg:mt-10 font-light">
+              <div className="flex flex-col mt-2 font-light">
                 <Link href={`tel:${number}`}>{number}</Link>
                 <Link href={`mailto:${mail}`}>{mail}</Link>
               </div>
