@@ -12,6 +12,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const data = await GetBehandlingarSlug(pathname);
   const settings = await GetGenerlSettings();
   const slugData = data.story.content;
+
+  console.log("ogonoperationer", slugData);
   return (
     <div>
       <Hero

@@ -56,16 +56,14 @@ const Hero = ({
           src={mobile_img?.filename || img?.filename}
           fill
           alt={mobile_img?.alt}
-          className="object-cover lg:hidden object-top"
+          className="object-cover lg:hidden object-top !h-[100vh]"
         />
       )}
-      {!opacity && (
-        <div className="h-full w-full absolute top-0 bg-[#1D383F] opacity-30" />
-      )}
+      {!opacity && <div className="h-full w-full absolute top-0 opacity-30" />}
       <div
         className={` ${
           !no_image_hero
-            ? "mx-auto container px-4 flex flex-col gap-20 justify-between"
+            ? "mx-auto container px-4 flex flex-col gap-14 justify-between"
             : ""
         } h-full flex flex-col justify-between`}
       >
@@ -138,7 +136,7 @@ const Hero = ({
               no_image_hero
                 ? ""
                 : "rounded-3xl mb-10 lg:absolute bottom-0 lg:w-[80%]"
-            } p-6 mt-8 lg:mt-0 z-10`}
+            } p-6 mt-10 lg:mt-0 z-10 `}
           >
             <div className="flex justify-center lg:justify-around text-center items-center flex-col lg:flex-wrap lg:flex-row gap-5 lg:gap-0 ">
               {uspar?.map((el: any) => {
