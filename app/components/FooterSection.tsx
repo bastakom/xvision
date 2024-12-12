@@ -101,8 +101,8 @@ export default function FooterSection({ props, lang }: any) {
                 <Link
                   href={
                     item.link.linktype === "story"
-                      ? item.link.cached_url
-                      : item.link.url
+                      ? `/${item.link.cached_url}`
+                      : `/${item.link.url}`
                   }
                 >
                   {item.link_title}
