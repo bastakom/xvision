@@ -37,7 +37,7 @@ export default function AboutBlock({ props }: any) {
           alt=""
           width={400}
           height={700}
-          className="mt-0 lg:-mt-32 ml-0 lg:-ml-32"
+          className="mt-0 lg:-mt-44 ml-0 lg:-ml-28"
         />
       </div>
       <div />
