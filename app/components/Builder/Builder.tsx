@@ -5,6 +5,7 @@ import ContentBox from "../Blocks/ContentBox/ContentBox";
 import CTABlock from "../Blocks/CTA/CTABlock";
 import FAQ from "../Blocks/FAQ/FAQ";
 import Hero from "../Blocks/Hero/Hero";
+import { HeroHome } from "../Blocks/Hero/hero-home";
 import ImageBlock from "../Blocks/ImageBlock/ImageBlock";
 import InfoBox from "../Blocks/InfoBox/InfoBox";
 import PartnerLogos from "../Blocks/PartnerLogos/PartnerLogos";
@@ -34,21 +35,26 @@ const Builder = ({
       {props.map((el: any) => {
         switch (el.component) {
           case "Hero":
+            console.log("props in builder", el);
             return (
-              <Hero
-                title={el.title}
-                text={el.text}
-                uspar={el.uspar}
-                img={el.img}
-                buttons={el.buttons}
-                no_image_hero={el.no_image_hero}
-                subtitle={el.subtitle}
-                text_center={el.text_center}
-                no_dots={el.no_dots}
-                opacity={el.opacity}
-                popup={global.story.content.showpopup}
-                mobile_img={el.mobile_img}
-              />
+              <>
+                <Hero
+                  title={el.title}
+                  text={el.text}
+                  uspar={el.uspar}
+                  img={el.img}
+                  buttons={el.buttons}
+                  no_image_hero={el.no_image_hero}
+                  subtitle={el.subtitle}
+                  text_center={el.text_center}
+                  no_dots={el.no_dots}
+                  opacity={el.opacity}
+                  popup={global.story.content.showpopup}
+                  mobile_img={el.mobile_img}
+                  heroHome={el.heroHome}
+                  heroOmoss={el.heroOmoss}
+                />
+              </>
             );
           case "infobox":
             return (
