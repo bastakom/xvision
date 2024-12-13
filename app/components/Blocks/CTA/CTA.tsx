@@ -8,7 +8,6 @@ interface CTA {
 }
 
 const CTA = ({ props }: CTA) => {
-  console.log(props);
   return props?.map((item: any) => (
     <div className="relative h-[100vh] lg:h-[60vh] w-full text-white flex justify-center">
       <div className="absolute z-10 text-center gap-10 m-auto w-full h-full flex justify-center items-center flex-col">
