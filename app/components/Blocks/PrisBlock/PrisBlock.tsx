@@ -60,7 +60,7 @@ const PrisBlock = ({ props, lang }: any) => {
                 </span>
               </div>
               <Link
-                className="button mx-auto max-w-[220px] bg-[#CFEDC6] text-black mt-5"
+                className="button mx-auto max-w-[220px] bg-[#CFEDC6] hover:bg-white text-black mt-5 "
                 href="/gratis-forundersokning"
               >
                 {lang === "da"

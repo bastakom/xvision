@@ -33,7 +33,9 @@ const CTABlock = ({
           )}
           <h2 className="text-[35px] lg:max-w-[40%] mx-auto">{title}</h2>
           {sub_under_title && (
-            <h3 className="text-[16px] mt-5 text-[#CFEDC6] open-sans">{subtitle}</h3>
+            <h3 className="text-[16px] mt-5 text-[#CFEDC6] open-sans">
+              {subtitle}
+            </h3>
           )}
           {content && (
             <p className="lg:max-w-[40%] mx-auto p-5 text-[18px]">{content}</p>
@@ -42,13 +44,17 @@ const CTABlock = ({
         <div>
           <Link
             href={`${two_images ? "/om-oss" : "/var-trygghetsgaranti"}`}
-            className="button border border-white rounded-xl"
+            className="button border border-white rounded-xl hover:bg-white hover:text-black"
           >
             {btn}
           </Link>
         </div>
       </div>
-      <div className={`${two_images ? "w-full lg:w-1/2" : "w-full"} h-full relative`}>
+      <div
+        className={`${
+          two_images ? "w-full lg:w-1/2" : "w-full"
+        } h-full relative`}
+      >
         <Image
           src={bg_image?.filename}
           alt={bg_image?.alt}
