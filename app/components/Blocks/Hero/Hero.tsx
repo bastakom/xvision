@@ -66,7 +66,7 @@ const Hero = ({
             heroHome
               ? "!h-[700px]"
               : heroOmoss
-              ? "!object-center !object-contain !h-[420px]"
+              ? "!object-center !object-contain mt-[90px] !relative"
               : "h-full"
           } object-cover lg:hidden object-top `}
         />

@@ -38,7 +38,7 @@ export const OmOss = ({
                 } pt-20 lg:pt-0`
           }  h-full`}
         >
-          <div className="lg:w-1/2 z-10 mt-52 lg:text-white">
+          <div className="lg:w-1/2 z-10 mt-22 lg:mt-52 lg:text-white">
             {subtitle && (
               <h2 className="text-[16px] mb-5 text-[#CFEDC6] open-sans">
                 {subtitle}

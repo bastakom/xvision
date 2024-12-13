@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 
 const getPageData = async (slug: string) => {
   const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=draft&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
+    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
     { cache: "no-store" }
   );
   return res.json();

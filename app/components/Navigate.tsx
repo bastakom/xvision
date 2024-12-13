@@ -77,7 +77,7 @@ export default function Navigate({
         })}
         <Link
           href="/gratis-forundersokning"
-          className="text-white button bg-[#1D383F]"
+          className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
         >
           {lang === "da"
             ? "Book en konsultation"
