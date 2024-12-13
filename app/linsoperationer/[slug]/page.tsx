@@ -7,7 +7,6 @@ import Step from "@/app/components/Blocks/Step/Step";
 import Uspar from "@/app/components/Blocks/Uspar/Uspar";
 import { GetLinsBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
 const lang = `${process.env.STORYBLOCK_LANG}`;
-console.log("tessst", lang);
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
