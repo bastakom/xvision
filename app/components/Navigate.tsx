@@ -257,9 +257,9 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   href={`/${el.full_slug}`}
                   key={index}
-                  className="hover:text-[#cfedc6]"
+                  className="hover:text-[#cfedc6] normal-case"
                 >
-                  {el.name}
+                  <span>{el.name}</span>
                 </Link>
               );
             })}

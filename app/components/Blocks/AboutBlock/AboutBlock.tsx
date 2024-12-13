@@ -13,7 +13,9 @@ export default function AboutBlock({ props }: any) {
       )}
       <div className="grid gri-cols-1 lg:grid-cols-3 gap-5">
         <div className="flex flex-col gap-5">
-          <h2 className="text-[35px] lg:text-[50px] max-w-[100%] lg:max-w-[80%] font-medium">{props.title}</h2>
+          <h2 className="text-[35px] lg:text-[50px] max-w-[100%] lg:max-w-[80%] font-medium">
+            {props.title}
+          </h2>
           <span className="text-[#CFEDC6]">{props.dr}</span>
         </div>
         <div>
@@ -35,7 +37,7 @@ export default function AboutBlock({ props }: any) {
           alt=""
           width={400}
           height={700}
-          className="mt-0 lg:-mt-32 ml-0 lg:-ml-44"
+          className="mt-0 lg:-mt-32 ml-0 lg:-ml-32"
         />
       </div>
       <div />
