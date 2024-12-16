@@ -35,7 +35,6 @@ const Builder = ({
       {props.map((el: any) => {
         switch (el.component) {
           case "Hero":
-            console.log("props in builder", el);
             return (
               <>
                 <Hero

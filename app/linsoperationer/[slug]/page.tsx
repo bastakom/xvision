@@ -6,6 +6,7 @@ import InfoBox from "@/app/components/Blocks/InfoBox/InfoBox";
 import Step from "@/app/components/Blocks/Step/Step";
 import Uspar from "@/app/components/Blocks/Uspar/Uspar";
 import { GetLinsBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
+const lang = `${process.env.STORYBLOCK_LANG}`;
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
@@ -30,7 +31,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       <Step props={settings.story.content} />
       <BeforeAfter props={slugData} />
       <CTA props={settings.story.content.CTA} />
-      <ContactForm global={settings} />
+      <ContactForm global={settings} lang={lang} />
     </div>
   );
 };

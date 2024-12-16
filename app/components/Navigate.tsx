@@ -182,7 +182,13 @@ export default function Navigate({
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
-              <h3 className="font-semibold">Kontakt</h3>
+              <h3 className="font-semibold">
+                {lang === "da"
+                  ? "Kontakte"
+                  : lang === "en"
+                  ? "Contact"
+                  : "Kontakt"}
+              </h3>
               <div className="flex flex-col mt-2 font-light">
                 <Link href={`tel:${number}`}>{number}</Link>
                 <Link href={`mailto:${mail}`}>{mail}</Link>
@@ -226,7 +232,7 @@ export default function Navigate({
               return (
                 <Link
                   onClick={() => isOpen(false)}
-                  href={`/${el.full_slug}`}
+                  href={`/${el.full_slug.replace(/^(da|en)\//, "")}`}
                   key={index}
                   className="hover:text-[#cfedc6]"
                 >
@@ -255,7 +261,7 @@ export default function Navigate({
               return (
                 <Link
                   onClick={() => isOpen(false)}
-                  href={`/${el.full_slug}`}
+                  href={`/${el.full_slug.replace(/^(da|en)\//, "")}`}
                   key={index}
                   className="hover:text-[#cfedc6] normal-case"
                 >

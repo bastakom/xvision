@@ -81,7 +81,11 @@ export default function FooterSection({ props, lang }: any) {
             lg:items-start justify-center lg:justify-start lg:ml-0 gap-2 lg:gap-0"
             onClick={toggleDropdown}
           >
-            Operationer & behandlingar
+            {lang === "da"
+              ? "Operationer og behandlinger"
+              : lang === "en"
+              ? "Surgeries & treatments"
+              : " Operationer & behandlingar"}
             <RiArrowDownSLine
               fontSize={40}
               className={`${!isDropdownOpen ? "block md:hidden" : "hidden"}`}
@@ -139,7 +143,11 @@ export default function FooterSection({ props, lang }: any) {
             } md:flex flex-col`}
           >
             <Link href="/gratis-forundersokning" className="">
-              Boka fri konsultation
+              {lang === "da"
+                ? "Book en gratis konsultation"
+                : lang === "en"
+                ? "Book a free consultation"
+                : "Boka fri konsultation"}
             </Link>
             <Link href="/privacy-policy" className="mt-4">
               Privacy policy
