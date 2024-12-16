@@ -16,7 +16,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
   return (
     <div>
       <Hero
-        title={data.story.name}
+        title={
+          data.story.content.site_title
+            ? data.story.content.site_title
+            : data.story.name
+        }
         subtitle={slugData.hero_sub_title}
         content={slugData.hero_content}
         btns={slugData.buttons}

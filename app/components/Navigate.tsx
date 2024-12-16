@@ -226,7 +226,11 @@ export default function Navigate({
               href={`/linsoperation`}
               className="hover:text-[#cfedc6] block lg:hidden"
             >
-              Om Linsoperationer
+              {lang === "da"
+                ? "Om Linseoperationer"
+                : lang === "en"
+                ? "About lens operations"
+                : "Om Linsoperationer"}
             </Link>
             {linsOperation.map((el: any, index: number) => {
               return (
@@ -236,7 +240,9 @@ export default function Navigate({
                   key={index}
                   className="hover:text-[#cfedc6]"
                 >
-                  {el.name}
+                  <span>
+                    {el.content.site_title ? el.content.site_title : el.name}
+                  </span>
                 </Link>
               );
             })}
@@ -265,7 +271,9 @@ export default function Navigate({
                   key={index}
                   className="hover:text-[#cfedc6] normal-case"
                 >
-                  <span>{el.name}</span>
+                  <span>
+                    {el.content.site_title ? el.content.site_title : el.name}
+                  </span>
                 </Link>
               );
             })}

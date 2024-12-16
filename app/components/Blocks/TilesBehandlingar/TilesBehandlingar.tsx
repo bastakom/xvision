@@ -19,7 +19,6 @@ export default function TilesBehandlingar({
   lang,
 }: Props) {
   const [showAll, setShowAll] = useState(false);
-
   const handleShowContent = () => {
     setShowAll(!showAll);
   };
@@ -51,7 +50,7 @@ export default function TilesBehandlingar({
               ?.slice(0, showAll ? 100 : 6)
               .map((op: any, index: number) => (
                 <Link
-                  href={`/${op.full_slug}`}
+                  href={`/${op.full_slug.replace(/^(da|en)\//, "")}`}
                   className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
                   key={op.content._uid}
                 >
@@ -64,7 +63,9 @@ export default function TilesBehandlingar({
                       alt="icon"
                     />
                   )}
-                  <h3 className="text-xl font-normal mb-4">{op.name}</h3>
+                  <h3 className="text-xl font-normal mb-4">
+                    {op.content.site_title ? op.content.site_title : op.name}
+                  </h3>
                   <p className="mb-4 max-w-[80%] mx-auto m-0">
                     {op.content.short_description
                       ? op.content.short_description
@@ -84,7 +85,7 @@ export default function TilesBehandlingar({
           <div className="grid mb-2 grid-cols-1 lg:grid-cols-3 items-center justify-center gap-5 text-white">
             {operations.map((op: any, index: number) => (
               <Link
-                href={`/${op.full_slug}`}
+                href={`/${op.full_slug.replace(/^(da|en)\//, "")}`}
                 className={`lg:p-10 min-h-[390px] flex flex-col justify-center rounded-[37px] text-center mb-2 lg:mb-0 lg:m-2 bg-[#172D32] transition-all hover:bg-[#A9C1BD] hover:cursor-pointer`}
                 key={op.content._uid}
               >
@@ -97,7 +98,10 @@ export default function TilesBehandlingar({
                     alt="icon"
                   />
                 )}
-                <h3 className="text-xl font-normal mb-4">{op.name}</h3>
+                <h3 className="text-xl font-normal mb-4">
+                  {" "}
+                  {op.content.site_title ? op.content.site_title : op.name}
+                </h3>
                 <p className="mb-4 max-w-[80%] mx-auto m-0">
                   {op.content.short_description
                     ? op.content.short_description
