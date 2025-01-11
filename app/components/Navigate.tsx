@@ -65,7 +65,7 @@ export default function Navigate({
             <Link
               key={menuItem._uid}
               className="text-black hover:text-[#1d383f] transition-all"
-              href={`${
+              href={`/${
                 menuItem.link.linktype === "story"
                   ? `${menuItem.link.cached_url.replace(/\/(da|en)\//, "/")}`
                   : menuItem.link.url
@@ -147,7 +147,7 @@ export default function Navigate({
                     showOgon && "text-[#CFEDC6]"
                   } flex justify-between items-center`}
                 >
-                  {menuItem.link_title}{" "}
+                  {menuItem.link_title}
                   <IoChevronForward fontSize={20} className="block lg:hidden" />
                 </button>
               ) : (
@@ -157,7 +157,7 @@ export default function Navigate({
                   className="hover:text-[#cfedc6]"
                   href={`${
                     menuItem.link.linktype === "story"
-                      ? `${menuItem.link.cached_url.replace(
+                      ? `/${menuItem.link.cached_url.replace(
                           /\/(da|en)\//,
                           "/"
                         )}`
