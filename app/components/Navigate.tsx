@@ -65,9 +65,9 @@ export default function Navigate({
             <Link
               key={menuItem._uid}
               className="text-black hover:text-[#1d383f] transition-all"
-              href={`${
+              href={`/${
                 menuItem.link.linktype === "story"
-                  ? `/${menuItem.link.cached_url.replace(/\/(da|en)\//, "/")}`
+                  ? `${menuItem.link.cached_url.replace(/\/(da|en)\//, "/")}`
                   : menuItem.link.url
               }`}
             >
@@ -155,9 +155,9 @@ export default function Navigate({
                   key={menuItem._uid}
                   onClick={() => isOpen(!open)}
                   className="hover:text-[#cfedc6]"
-                  href={`${
+                  href={`/${
                     menuItem.link.linktype === "story"
-                      ? `/${menuItem.link.cached_url.replace(
+                      ? `${menuItem.link.cached_url.replace(
                           /\/(da|en)\//,
                           "/"
                         )}`
