@@ -47,6 +47,8 @@ export default function Navigate({
     isShowLinser(false);
   };
 
+  console.log(sub_menu);
+
   return (
     <header className="bg-transparent py-4 px-5 flex items-center justify-between fixed header top-0 z-50 w-full">
       {open && (
@@ -264,6 +266,8 @@ export default function Navigate({
                 : "Om ögonoperationer"}
             </Link>
             {ogonOperationer.map((el: any, index: number) => {
+              console.log("dinmamma", ogonOperationer);
+
               return (
                 <Link
                   onClick={() => isOpen(false)}
