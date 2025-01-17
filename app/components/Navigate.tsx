@@ -47,8 +47,6 @@ export default function Navigate({
     isShowLinser(false);
   };
 
-  console.log(sub_menu);
-
   return (
     <header className="bg-transparent py-4 px-5 flex items-center justify-between fixed header top-0 z-50 w-full">
       {open && (
@@ -67,9 +65,9 @@ export default function Navigate({
             <Link
               key={menuItem._uid}
               className="text-black hover:text-[#1d383f] transition-all"
-              href={`/${
+              href={`${
                 menuItem.link.linktype === "story"
-                  ? `${menuItem.link.cached_url.replace(/\/(da|en)\//, "/")}`
+                  ? `${menuItem.link.cached_url.replace(/\/(da|en)\//, "")}`
                   : menuItem.link.url
               }`}
             >
@@ -159,9 +157,9 @@ export default function Navigate({
                   className="hover:text-[#cfedc6]"
                   href={`${
                     menuItem.link.linktype === "story"
-                      ? `/${menuItem.link.cached_url.replace(
+                      ? `${menuItem.link.cached_url.replace(
                           /\/(da|en)\//,
-                          "/"
+                          ""
                         )}`
                       : menuItem.link.url
                   }`}
