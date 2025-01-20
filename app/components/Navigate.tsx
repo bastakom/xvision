@@ -75,6 +75,11 @@ export default function Navigate({
             </Link>
           );
         })}
+        <div className="flex gap-2 font-bold">
+          <Link href="https://www.xvisionkliniken.se/">SV</Link>
+          <span>|</span>
+          <Link href="https://www.xvisionkliniken.dk/">DK</Link>
+        </div>
         <Link
           href="/gratis-forundersokning"
           className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
@@ -83,8 +88,9 @@ export default function Navigate({
             ? "Book en konsultation"
             : lang === "en"
             ? "Book a consultation"
-            : "Boka konsultation"}{" "}
+            : "Boka konsultation"}
         </Link>
+
         <NavDots />
       </nav>
       <div className="flex lg:hidden">
@@ -175,7 +181,7 @@ export default function Navigate({
                   ? "Book en konsultation"
                   : lang === "en"
                   ? "Book a consultation"
-                  : "Boka konsultation"}{" "}
+                  : "Boka konsultation"}
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
@@ -261,8 +267,6 @@ export default function Navigate({
                 : "Om ögonoperationer"}
             </Link>
             {ogonOperationer.map((el: any, index: number) => {
-              console.log("dinmamma", ogonOperationer);
-
               return (
                 <Link
                   onClick={() => isOpen(false)}
