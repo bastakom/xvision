@@ -47,6 +47,8 @@ export default function Navigate({
     isShowLinser(false);
   };
 
+  //Lang
+
   return (
     <header className="bg-transparent py-4 px-5 flex items-center justify-between fixed header top-0 z-50 w-full">
       {open && (
