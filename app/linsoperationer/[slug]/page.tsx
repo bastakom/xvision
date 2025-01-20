@@ -28,7 +28,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
       <InfoBox
         title={slugData.a_title}
         content={slugData.a_content}
-        slug_name={data.story.name}
+        slug_name={
+          data.story.content.site_title
+            ? data.story.content.site_title
+            : data.story.name
+        }
       />
       <Uspar props={slugData.Uspar} />
       <CTA props={slugData.CTA} />
