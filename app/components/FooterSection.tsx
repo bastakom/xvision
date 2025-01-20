@@ -103,11 +103,11 @@ export default function FooterSection({ props, lang }: any) {
             {footer_menu_1.map((item: any, i: number) => (
               <li key={i} className="text-[22px]">
                 <Link
-                  href={
+                  href={`${
                     item.link.linktype === "story"
-                      ? `/${item.link.cached_url}`
-                      : `/${item.link.url}`
-                  }
+                      ? `/${item.link.cached_url.replace(/\/(da|en)\//, "")}`
+                      : item.link.url
+                  }`}
                 >
                   {item.link_title}
                 </Link>
