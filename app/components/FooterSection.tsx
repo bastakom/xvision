@@ -152,7 +152,9 @@ export default function FooterSection({ props, lang }: any) {
             <Link href="/privacy-policy" className="mt-4">
               Privacy policy
             </Link>
-            <h3 className="">Cookies</h3>
+            <Link href="/cookies" className="mt-4">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>
