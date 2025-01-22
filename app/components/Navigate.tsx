@@ -82,13 +82,29 @@ export default function Navigate({
         </div>
         <Link
           href="/gratis-forundersokning"
-          className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
+          className="hover:text-white button hover:bg-[#1D383F] bg-white text-black border-black border-2"
         >
           {lang === "da"
             ? "Book en konsultation"
             : lang === "en"
             ? "Book a consultation"
             : "Boka konsultation"}
+        </Link>
+        <Link
+          href={`${
+            lang === "da"
+              ? "https://patient.nu/portal/public/calendar/909ce9da-3780-11ee-a420-fa163e329242"
+              : lang === "en"
+              ? "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+              : "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+          }`}
+          className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
+        >
+          {lang === "da"
+            ? "Planlæg direkte"
+            : lang === "en"
+            ? "Schedule directly"
+            : "Boka tid direkt"}
         </Link>
 
         <NavDots />
