@@ -81,16 +81,6 @@ export default function Navigate({
           <Link href="https://www.xvisionkliniken.dk/">DK</Link>
         </div>
         <Link
-          href="/gratis-forundersokning"
-          className="hover:text-white button hover:bg-[#1D383F] bg-white text-black border-black border-2"
-        >
-          {lang === "da"
-            ? "Book en konsultation"
-            : lang === "en"
-            ? "Book a consultation"
-            : "Boka konsultation"}
-        </Link>
-        <Link
           href={`${
             lang === "da"
               ? "https://patient.nu/portal/public/calendar/909ce9da-3780-11ee-a420-fa163e329242"
@@ -101,7 +91,7 @@ export default function Navigate({
           className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
         >
           {lang === "da"
-            ? "Planlæg direkte"
+            ? "Book direkte"
             : lang === "en"
             ? "Schedule directly"
             : "Boka tid direkt"}
@@ -189,15 +179,20 @@ export default function Navigate({
             })}
             <div className="mt-5 hidden lg:block">
               <Link
-                href="/gratis-forundersokning"
-                onClick={() => isOpen(false)}
+                href={`${
+                  lang === "da"
+                    ? "https://patient.nu/portal/public/calendar/909ce9da-3780-11ee-a420-fa163e329242"
+                    : lang === "en"
+                    ? "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+                    : "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+                }`}
                 className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
               >
                 {lang === "da"
-                  ? "Book en konsultation"
+                  ? "Book direkte"
                   : lang === "en"
-                  ? "Book a consultation"
-                  : "Boka konsultation"}
+                  ? "Schedule directly"
+                  : "Boka tid direkt"}
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
@@ -222,15 +217,21 @@ export default function Navigate({
               </div>
               <div className="mt-10 mx-auto lg:hidden">
                 <Link
-                  href="/gratis-forundersokning"
+                  href={`${
+                    lang === "da"
+                      ? "https://patient.nu/portal/public/calendar/909ce9da-3780-11ee-a420-fa163e329242"
+                      : lang === "en"
+                      ? "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+                      : "https://patient.nu/portal/public/calendar/d9a0a298-3536-11ee-a420-fa163e329242"
+                  }`}
                   onClick={() => isOpen(false)}
                   className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
                 >
                   {lang === "da"
-                    ? "Book en konsultation"
+                    ? "Book direkte"
                     : lang === "en"
-                    ? "Book a consultation"
-                    : "Boka konsultation"}
+                    ? "Schedule directly"
+                    : "Boka tid direkt"}
                 </Link>
               </div>
             </div>
