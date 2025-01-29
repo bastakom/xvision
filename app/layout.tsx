@@ -18,6 +18,16 @@ export default function RootLayout({
   return (
     <html lang={process.env.STORYBLOCK_LANG}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJHGNW4H');`,
+          }}
+        />
         <link rel="stylesheet" href="https://use.typekit.net/qnl0pvt.css" />
         <Script src="https://consent.cookiebot.com/uc.js" />
         <script
@@ -29,6 +39,12 @@ export default function RootLayout({
         ></script>
       </head>
       <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJHGNW4H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
         <Header lang={process.env.STORYBLOCK_LANG} />
         {children}
         <Footer lang={process.env.STORYBLOCK_LANG} />
