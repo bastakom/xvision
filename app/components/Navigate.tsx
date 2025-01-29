@@ -34,7 +34,18 @@ export default function Navigate({
 
   const {
     story: {
-      content: { logo, Menu, sub_menu, number, mail, popup, showpopup, IG, FB },
+      content: {
+        logo,
+        Menu,
+        sub_menu,
+        number,
+        mail,
+        popup,
+        showpopup,
+        IG,
+        FB,
+        book_direct_button,
+      },
     },
   } = props;
 
@@ -90,11 +101,7 @@ export default function Navigate({
           }`}
           className="text-white button bg-[#1D383F] hover:bg-white hover:text-black hover:border-black border-2"
         >
-          {lang === "da"
-            ? "Book direkte"
-            : lang === "en"
-            ? "Schedule directly"
-            : "Boka tid direkt"}
+          {book_direct_button}
         </Link>
 
         <NavDots />
@@ -188,11 +195,7 @@ export default function Navigate({
                 }`}
                 className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
               >
-                {lang === "da"
-                  ? "Book direkte"
-                  : lang === "en"
-                  ? "Schedule directly"
-                  : "Boka tid direkt"}
+                {book_direct_button}
               </Link>
             </div>
             <div className="flex flex-col text-[18px] mt-5 lg:mt-24">
@@ -227,11 +230,7 @@ export default function Navigate({
                   onClick={() => isOpen(false)}
                   className="text-black text-center text-[18px] lg:max-w-[100%] button bg-[#CFEDC6] mt-10"
                 >
-                  {lang === "da"
-                    ? "Book direkte"
-                    : lang === "en"
-                    ? "Schedule directly"
-                    : "Boka tid direkt"}
+                  {book_direct_button}
                 </Link>
               </div>
             </div>
