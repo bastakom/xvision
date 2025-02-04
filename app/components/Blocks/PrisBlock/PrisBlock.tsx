@@ -44,13 +44,17 @@ const PrisBlock = ({ props, lang }: any) => {
               </div>
               <div className="h-[1px] w-full bg-[#CFEDC6]" />
               <div className="flex flex-col">
-                <span className="line-through text-[20px]">
-                  {item.rea && item.rea_pris}
-                </span>
+                {item.pris_manad && (
+                  <span className="text-[35px]">{item.pris_manad}</span>
+                )}
                 {item.otherprice && (
                   <span className="text-[16px]">{render(item.otherprice)}</span>
                 )}
-                <span className="text-[35px]">{item.pris}</span>
+
+                <span className="text-[20px] text-[#F4845F]">{item.pris}</span>
+                <span className="line-through text-[20px]">
+                  {item.rea && item.rea_pris}
+                </span>
                 <span className="max-w-[250px] mt-2 text-[12px]">
                   {lang === "da"
                     ? "Opdel din betaling rentefrit over 2 år eller i et månedlige omkostninger, der passer dig."
