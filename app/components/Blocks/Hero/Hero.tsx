@@ -64,7 +64,7 @@ const Hero = ({
           alt={mobile_img?.alt}
           className={`${
             heroHome
-              ? "!h-[730px]"
+              ? "!h-[780px]"
               : heroOmoss
               ? "!object-center !object-contain mt-[90px] !relative"
               : "h-full"
