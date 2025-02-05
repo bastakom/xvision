@@ -9,7 +9,6 @@ export const TilesBehandlingarComponent = ({
   linsOperation,
   lang,
 }: any) => {
-  console.log(ogonOperationer);
   return (
     <div {...storyblokEditable}>
       <TilesBehandlingar

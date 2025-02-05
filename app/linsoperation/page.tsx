@@ -19,8 +19,6 @@ const page = async () => {
   const dataBehandlingar = await GetLinsOperationer();
   const lang = process.env.STORYBLOCK_LANG;
 
-
-  console.log("lins", dataBehandlingar)
   const matchedThreatments = dataBehandlingar?.stories.filter(
     (item: { uuid: string }) =>
       data?.story?.content?.Threatment?.includes(item.uuid)

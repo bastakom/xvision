@@ -14,6 +14,7 @@ import { TeamComponent } from "./team";
 import { PrisBlockComponent } from "./pris-block";
 import { CTAComponent } from "./CTA";
 import { ForunderSokningComponent } from "./forundersokning";
+import { ContentBoxComponent } from "./content-box";
 
 storyblokInit({
   components: {
@@ -29,6 +30,7 @@ storyblokInit({
     PrisBlock: PrisBlockComponent,
     CTA: CTAComponent,
     forundersokning: ForunderSokningComponent,
+    contentbox: ContentBoxComponent,
   },
   enableFallbackComponent: true,
 });
