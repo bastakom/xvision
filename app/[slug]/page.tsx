@@ -6,13 +6,28 @@ import {
   GetOgonOperationer,
 } from "../lib/apireq";
 import { notFound } from "next/navigation";
+import StoryblokStory from "@storyblok/react/story";
+import { getStoryblokApi } from "@storyblok/react";
+import { getData } from "@/lib/get-data";
 
-const getPageData = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
+export const getSlugData = async (slug: string) => {
+  let sbParams = {
+    version: "draft" as const,
+    language: `${process.env.STORYBLOCK_LANG}`,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/${slug}`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    throw error;
+  }
 };
 
 export const generateMetadata = async ({
@@ -22,8 +37,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const pathname = params.slug;
   const slugName = !pathname || pathname === "" ? "home" : pathname;
-  const res = await getPageData(slugName);
-
+  const res = await getSlugData(slugName);
   return {
     title: res.story?.content?.SEO_Title || "XVISION",
     description: res.story?.content?.SEO_Meta || "Default description",
@@ -31,27 +45,27 @@ export const generateMetadata = async ({
 };
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const pathname = params.slug;
-  const slugName = !pathname || pathname === "" ? "home" : pathname;
-  const res = await getPageData(slugName);
   const lang = process.env.STORYBLOCK_LANG;
-
   const ogonOperation = await GetOgonOperationer();
   const linsOperation = await GetLinsOperationer();
   const generalSetting = await GetGenerlSettings();
 
-  if (!res || !res.story || !res.story.content) {
+  const pathname = (await params).slug;
+  const slugName = pathname === undefined ? `home` : pathname;
+  const story = await getData(slugName);
+
+  if (!story || !story.data.data.story || !story.data.data.story.content) {
     return notFound();
   }
 
   return (
     <main>
-      <Builder
-        props={res?.story?.content?.body}
-        ogonOperationer={ogonOperation}
-        global={generalSetting}
-        linsOperation={linsOperation}
+      <StoryblokStory
         lang={lang}
+        story={story.data.data.story}
+        ogonOperationer={ogonOperation}
+        linsOperation={linsOperation}
+        generalSetting={generalSetting}
       />
     </main>
   );

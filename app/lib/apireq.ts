@@ -1,18 +1,30 @@
-export const GetOgonOperationer = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=ogonoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-};
+import { getStoryblokApi } from "@storyblok/react";
 
-export const GetLinsOperationer = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-};
+export async function GetOgonOperationer() {
+  const sbParams = {
+    version: "draft" as const,
+    starts_with: "ogonoperationer",
+    language: `${process.env.STORYBLOCK_LANG}`,
+  };
+
+  const client = getStoryblokApi();
+  const data = await client.get(`cdn/stories/`, sbParams);
+
+  return data.data;
+}
+
+export async function GetLinsOperationer() {
+  const sbParams = {
+    version: "draft" as const,
+    starts_with: "linsoperationer",
+    language: `${process.env.STORYBLOCK_LANG}`,
+  };
+
+  const client = getStoryblokApi();
+  const data = await client.get(`cdn/stories/`, sbParams);
+
+  return data.data;
+}
 
 export const GetAllLinsOperations = async () => {
   const response = await fetch(

@@ -19,14 +19,12 @@ const page = async () => {
   const dataBehandlingar = await GetLinsOperationer();
   const lang = process.env.STORYBLOCK_LANG;
 
+
+  console.log("lins", dataBehandlingar)
   const matchedThreatments = dataBehandlingar?.stories.filter(
     (item: { uuid: string }) =>
       data?.story?.content?.Threatment?.includes(item.uuid)
   );
-
-  const slugTitle = !slugData.hero_title
-    ? data.story.name
-    : slugData.hero_title;
 
   return (
     <div className="mt-14">

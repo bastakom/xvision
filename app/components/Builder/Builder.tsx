@@ -5,7 +5,6 @@ import ContentBox from "../Blocks/ContentBox/ContentBox";
 import CTABlock from "../Blocks/CTA/CTABlock";
 import FAQ from "../Blocks/FAQ/FAQ";
 import Hero from "../Blocks/Hero/Hero";
-import { HeroHome } from "../Blocks/Hero/hero-home";
 import ImageBlock from "../Blocks/ImageBlock/ImageBlock";
 import InfoBox from "../Blocks/InfoBox/InfoBox";
 import PartnerLogos from "../Blocks/PartnerLogos/PartnerLogos";
