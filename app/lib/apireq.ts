@@ -1,152 +1,212 @@
 import { getStoryblokApi } from "@storyblok/react";
+import { redirect } from "next/navigation";
 
 export async function GetOgonOperationer() {
-  const sbParams = {
-    version: "draft" as const,
+  let sbParams = {
+    version: "published" as const,
     starts_with: "ogonoperationer",
-    language: `${process.env.STORYBLOCK_LANG}`,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/`, sbParams);
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
 
-  return data.data;
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 }
 
 export async function GetLinsOperationer() {
-  const sbParams = {
-    version: "draft" as const,
+  let sbParams = {
+    version: "published" as const,
     starts_with: "linsoperationer",
-    language: `${process.env.STORYBLOCK_LANG}`,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/`, sbParams);
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
 
-  return data.data;
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 }
 
-/* export const GetAllLinsOperations = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-}; */
 export const GetAllLinsOperations = async () => {
-  const sbParams = {
-    version: "draft" as const,
+  let sbParams = {
+    version: "published" as const,
     starts_with: "linsoperationer",
-    language: `${process.env.STORYBLOCK_LANG}`,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/`, sbParams);
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
 
-  return data.data;
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
-
-/* export const GetGenerlSettings = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/generalsettings?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-}; */
 
 export const GetGenerlSettings = async () => {
-  const sbParams = {
-    version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/generalsettings/`, sbParams);
+  try {
+    const data = await client.get(`cdn/stories/generalsettings/`, sbParams);
 
-  return data.data;
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
-
-/* export const GetOgonLaser = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/ogonlaser?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-}; */
 
 export const GetOgonLaser = async () => {
-  const sbParams = {
-    version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/ogonlaser/`, sbParams);
-  return data.data;
-};
+  try {
+    const data = await client.get(`cdn/stories/ogonlaser/`, sbParams);
 
-/* export const GetLinsOperation = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/linsoperation?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
- */
 
 export const GetLinsOperation = async () => {
-  const sbParams = {
-    version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(`cdn/stories/linsoperation/`, sbParams);
 
-  return data.data;
+  try {
+    const data = await client.get(`cdn/stories/linsoperation`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
-
-/* export const GetBehandlingarSlug = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/ogonoperationer/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
-}; */
 
 export const GetBehandlingarSlug = async (slug: string) => {
-  const sbParams = {
+  let sbParams = {
     version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(
-    `cdn/stories/ogonoperationer/${slug}`,
-    sbParams
-  );
-  return data.data;
+  try {
+    const data = await client.get(
+      `cdn/stories/ogonoperationer/${slug}`,
+      sbParams
+    );
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
 
-/* export const GetLinsBehandlingarSlug = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/linsoperationer/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
-}; */
-
 export const GetLinsBehandlingarSlug = async (slug: string) => {
-  const sbParams = {
+  let sbParams = {
     version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  const data = await client.get(
-    `cdn/stories/linsoperationer/${slug}`,
-    sbParams
-  );
+  try {
+    const data = await client.get(
+      `cdn/stories/linsoperationer/${slug}`,
+      sbParams
+    );
 
-  return data.data;
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };

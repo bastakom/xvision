@@ -34,7 +34,7 @@ const Hero = ({ title, content, bg, btns, subtitle }: Hero) => {
                   key={index}
                   href={`${
                     el.link.linktype === "story"
-                      ? `/${el.link.cached_url.replace(/\/(da|en)\//, "/")}`
+                      ? `${el.link.cached_url.replace(/\/(da|en)\//, "/")}`
                       : `/${el.link.url}`
                   }`}
                   className={`button ${

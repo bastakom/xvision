@@ -1,4 +1,3 @@
-import Builder from "../components/Builder/Builder";
 import { Metadata } from "next";
 import {
   GetGenerlSettings,
@@ -7,28 +6,7 @@ import {
 } from "../lib/apireq";
 import { notFound } from "next/navigation";
 import StoryblokStory from "@storyblok/react/story";
-import { getStoryblokApi } from "@storyblok/react";
 import { getData } from "@/lib/get-data";
-
-export const getSlugData = async (slug: string) => {
-  let sbParams = {
-    version: "draft" as const,
-    language: `${process.env.STORYBLOCK_LANG}`,
-  };
-
-  const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/${slug}`, sbParams);
-
-    if (!data) {
-      throw new Error("Not Found");
-    }
-
-    return data.data;
-  } catch (error: any) {
-    throw error;
-  }
-};
 
 export const generateMetadata = async ({
   params,
@@ -37,10 +15,11 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const pathname = params.slug;
   const slugName = !pathname || pathname === "" ? "home" : pathname;
-  const res = await getSlugData(slugName);
+  const res = await getData(slugName);
   return {
-    title: res.story?.content?.SEO_Title || "XVISION",
-    description: res.story?.content?.SEO_Meta || "Default description",
+    title: res.data.data.story?.content?.SEO_Title || "XVISION",
+    description:
+      res.data.data.story?.content?.SEO_Meta || "Default description",
   };
 };
 
@@ -50,7 +29,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const linsOperation = await GetLinsOperationer();
   const generalSetting = await GetGenerlSettings();
 
-  const pathname = (await params).slug;
+  const pathname = params.slug;
   const slugName = pathname === undefined ? `home` : pathname;
   const story = await getData(slugName);
 

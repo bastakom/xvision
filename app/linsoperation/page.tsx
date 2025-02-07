@@ -14,7 +14,6 @@ import FAQ from "../components/Blocks/FAQ/FAQ";
 const page = async () => {
   const data = await GetLinsOperation();
   const settings = await GetGenerlSettings();
-  const slugData = data.story.content;
 
   const dataBehandlingar = await GetLinsOperationer();
   const lang = process.env.STORYBLOCK_LANG;
