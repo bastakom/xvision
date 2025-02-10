@@ -139,3 +139,9 @@ input[type="date"]:not(.has-value):before {
   color: lightgray;
   content: attr(placeholder);
 }
+
+.partial-content {
+  p {
+    font-size: 14px;
+  }
+}

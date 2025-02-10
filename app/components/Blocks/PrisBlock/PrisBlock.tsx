@@ -45,7 +45,7 @@ const PrisBlock = ({ props, lang }: any) => {
               <div className="h-[1px] w-full bg-[#CFEDC6]" />
               <div className="flex flex-col">
                 {item.pris_manad && (
-                  <span className="text-[35px] text-[#F4845F]">
+                  <span className="text-[25px] text-[#F4845F]">
                     {item.pris_manad}
                   </span>
                 )}
