@@ -45,13 +45,15 @@ const PrisBlock = ({ props, lang }: any) => {
               <div className="h-[1px] w-full bg-[#CFEDC6]" />
               <div className="flex flex-col">
                 {item.pris_manad && (
-                  <span className="text-[35px]">{item.pris_manad}</span>
+                  <span className="text-[35px] text-[#F4845F]">
+                    {item.pris_manad}
+                  </span>
                 )}
                 {item.otherprice && (
                   <span className="text-[16px]">{render(item.otherprice)}</span>
                 )}
 
-                <span className="text-[20px] text-[#F4845F]">{item.pris}</span>
+                <span className="text-[20px] ">{item.pris}</span>
                 <span className="line-through text-[20px]">
                   {item.rea && item.rea_pris}
                 </span>

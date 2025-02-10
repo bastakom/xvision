@@ -48,6 +48,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     <main>
       <Builder
         props={res?.story?.content?.body}
+        settings={generalSetting?.story?.content}
         ogonOperationer={ogonOperation}
         global={generalSetting}
         linsOperation={linsOperation}
