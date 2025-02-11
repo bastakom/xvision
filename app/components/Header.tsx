@@ -7,7 +7,7 @@ import Navigate from "./Navigate";
 
 const Header = async ({ lang }: any) => {
   const response = await GetGenerlSettings();
-  console.log(response);
+
   const ogonOperation = await GetOgonOperationer();
   const linsOperation = await GetAllLinsOperations();
   return (
