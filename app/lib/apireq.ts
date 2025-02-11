@@ -1,61 +1,212 @@
-export const GetOgonOperationer = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=ogonoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-};
+import { getStoryblokApi } from "@storyblok/react";
+import { redirect } from "next/navigation";
 
-export const GetLinsOperationer = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
-};
+export async function GetOgonOperationer() {
+  let sbParams = {
+    version: "published" as const,
+    starts_with: "ogonoperationer",
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
+}
+
+export async function GetLinsOperationer() {
+  let sbParams = {
+    version: "published" as const,
+    starts_with: "linsoperationer",
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
+}
 
 export const GetAllLinsOperations = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1727781697&starts_with=linsoperationer&token=${process.env.STORYBLOCK_API}&version=published&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
+  let sbParams = {
+    version: "published" as const,
+    starts_with: "linsoperationer",
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
 
 export const GetGenerlSettings = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/generalsettings?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/generalsettings/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
 
 export const GetOgonLaser = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/ogonlaser?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/ogonlaser/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
+
 export const GetLinsOperation = async () => {
-  const response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/linsoperation?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return response.json();
+  let sbParams = {
+    version: "published" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+
+  try {
+    const data = await client.get(`cdn/stories/linsoperation`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
 
 export const GetBehandlingarSlug = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/ogonoperationer/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
+  let sbParams = {
+    version: "draft" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(
+      `cdn/stories/ogonoperationer/${slug}`,
+      sbParams
+    );
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
+
 export const GetLinsBehandlingarSlug = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/linsoperationer/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
+  let sbParams = {
+    version: "draft" as const,
+    token: process.env.STORYBLOK_TOKEN,
+    language: process.env.STORYBLOCK_LANG,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(
+      `cdn/stories/linsoperationer/${slug}`,
+      sbParams
+    );
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 };
