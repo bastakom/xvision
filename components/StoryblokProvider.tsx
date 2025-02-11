@@ -15,6 +15,7 @@ import { PrisBlockComponent } from "./pris-block";
 import { CTAComponent } from "./CTA";
 import { ForunderSokningComponent } from "./forundersokning";
 import { ContentBoxComponent } from "./content-box";
+import { PartialPayment } from "./partial-payment";
 
 storyblokInit({
   components: {
@@ -31,6 +32,7 @@ storyblokInit({
     CTA: CTAComponent,
     forundersokning: ForunderSokningComponent,
     contentbox: ContentBoxComponent,
+    partialPayment: PartialPayment,
   },
   enableFallbackComponent: true,
 });
