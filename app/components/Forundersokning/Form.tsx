@@ -28,7 +28,7 @@ const Form = ({ lang }: any) => {
 
   const translate = (text: string, lang: string): string => {
     const translations: { [key: string]: { [key: string]: string } } = {
-      "Please answer the following questions": {
+      "Svara gärna på nedan frågor.": {
         da: "Svar venligst på følgende spørgsmål",
         en: "Please answer the following questions",
         sv: "Svara gärna på nedan frågor.",
@@ -199,7 +199,7 @@ const Form = ({ lang }: any) => {
         >
           <div className="space-y-4 flex flex-col">
             <h2 className="text-xl font-semibold">
-              {translate("Please answer the following questions", lang)}
+              {translate("Svara gärna på nedan frågor.", lang)}
             </h2>
             {questions.map((question, index) => (
               <div key={index}>
@@ -217,7 +217,7 @@ const Form = ({ lang }: any) => {
                       className="hidden peer"
                     />
                     <div
-                      className="w-8 h-8 border-2 border-gray-300 rounded-full 
+                      className="w-8 h-8 border-2 border-gray-300 rounded-full
           peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
                     ></div>
                     <span>{translate("Yes", lang)}</span>
@@ -231,7 +231,7 @@ const Form = ({ lang }: any) => {
                       className="hidden peer"
                     />
                     <div
-                      className="w-8 h-8 border-2 border-gray-300 rounded-full 
+                      className="w-8 h-8 border-2 border-gray-300 rounded-full
           peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
                     ></div>
                     <span>{translate("No", lang)}</span>
