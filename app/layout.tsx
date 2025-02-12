@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     "Säg hejdå till glasögon! Vi på X-Vision i Malmö erbjuder avancerad ögonlaser för klarare syn med SMILE, FS-Lasik, Surface och PRK-Laser. Du hittar oss i Malmö Hyllie – boka din konsultation idag.",
 };
 
-
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
@@ -20,12 +19,11 @@ const cachedFetch = (input: any, init?: any): Promise<Response> => {
   });
 };
 
-
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
   apiOptions: {
-    region: "eu"
+    fetch: cachedFetch,
   },
 });
 
