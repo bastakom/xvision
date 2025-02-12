@@ -1,4 +1,3 @@
-import Builder from "../components/Builder/Builder";
 import { Metadata } from "next";
 import {
   GetGenerlSettings,
@@ -6,14 +5,8 @@ import {
   GetOgonOperationer,
 } from "../lib/apireq";
 import { notFound } from "next/navigation";
-
-const getPageData = async (slug: string) => {
-  const res = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API}&language=${process.env.STORYBLOCK_LANG}`,
-    { cache: "no-store" }
-  );
-  return res.json();
-};
+import StoryblokStory from "@storyblok/react/story";
+import { getData } from "@/lib/get-data";
 
 export const generateMetadata = async ({
   params,
@@ -22,37 +15,36 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const pathname = params.slug;
   const slugName = !pathname || pathname === "" ? "home" : pathname;
-  const res = await getPageData(slugName);
-
+  const res = await getData(slugName);
   return {
-    title: res.story?.content?.SEO_Title || "XVISION",
-    description: res.story?.content?.SEO_Meta || "Default description",
+    title: res.data.data.story?.content?.SEO_Title || "XVISION",
+    description:
+      res.data.data.story?.content?.SEO_Meta || "Default description",
   };
 };
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const pathname = params.slug;
-  const slugName = !pathname || pathname === "" ? "home" : pathname;
-  const res = await getPageData(slugName);
   const lang = process.env.STORYBLOCK_LANG;
-
   const ogonOperation = await GetOgonOperationer();
   const linsOperation = await GetLinsOperationer();
   const generalSetting = await GetGenerlSettings();
 
-  if (!res || !res.story || !res.story.content) {
+  const pathname = params.slug;
+  const slugName = pathname === undefined ? `home` : pathname;
+  const story = await getData(slugName);
+
+  if (!story || !story.data.data.story || !story.data.data.story.content) {
     return notFound();
   }
 
   return (
     <main>
-      <Builder
-        props={res?.story?.content?.body}
-        settings={generalSetting?.story?.content}
-        ogonOperationer={ogonOperation}
-        global={generalSetting}
-        linsOperation={linsOperation}
+      <StoryblokStory
         lang={lang}
+        story={story.data.data.story}
+        ogonOperationer={ogonOperation}
+        linsOperation={linsOperation}
+        generalSetting={generalSetting}
       />
     </main>
   );

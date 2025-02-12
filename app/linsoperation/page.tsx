@@ -14,7 +14,6 @@ import FAQ from "../components/Blocks/FAQ/FAQ";
 const page = async () => {
   const data = await GetLinsOperation();
   const settings = await GetGenerlSettings();
-  const slugData = data.story.content;
 
   const dataBehandlingar = await GetLinsOperationer();
   const lang = process.env.STORYBLOCK_LANG;
@@ -23,10 +22,6 @@ const page = async () => {
     (item: { uuid: string }) =>
       data?.story?.content?.Threatment?.includes(item.uuid)
   );
-
-  const slugTitle = !slugData.hero_title
-    ? data.story.name
-    : slugData.hero_title;
 
   return (
     <div className="mt-14">

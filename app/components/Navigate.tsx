@@ -90,6 +90,8 @@ export default function Navigate({
           <Link href="https://www.xvisionkliniken.se/">SV</Link>
           <span>|</span>
           <Link href="https://www.xvisionkliniken.dk/">DK</Link>
+          <span>|</span>
+          <Link href="https://www.xvisionclinic.com/">EN</Link>
         </div>
         <Link
           href={`${
