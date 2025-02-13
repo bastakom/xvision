@@ -13,6 +13,7 @@ import Step from "../Blocks/Step/Step";
 import Team from "../Blocks/Team/Team";
 import TilesBehandlingar from "../Blocks/TilesBehandlingar/TilesBehandlingar";
 import Forundersokning from "../Forundersokning/Forundersokning";
+import { PartialPayment } from "../PartialPayment/partial-payment";
 
 interface Props {
   props?: any;
@@ -20,6 +21,7 @@ interface Props {
   global?: any;
   linsOperation?: any;
   lang?: any;
+  settings?: any;
 }
 
 const Builder = ({
@@ -28,6 +30,7 @@ const Builder = ({
   global,
   linsOperation,
   lang,
+  settings,
 }: Props) => {
   return props ? (
     <div>
@@ -102,8 +105,9 @@ const Builder = ({
             return <ContactForm global={global} lang={lang} />;
           case "imageblock":
             return <ImageBlock props={el} />;
+
           case "contentbox":
-            return <ContentBox props={el} />;
+            return <ContentBox props={el} settings={settings} />;
           case "CTA":
             return (
               <CTABlock
@@ -119,8 +123,12 @@ const Builder = ({
             );
           case "PrisBlock":
             return <PrisBlock props={el} lang={lang} />;
+
           default:
             return <div>No content</div>;
+
+          case "partialPayment":
+            return <PartialPayment props={el} />;
         }
       })}
     </div>
