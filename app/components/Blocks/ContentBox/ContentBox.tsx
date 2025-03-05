@@ -1,6 +1,5 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import scss from "./contentbox.module.scss";
-import { PartialPayment } from "../../PartialPayment/partial-payment";
 
 const ContentBox = ({ props }: any) => {
   return (

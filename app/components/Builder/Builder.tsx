@@ -13,7 +13,6 @@ import Step from "../Blocks/Step/Step";
 import Team from "../Blocks/Team/Team";
 import TilesBehandlingar from "../Blocks/TilesBehandlingar/TilesBehandlingar";
 import Forundersokning from "../Forundersokning/Forundersokning";
-import { PartialPayment } from "../PartialPayment/partial-payment";
 
 interface Props {
   props?: any;
@@ -126,9 +125,6 @@ const Builder = ({
 
           default:
             return <div>No content</div>;
-
-          case "partialPayment":
-            return <PartialPayment props={el} />;
         }
       })}
     </div>
