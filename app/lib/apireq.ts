@@ -82,26 +82,14 @@ export const GetAllLinsOperations = async () => {
 export const GetGenerlSettings = async () => {
   let sbParams = {
     version: "published" as const,
-    token: process.env.STORYBLOK_TOKEN,
     language: process.env.STORYBLOCK_LANG,
   };
 
   const client = getStoryblokApi();
-  try {
-    const data = await client.get(`cdn/stories/generalsettings/`, sbParams);
 
-    if (!data) {
-      throw new Error("Not Found");
-    }
+  const data = await client.get(`cdn/stories/generalsettings/`, sbParams);
 
-    return data.data;
-  } catch (error: any) {
-    if (error.response && error.response.status === 500) {
-      redirect("/500");
-    } else {
-      throw error;
-    }
-  }
+  return data.data;
 };
 
 export const GetOgonLaser = async () => {
