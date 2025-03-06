@@ -59,10 +59,10 @@ const PrisBlock = ({ props, lang }: any) => {
                 </span>
                 <span className="max-w-[250px] mt-2 text-[12px]">
                   {lang === "da"
-                    ? "Opdel din betaling rentefrit over 2 år eller i et månedlige omkostninger, der passer dig."
+                    ? "Opdel din betaling rentefrit over 24 måneder eller i et månedlige omkostninger, der passer dig."
                     : lang === "en"
-                    ? "Split your payment interest-free over 2 years or at a monthly cost that suits you."
-                    : "Dela upp din betalning räntefritt i 2 år eller till en månadskostnad som passar dig."}
+                    ? "Split your payment interest-free over 24 months or at a monthly cost that suits you."
+                    : "Dela upp din betalning räntefritt i 24 mån eller till en månadskostnad som passar dig."}
                 </span>
               </div>
               <Link
@@ -113,6 +113,27 @@ const PrisBlock = ({ props, lang }: any) => {
                         ? "Read more about partial payment "
                         : " Läs mer om delbetalning "}
                     </Link>
+
+                    <div className="mt-4">
+                      <span className="text-[12px]">
+                        {lang === "da"
+                          ? "* Ved delbetaling over 24 måneder hos Resurs Bank. Læs mere om delbetaling"
+                          : lang === "en"
+                          ? "* When paying in installments over 24 months with Resurs Bank. Read more about installment payments"
+                          : "* Vid delbetalning på 24 mån med Resurs Bank. Läs mer om delbetalning"}
+                      </span>
+
+                      <Link
+                        href={`https://priceinfo.resurs.com/prisskyltning.html?countryCode=SE&authorizedBankproductId=RB555069&storeId=851000&representativeId=851000&creditAmount=26000`}
+                        className="underline mt-4 ml-[4px]"
+                      >
+                        {lang === "da"
+                          ? "her."
+                          : lang === "en"
+                          ? "here. "
+                          : "här."}
+                      </Link>
+                    </div>
                   </>
                 )}
               </div>
