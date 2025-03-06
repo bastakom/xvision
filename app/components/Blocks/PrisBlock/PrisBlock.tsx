@@ -77,17 +77,39 @@ const PrisBlock = ({ props, lang }: any) => {
               </Link>
               <div className="flex flex-col gap-2">
                 {firstLink === "undefiend" ? (
-                  <Link
-                    key={index}
-                    href={`/delbetalning`}
-                    className="underline underline-offset-2"
-                  >
-                    {lang === "da"
-                      ? "Læs mere om delbetaling"
-                      : lang === "en"
-                      ? "Read more about partial payment "
-                      : " Läs mer om delbetalning "}
-                  </Link>
+                  <>
+                    <Link
+                      key={index}
+                      href={`/delbetalning`}
+                      className="underline underline-offset-2"
+                    >
+                      {lang === "da"
+                        ? "Læs mere om delbetaling"
+                        : lang === "en"
+                        ? "Read more about partial payment "
+                        : " Läs mer om delbetalning "}
+                    </Link>
+                    <div className="mt-4">
+                      <span className="text-[12px]">
+                        {lang === "da"
+                          ? "* Ved delbetaling over 24 måneder hos Resurs Bank. Læs mere om delbetaling"
+                          : lang === "en"
+                          ? "* When paying in installments over 24 months with Resurs Bank. Read more about installment payments"
+                          : "* Vid delbetalning på 24 mån med Resurs Bank. Läs mer om delbetalning"}
+                      </span>
+
+                      <Link
+                        href={`https://priceinfo.resurs.com/prisskyltning.html?countryCode=SE&authorizedBankproductId=RB555069&storeId=851000&representativeId=851000&creditAmount=26000`}
+                        className="underline mt-4 ml-[4px]"
+                      >
+                        {lang === "da"
+                          ? "her."
+                          : lang === "en"
+                          ? "here. "
+                          : "här."}
+                      </Link>
+                    </div>
+                  </>
                 ) : (
                   <>
                     <Link
