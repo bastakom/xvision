@@ -16,6 +16,7 @@ import { CTAComponent } from "./CTA";
 import { ForunderSokningComponent } from "./forundersokning";
 import { ContentBoxComponent } from "./content-box";
 import { PartialPayment } from "./partial-payment";
+import { FaqBlock } from "./FAQ-block";
 
 storyblokInit({
   components: {
@@ -33,6 +34,7 @@ storyblokInit({
     forundersokning: ForunderSokningComponent,
     contentbox: ContentBoxComponent,
     partialPayment: PartialPayment,
+    FAQ_block: FaqBlock,
   },
   enableFallbackComponent: true,
 });

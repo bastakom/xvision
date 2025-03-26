@@ -2,6 +2,7 @@ import Hero from "@/app/components/ArkivPage/Hero";
 import BeforeAfter from "@/app/components/Blocks/BeforeAfter/BeforeAfter";
 import ContactForm from "@/app/components/Blocks/ContactForm/ContactForm";
 import CTA from "@/app/components/Blocks/CTA/CTA";
+import FAQ from "@/app/components/Blocks/FAQ/FAQ";
 import InfoBox from "@/app/components/Blocks/InfoBox/InfoBox";
 import Step from "@/app/components/Blocks/Step/Step";
 import Uspar from "@/app/components/Blocks/Uspar/Uspar";
@@ -13,6 +14,11 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const data = await GetBehandlingarSlug(pathname);
   const settings = await GetGenerlSettings();
   const slugData = data.story.content;
+
+  const hasContent = data?.story?.content?.FAQ?.some(
+    (item: any) => item?.content !== ""
+  );
+
   return (
     <div>
       <Hero
@@ -32,6 +38,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
       />
       <Uspar props={slugData.Uspar} />
       <CTA props={slugData.CTA} />
+      {hasContent && (
+        <FAQ
+          props={data?.story?.content?.FAQ}
+          title={data?.story?.content?.faq_title}
+        />
+      )}
       <Step props={settings.story.content} />
       <BeforeAfter props={slugData} />
       <CTA props={settings.story.content.CTA} />
