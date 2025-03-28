@@ -26,6 +26,11 @@ const ImageBlock = ({ props, lang }: any) => {
       : props.image?.alt || "Default image"
     : "Default image";
 
+  console.log(props.image_da?.filename);
+  console.log(props.image_en?.filename);
+  console.log(props.image_sv?.filename);
+  console.log(props.image?.filename);
+
   return (
     <div className="flex justify-center max-w-[100%] lg:max-w-[80%] m-auto">
       {!props.image_left ? (
@@ -76,8 +81,8 @@ const ImageBlock = ({ props, lang }: any) => {
           {props?.image?.filename && (
             <div className="flex h-[400px] lg:h-[600px] w-[100%] relative">
               <Image
-                src={props?.image?.filename}
-                alt={props?.image?.alt}
+                src={imageSrc}
+                alt={imageAlt}
                 fill
                 className="lg:object-contain"
               />
