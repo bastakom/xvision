@@ -26,11 +26,6 @@ const ImageBlock = ({ props, lang }: any) => {
       : props.image?.alt || "Default image"
     : "Default image";
 
-  console.log(props.image_da?.filename);
-  console.log(props.image_en?.filename);
-  console.log(props.image_sv?.filename);
-  console.log(props.image?.filename);
-
   return (
     <div className="flex justify-center max-w-[100%] lg:max-w-[80%] m-auto">
       {!props.image_left ? (
