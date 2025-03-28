@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { render } from "storyblok-rich-text-react-renderer";
 
 interface FAQ {
   props: any;
-  title?: string
+  title?: string;
 }
 
 const FAQ = ({ props, title }: FAQ) => {
@@ -15,7 +16,10 @@ const FAQ = ({ props, title }: FAQ) => {
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-0 lg:px-10">
         {props?.map((item: any, index: number) => (
-          <div key={index} className="flex space-x-4 py-5 lg:py-10 lg:px-5 flex-col lg:flex-row items-center lg:items-start gap-5">
+          <div
+            key={index}
+            className="flex space-x-4 py-5 lg:py-10 lg:px-5 flex-col lg:flex-row items-center lg:items-start gap-5"
+          >
             <div className="flex-shrink-0">
               <Image
                 src="https://a.storyblok.com/f/304820/55x55/f9892efa1d/group-1396.svg"
@@ -27,7 +31,12 @@ const FAQ = ({ props, title }: FAQ) => {
             </div>
             <div>
               <h3 className="font-medium mb-2 text-[22px]">{item.title}</h3>
-              <p className="text-sm text-gray-600 text-[16px]">{item.content}</p>
+
+              {typeof item.content === "string" ? (
+                <p>{item.content}</p>
+              ) : (
+                <div>{render(item.content)}</div>
+              )}
             </div>
           </div>
         ))}
