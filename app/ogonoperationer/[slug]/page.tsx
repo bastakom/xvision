@@ -16,7 +16,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const slugData = data.story.content;
 
   const hasContent = data?.story?.content?.FAQ?.some(
-    (item: any) => item?.content !== ""
+    (item: any) => item?.title !== ""
   );
 
   return (
