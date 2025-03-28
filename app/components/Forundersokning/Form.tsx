@@ -48,12 +48,12 @@ const Form = ({ lang }: any) => {
         sv: "76 eller äldre",
       },
 
-      "Yes": {
+      "Ja": {
         da: "Ja",
         en: "Yes",
         sv: "Ja",
       },
-      "No": {
+      "Nej": {
         da: "Nej",
         en: "No",
         sv: "Nej",
@@ -304,7 +304,7 @@ const Form = ({ lang }: any) => {
                       className="w-8 h-8 border-2 border-gray-300 rounded-full
           peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
                     ></div>
-                    <span>{translate("Yes", lang)}</span>
+                    <span>{translate("Ja", lang)}</span>
                   </label>
                   <label className="flex items-center space-x-2">
                     <input
@@ -318,7 +318,7 @@ const Form = ({ lang }: any) => {
                       className="w-8 h-8 border-2 border-gray-300 rounded-full
           peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
                     ></div>
-                    <span>{translate("No", lang)}</span>
+                    <span>{translate("Nej", lang)}</span>
                   </label>
                 </div>
               </div>
