@@ -8,20 +8,20 @@ import scss from "./imageblock.module.scss";
 const ImageBlock = ({ props, lang }: any) => {
   const imageSrc =
     lang === "da" && props?.image_da?.filename
-      ? props.image_da.filename
+      ? props?.image_da?.filename
       : lang === "en" && props?.image_en?.filename
       ? props.image_en.filename
       : lang === "sv" && props?.image_sv?.filename
-      ? props.image_sv.filename
+      ? props?.image_sv?.filename
       : props?.image?.filename;
 
   const imageAlt =
     lang === "da" && props?.image_da?.alt
-      ? props.image_da.alt
+      ? props?.image_da?.alt
       : lang === "en" && props?.image_en?.alt
-      ? props.image_en.alt
+      ? props?.image_en?.alt
       : lang === "sv" && props?.image_sv?.alt
-      ? props.image_sv.alt
+      ? props?.image_sv?.alt
       : props?.image?.alt || "Default image";
 
   return (
