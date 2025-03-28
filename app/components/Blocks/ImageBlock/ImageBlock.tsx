@@ -76,8 +76,8 @@ const ImageBlock = ({ props, lang }: any) => {
           {props?.image?.filename && (
             <div className="flex h-[400px] lg:h-[600px] w-[100%] relative">
               <Image
-                src={props?.image?.filename}
-                alt={props?.image?.alt}
+                src={imageSrc}
+                alt={imageAlt}
                 fill
                 className="lg:object-contain"
               />
