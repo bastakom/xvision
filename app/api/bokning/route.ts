@@ -4,12 +4,18 @@ const usermail = process.env.MARKNAD_EMAIL;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const { name, email, message, phone, tid, questions } =
+  const { name, email, message, phone, tid, questions, initialQuestion } =
     await req.json();
 
   const formattedQuestions = questions
     .map((q: { question: string; answer: string }) => {
       return `<p>${q.question}: ${q.answer}</p>`;
+    })
+    .join("");
+
+  const formattedInitialQuestion = initialQuestion
+    .map((q: { initialQuestion: string; answer: string }) => {
+      return `<p>${q.initialQuestion}: ${q.answer}</p>`;
     })
     .join("");
 
@@ -20,6 +26,7 @@ export async function POST(req: Request) {
       <h3>Email: ${email}</h3>
       <p>Tel: ${phone}</p>
       <p>Tid: ${tid}</p>
+      ${formattedInitialQuestion}
       ${formattedQuestions}
       <p>Meddelande: ${message}</p>
     </div>

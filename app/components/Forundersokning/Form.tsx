@@ -15,8 +15,10 @@ const Form = ({ lang }: any) => {
     beskriv: "",
     consent: false,
     questions: Array(6).fill(""),
+    initialQuestion: Array(1).fill(""),
   });
 
+  const initialQuestion = ["Vilken åldersgrupp tillhör du?"];
   const questions = [
     "Använder du glasögon?",
     "Använder du kontaktlinser?",
@@ -26,6 +28,7 @@ const Form = ({ lang }: any) => {
     "Har du tidigare gjort någon ögonoperation?",
   ];
 
+  // prettier-ignore
   const translate = (text: string, lang: string): string => {
     const translations: { [key: string]: { [key: string]: string } } = {
       "Svara gärna på nedan frågor.": {
@@ -33,12 +36,24 @@ const Form = ({ lang }: any) => {
         en: "Please answer the following questions",
         sv: "Svara gärna på nedan frågor.",
       },
-      Yes: {
+      "Vilken åldersgrupp tillhör du?": {
+        da: "Hvilken aldersgruppe tilhører du?",
+        en: "What age group do you belong to?",
+        sv: "Vilken åldersgrupp tillhör du?",
+      },
+
+      "76 eller äldre": {
+        da: "76 eller ældre",
+        en: "76 or older",
+        sv: "76 eller äldre",
+      },
+
+      "Yes": {
         da: "Ja",
         en: "Yes",
         sv: "Ja",
       },
-      No: {
+      "No": {
         da: "Nej",
         en: "No",
         sv: "Nej",
@@ -148,11 +163,21 @@ const Form = ({ lang }: any) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleRadioChange = (value: string, index: number) => {
+  const handleRadioChange = (
+    value: string,
+    index: number,
+    isInitial = false
+  ) => {
     setFormData((prev) => {
-      const newQuestions = [...prev.questions];
-      newQuestions[index] = value;
-      return { ...prev, questions: newQuestions };
+      if (isInitial) {
+        const newInitialQuestion = [...prev.initialQuestion];
+        newInitialQuestion[index] = value;
+        return { ...prev, initialQuestion: newInitialQuestion };
+      } else {
+        const newQuestions = [...prev.questions];
+        newQuestions[index] = value;
+        return { ...prev, questions: newQuestions };
+      }
     });
   };
 
@@ -163,9 +188,17 @@ const Form = ({ lang }: any) => {
       answer: formData.questions[index],
     }));
 
+    const formattedInitialQuestion = initialQuestion.map(
+      (initialQuestion, index) => ({
+        initialQuestion,
+        answer: formData.initialQuestion[index],
+      })
+    );
+
     const dataToSend = {
       ...formData,
       questions: formattedQuestions,
+      initialQuestion: formattedInitialQuestion,
     };
 
     try {
@@ -201,6 +234,57 @@ const Form = ({ lang }: any) => {
             <h2 className="text-xl font-semibold">
               {translate("Svara gärna på nedan frågor.", lang)}
             </h2>
+            {initialQuestion.map((question, index) => (
+              <div key={index}>
+                <p className="mb-2">{` ${translate(question, lang)}`}</p>
+                <div className="flex space-x-4">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name={`initial-question-${index}`}
+                      value="20-45"
+                      onChange={() => handleRadioChange("20-45", index, true)}
+                      className="hidden peer"
+                    />
+                    <div
+                      className="w-8 h-8 border-2 border-gray-300 rounded-full
+          peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
+                    ></div>
+                    <span>20-45</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name={`initial-question-${index}`}
+                      value="46-75"
+                      onChange={() => handleRadioChange("46-75", index, true)}
+                      className="hidden peer"
+                    />
+                    <div
+                      className="w-8 h-8 border-2 border-gray-300 rounded-full
+          peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
+                    ></div>
+                    <span>46-75</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name={`initial-question-${index}`}
+                      value="76 eller äldre"
+                      onChange={() =>
+                        handleRadioChange("76 år eller äldre", index, true)
+                      }
+                      className="hidden peer"
+                    />
+                    <div
+                      className="w-8 h-8 border-2 border-gray-300 rounded-full
+          peer-checked:border-[#1d383f] peer-checked:bg-[#1d383f]"
+                    ></div>
+                    <span>{translate("76 eller äldre", lang)}</span>
+                  </label>
+                </div>
+              </div>
+            ))}
             {questions.map((question, index) => (
               <div key={index}>
                 <p className="mb-2">{`${index + 1}. ${translate(
@@ -213,7 +297,7 @@ const Form = ({ lang }: any) => {
                       type="radio"
                       name={`question-${index}`}
                       value="Ja"
-                      onChange={() => handleRadioChange("Ja", index)}
+                      onChange={() => handleRadioChange("Ja", index, false)}
                       className="hidden peer"
                     />
                     <div
@@ -227,7 +311,7 @@ const Form = ({ lang }: any) => {
                       type="radio"
                       name={`question-${index}`}
                       value="Nej"
-                      onChange={() => handleRadioChange("Nej", index)}
+                      onChange={() => handleRadioChange("Nej", index, false)}
                       className="hidden peer"
                     />
                     <div
