@@ -216,7 +216,7 @@ export default function ContactForm({ global, lang }: any) {
         <div className="space-y-10 ">
           <div className="rounded-lg overflow-hidden">
             <Image
-              src="https://a.storyblok.com/f/304820/892x1072/9921c903af/ja1a3716-redigera-2x.png?cv=1730801960171"
+              src={data.form_image.filename}
               alt="X-Vision Ögonklinik Interior"
               width={600}
               height={600}
