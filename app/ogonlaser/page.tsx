@@ -11,6 +11,20 @@ import {
   GetOgonLaser,
   GetOgonOperationer,
 } from "../lib/apireq";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const res = await GetOgonLaser();
+
+  return {
+    title: res?.story?.content?.SEO_Title || "XVISION",
+    description: res?.story?.content?.SEO_Meta || "Default description",
+  };
+};
 
 const Page = async () => {
   const data = await GetOgonLaser();

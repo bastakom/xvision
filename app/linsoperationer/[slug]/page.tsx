@@ -8,6 +8,21 @@ import Step from "@/app/components/Blocks/Step/Step";
 import Uspar from "@/app/components/Blocks/Uspar/Uspar";
 import { GetLinsBehandlingarSlug, GetGenerlSettings } from "@/app/lib/apireq";
 const lang = `${process.env.STORYBLOCK_LANG}`;
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const res = await GetLinsBehandlingarSlug(pathname);
+
+  return {
+    title: res?.story?.content?.SEO_Title || "XVISION",
+    description: res?.story?.content?.SEO_Meta || "Default description",
+  };
+};
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
