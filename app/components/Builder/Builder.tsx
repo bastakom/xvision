@@ -103,7 +103,7 @@ const Builder = ({
           case "contactForm":
             return <ContactForm global={global} lang={lang} />;
           case "imageblock":
-            return <ImageBlock props={el} />;
+            return <ImageBlock props={el} lang={lang} />;
 
           case "contentbox":
             return <ContentBox props={el} settings={settings} />;
