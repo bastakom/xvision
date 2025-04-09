@@ -33,7 +33,7 @@ const page = async () => {
       />
       {data.story.content.content_image &&
         data?.story?.content?.content_image?.map((el: any) => {
-          return <ImageBlock props={el} />;
+          return <ImageBlock props={el} lang={lang} />;
         })}
       <TilesBehandlingar
         operations={matchedThreatments}
