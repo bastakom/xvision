@@ -10,6 +10,20 @@ import {
 import ImageBlock from "../components/Blocks/ImageBlock/ImageBlock";
 import TilesBehandlingar from "../components/Blocks/TilesBehandlingar/TilesBehandlingar";
 import FAQ from "../components/Blocks/FAQ/FAQ";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const res = await GetLinsOperation();
+
+  return {
+    title: res?.story?.content?.SEO_Title || "XVISION",
+    description: res?.story?.content?.SEO_Meta || "Default description",
+  };
+};
 
 const page = async () => {
   const data = await GetLinsOperation();

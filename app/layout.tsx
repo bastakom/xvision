@@ -1,22 +1,33 @@
 import "./globals.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { Metadata } from "next";
 import Script from "next/script";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 import { StoryblokProvider } from "@/components/StoryblokProvider";
-
-export const metadata: Metadata = {
-  title: "Synkorrigering & Ögonlaser i Malmö | X-Vision",
-  description:
-    "Säg hejdå till glasögon! Vi på X-Vision i Malmö erbjuder avancerad ögonlaser för klarare syn med SMILE, FS-Lasik, Surface och PRK-Laser. Du hittar oss i Malmö Hyllie – boka din konsultation idag.",
-};
+import { Metadata } from "next";
+import { getData } from "@/lib/get-data";
 
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
     cache: "no-cache",
   });
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const slugName = pathname === undefined ? `home` : pathname;
+  const res = await getData(slugName);
+
+  return {
+    title: res?.data?.data?.story?.content?.SEO_Title || "XVISION",
+    description:
+      res?.data?.data?.story?.content?.SEO_Meta || "Default description",
+  };
 };
 
 storyblokInit({

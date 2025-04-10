@@ -14,8 +14,10 @@ export const generateMetadata = async ({
   params: { slug: string };
 }): Promise<Metadata> => {
   const pathname = params.slug;
-  const slugName = !pathname || pathname === "" ? "home" : pathname;
+
+  const slugName = pathname === undefined ? `home` : pathname;
   const res = await getData(slugName);
+
   return {
     title: res.data.data.story?.content?.SEO_Title || "XVISION",
     description:
@@ -31,6 +33,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   const pathname = params.slug;
   const slugName = pathname === undefined ? `home` : pathname;
+
   const story = await getData(slugName);
 
   if (!story || !story.data.data.story || !story.data.data.story.content) {
