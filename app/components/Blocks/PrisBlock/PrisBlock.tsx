@@ -114,7 +114,7 @@ const PrisBlock = ({ props, lang }: any) => {
                   <>
                     <Link
                       key={index}
-                      href={`/${firstLink}`}
+                      href={`/${firstLink.replace(/\/(da|en)\//, "")}`}
                       className="underline underline-offset-2"
                     >
                       {lang === "da"
