@@ -50,6 +50,7 @@ export default function FooterSection({ props, lang }: any) {
           </h3>
           <p>Hyllie Stationstorg 2</p>
           <p>215 32 Malmö</p>
+          <p className="mt-2">X-Vision Eye Center Hellerup</p>
           <p className="mt-4">Org. Nr: 559001-0178</p>
           <div className="flex flex-col">
             <Link
@@ -84,8 +85,8 @@ export default function FooterSection({ props, lang }: any) {
             {lang === "da"
               ? "Operationer og behandlinger"
               : lang === "en"
-              ? "Surgeries & treatments"
-              : " Operationer & behandlingar"}
+                ? "Surgeries & treatments"
+                : " Operationer & behandlingar"}
             <RiArrowDownSLine
               fontSize={40}
               className={`${!isDropdownOpen ? "block md:hidden" : "hidden"}`}
@@ -96,18 +97,16 @@ export default function FooterSection({ props, lang }: any) {
             />
           </h3>
           <ul
-            className={`space-y-2 ${
-              isDropdownOpen ? "block" : "hidden"
-            } md:block`}
+            className={`space-y-2 ${isDropdownOpen ? "block" : "hidden"
+              } md:block`}
           >
             {footer_menu_1.map((item: any, i: number) => (
               <li key={i} className="text-[22px]">
                 <Link
-                  href={`${
-                    item.link.linktype === "story"
-                      ? `/${item.link.cached_url.replace(/\/(da|en)\//, "")}`
-                      : item.link.url
-                  }`}
+                  href={`${item.link.linktype === "story"
+                    ? `/${item.link.cached_url.replace(/\/(da|en)\//, "")}`
+                    : item.link.url
+                    }`}
                 >
                   {item.link_title}
                 </Link>
@@ -126,28 +125,25 @@ export default function FooterSection({ props, lang }: any) {
             {lang === "da" ? "Kontakte" : lang === "en" ? "Contact" : "Kontakt"}
             <RiArrowDownSLine
               fontSize={40}
-              className={` ${
-                !isDropdownOpenKontakt ? "block lg:hidden" : "hidden"
-              }`}
+              className={` ${!isDropdownOpenKontakt ? "block lg:hidden" : "hidden"
+                }`}
             />
             <RiArrowUpSLine
               fontSize={40}
-              className={`${
-                isDropdownOpenKontakt ? "block lg:hidden" : "hidden"
-              }`}
+              className={`${isDropdownOpenKontakt ? "block lg:hidden" : "hidden"
+                }`}
             />
           </h3>
           <div
-            className={`${
-              isDropdownOpenKontakt ? "flex" : "hidden"
-            } md:flex flex-col`}
+            className={`${isDropdownOpenKontakt ? "flex" : "hidden"
+              } md:flex flex-col`}
           >
             <Link href="/gratis-forundersokning" className="">
               {lang === "da"
                 ? "Book en gratis konsultation"
                 : lang === "en"
-                ? "Book a free consultation"
-                : "Boka fri konsultation"}
+                  ? "Book a free consultation"
+                  : "Boka fri konsultation"}
             </Link>
             <Link href="/privacy-policy" className="mt-4">
               Privacy policy
