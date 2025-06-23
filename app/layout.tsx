@@ -47,6 +47,9 @@ export default function RootLayout({
     <StoryblokProvider>
       <html lang={process.env.STORYBLOCK_LANG}>
         <head>
+          <link rel="alternate" href="https://www.xvisionkliniken.se/" hrefLang="sv-SE" />
+          <link rel="alternate" href="https://www.xvisionkliniken.dk/" hrefLang="da-DK" />
+          <link rel="alternate" href="https://xvisionclinic.com/" hrefLang="en" />
           <script
             dangerouslySetInnerHTML={{
               __html: `
