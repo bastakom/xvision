@@ -24,7 +24,7 @@ const ProgressBar = ({ current, total, showPercentage = true, color = '#3b82f6',
           }}
         />
         {showPercentage && (
-          <div className="absolute inset-0 flex items-center justify-center text-lg font-medium text-[#32373e]">
+          <div className="absolute inset-0 flex items-center justify-center text-lg font-medium text-[#cfedc6]">
             {Math.round(percentage)}%
           </div>
         )}
@@ -39,15 +39,15 @@ export const Progress = ({ blok }: any) => {
   const maxValue = parseInt(blok?.max_value) || 100;
 
   return (
-    <div className="container-section mx-24 px-8 space-y-8">
-      <div className="text-center">
-        <h2 className="text-2xl">{blok?.title || 'Progress Bar'}</h2>
-        {blok.content &&
-          <span className="text-gray-600">{render(blok?.content)}</span>
-        }
-      </div>
+    <div className="container-section mx-24 px-8 py-14 space-y-8">
 
       <div className="bg-[#cfedc6] p-6 rounded-lg shadow-sm border space-y-4">
+        <div className="text-center">
+          <h2 className="text-2xl">{blok?.title || 'Progress Bar'}</h2>
+          {blok.content &&
+            <span className="text-gray-600">{render(blok?.content)}</span>
+          }
+        </div>
         <div className="space-y-4">
           <div>
             <div className="flex justify-end items-center mb-2">
