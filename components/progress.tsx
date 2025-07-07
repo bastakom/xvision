@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'storyblok-rich-text-react-renderer';
 
-const ProgressBar = ({ current, total, showPercentage = true, height = 20, color = '#3b82f6', backgroundColor = '#fff', animated = true }) => {
+const ProgressBar = ({ current, total, showPercentage = true, color = '#3b82f6', backgroundColor = '#fff', animated = true }: any) => {
   const safeTotal = total || 1;
   const safeCurrent = current || 0;
 
