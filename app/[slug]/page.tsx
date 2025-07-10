@@ -7,6 +7,7 @@ import {
 import { notFound } from "next/navigation";
 import StoryblokStory from "@storyblok/react/story";
 import { getData } from "@/lib/get-data";
+import { Popup } from "../components/popup";
 
 export const generateMetadata = async ({
   params,
@@ -42,6 +43,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main>
+      {story.data.data.story.content?.popup && (
+        <Popup props={generalSetting.story.content} />
+      )}
       <StoryblokStory
         lang={lang}
         story={story.data.data.story}
